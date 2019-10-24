@@ -56,8 +56,7 @@ ROOT_URLCONF = 'OceanView.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,13 +103,18 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-US'
 
-LANGUAGES = (
-    ('en', _('English')),
-    ('ru', _('Russian')),
-    ('ar', _('Arabic')),
-)
+LANGUAGES = [
+    ('en', 'English'),
+    ('ru', 'Russian'),
+    ('ar', 'Arabic'),
+]
+
+# LANGUAGES = [
+#     ('en', _('English')),
+#     ('ru', _('Russian')),
+# ]
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
@@ -131,3 +135,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
