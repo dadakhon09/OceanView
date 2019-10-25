@@ -10,6 +10,7 @@ class Category(models.Model):
 class Facility(models.Model):
 	name = models.CharField(max_length=255, null=True, blank=True)
 	image = models.ImageField(upload_to='facilities', null=True, blank=True)
+	tour = models.ForeignKey('Tour', on_delete=models.CASCADE)
 
 class Expense(models.Model):
 	name = models.CharField(max_length=255, null=True, blank=True)
