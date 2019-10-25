@@ -18,6 +18,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
+from app.others.views import handler404 as h404
+from app.others.views import handler500 as h500
+
+handler404 = h404
+handler500 = h500
 
 urlpatterns = [
     # path('', include('app.urls')),
