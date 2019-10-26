@@ -1,45 +1,58 @@
+import jsonfield
 from django.db import models
 
 from phone_field import PhoneField
 
 
 class SightCategory(models.Model):
-    name = models.CharField(max_length=255, null=True, blank=True)
+    # name = models.CharField(max_length=255, null=True, blank=True)
+    name = jsonfield.JSONField()
 
     class Meta:
         db_table = 'categories'
 
     def __str__(self):
-        return self.name
+        for key in self.name.values():
+            first = key
+            return first
 
 
 class Facility(models.Model):
-    name = models.CharField(max_length=255)
+    # name = models.CharField(max_length=255)
+    name = jsonfield.JSONField()
     image = models.ImageField(upload_to='facilities', null=True, blank=True)
-    tour = models.ManyToManyField('Tour', related_name='tours')
+    tour = models.ManyToManyField('Tour', related_name='tour_facilities')
 
     class Meta:
         db_table = 'facilities'
 
     def __str__(self):
-        return self.name
+        for key in self.name.values():
+            first = key
+            return first
 
 
 class Expense(models.Model):
-    name = models.CharField(max_length=255)
+    # name = models.CharField(max_length=255)
+    name = jsonfield.JSONField()
     image = models.ImageField(upload_to='expenses', null=True, blank=True)
-    tour = models.ManyToManyField('Tour', related_name='tours')
+    tour = models.ManyToManyField('Tour', related_name='tour_expenses')
 
     class Meta:
         db_table = 'expenses'
 
     def __str__(self):
-        return self.name
+        for key in self.name.values():
+            first = key
+            return first
 
 
 class VillaImage(models.Model):
     image = models.ImageField(upload_to='villas', null=True, blank=True)
     villa = models.ForeignKey('Villa', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'villa_images'
 
 
 class VillaPhoneNumber(models.Model):
@@ -50,30 +63,37 @@ class VillaPhoneNumber(models.Model):
         db_table = 'villa_phone_numbers'
 
     def __str__(self):
-        return self.phone
+        return str(self.phone)
 
 
 class Tour(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField(null=True, blank=True)
+    # title = models.CharField(max_length=255)
+    title = jsonfield.JSONField()
+    # description = models.TextField(null=True, blank=True)
+    description = jsonfield.JSONField()
     image = models.ImageField(upload_to='tours', null=True, blank=True)
-    route = models.CharField(max_length=255, null=True, blank=True)
+    route = models.CharField(max_length=255, null=True, blank=True)    # ASK
     duration = models.PositiveIntegerField(null=True, blank=True)
     max_people = models.PositiveIntegerField(null=True, blank=True)
     guide = models.BooleanField(null=True, blank=True)
     price = models.PositiveIntegerField(null=True, blank=True)
-    plan = models.TextField(null=True, blank=True)
+    # plan = models.TextField(null=True, blank=True)
+    plan = jsonfield.JSONField()
 
     class Meta:
         db_table = 'tours'
 
     def __str__(self):
-        return self.title
+        for key in self.title.values():
+            first = key
+            return first
 
 
 class Sight(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField(null=True, blank=True)
+    # title = models.CharField(max_length=255)
+    title = jsonfield.JSONField()
+    # description = models.TextField(null=True, blank=True)
+    description = jsonfield.JSONField()
     image = models.ImageField(upload_to='sights', null=True, blank=True)
     category = models.ForeignKey(SightCategory, on_delete=models.CASCADE)
 
@@ -81,21 +101,27 @@ class Sight(models.Model):
         db_table = 'sights'
 
     def __str__(self):
-        return self.title
+        for key in self.title.values():
+            first = key
+            return first
 
 
 class VillaServiceCategory(models.Model):
-    name = models.CharField(max_length=255)
+    # name = models.CharField(max_length=255)
+    name = jsonfield.JSONField()
 
     class Meta:
         db_table = 'villa_service_categories'
 
     def __str__(self):
-        return self.name
+        for key in self.name.values():
+            first = key
+            return first
 
 
 class VillaService(models.Model):
-    name = models.CharField(max_length=255)
+    # name = models.CharField(max_length=255)
+    name = jsonfield.JSONField()
     category = models.ForeignKey(VillaServiceCategory, on_delete=models.CASCADE)
     villa = models.ManyToManyField('Villa', related_name='villas')
 
@@ -103,13 +129,17 @@ class VillaService(models.Model):
         db_table = 'villa_services'
 
     def __str__(self):
-        return self.name
+        for key in self.name.values():
+            first = key
+            return first
 
 
 class Villa(models.Model):
-    title = models.CharField(max_length=255)
-    address = models.CharField(max_length=255, null=True, blank=True)
-    description = models.TextField(null=True, blank=True)
+    # title = models.CharField(max_length=255)
+    title = jsonfield.JSONField()
+    address = models.CharField(max_length=255, null=True, blank=True)    # ASK
+    # description = models.TextField(null=True, blank=True)
+    description = jsonfield.JSONField()
     d_center = models.PositiveIntegerField(null=True, blank=True)
     d_airways = models.PositiveIntegerField(null=True, blank=True)
     d_railways = models.PositiveIntegerField(null=True, blank=True)
@@ -118,17 +148,23 @@ class Villa(models.Model):
         db_table = 'villas'
 
     def __str__(self):
-        return self.title
+        for key in self.title.values():
+            first = key
+            return first
 
 
 class News(models.Model):
-    title = models.CharField(max_length=255, blank=True, null=True)
-    description = models.TextField(null=True, blank=True)
+    title = jsonfield.JSONField()
+    # title = models.CharField(max_length=255, blank=True, null=True)
+    # description = models.TextField(null=True, blank=True)
+    description = jsonfield.JSONField()
     image = models.ImageField(upload_to='news', blank=True, null=True)
-    created = models.DateField(auto_now_add=True)
+    created = models.DateField(auto_now_add=True, null=True, blank=True)
 
     class Meta:
         db_table = 'news'
 
     def __str__(self):
-        return self.title
+        for key in self.title.values():
+            first = key
+            return first
