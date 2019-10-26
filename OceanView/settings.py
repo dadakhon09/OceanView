@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'phone_field',
 
     'app',
+    'adminka',
 ]
 
 MIDDLEWARE = [
