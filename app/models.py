@@ -4,53 +4,53 @@ from phone_field import PhoneField
 
 
 class Category(models.Model):
-	name = models.CharField(max_length=255, null=True, blank=True)
+    name = models.CharField(max_length=255, null=True, blank=True)
 
-	class Meta:
-		db_table = 'categories'
+    class Meta:
+        db_table = 'categories'
 
-	def __str__(self):
-		return self.name
+    def __str__(self):
+        return self.name
 
 
 class Facility(models.Model):
-	name = models.CharField(max_length=255)
-	image = models.ImageField(upload_to='facilities', null=True, blank=True)
-	tour = models.ForeignKey('Tour', on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='facilities', null=True, blank=True)
+    tour = models.ForeignKey('Tour', on_delete=models.CASCADE)
 
-	class Meta:
-		db_table = 'facilities'
+    class Meta:
+        db_table = 'facilities'
 
-	def __str__(self):
-		return self.name
+    def __str__(self):
+        return self.name
 
 
 class Expense(models.Model):
-	name = models.CharField(max_length=255)
-	image = models.ImageField(upload_to='expenses', null=True, blank=True)
-	tour = models.ForeignKey('Tour', on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='expenses', null=True, blank=True)
+    tour = models.ForeignKey('Tour', on_delete=models.CASCADE)
 
-	class Meta:
-		db_table = 'expenses'
+    class Meta:
+        db_table = 'expenses'
 
-	def __str__(self):
-		return self.name
+    def __str__(self):
+        return self.name
 
 
 class VillaImage(models.Model):
-	image = models.ImageField(upload_to='villas', null=True, blank=True)
-	villa = models.ForeignKey('Villa', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='villas', null=True, blank=True)
+    villa = models.ForeignKey('Villa', on_delete=models.CASCADE)
 
 
 class VillaPhoneNumber(models.Model):
-	phone = PhoneField(null=True, blank=True, help_text='Contact phone number')
-	villa = models.ForeignKey('Villa', on_delete=models.CASCADE)
+    phone = PhoneField(null=True, blank=True, help_text='Contact phone number')
+    villa = models.ForeignKey('Villa', on_delete=models.CASCADE)
 
-	class Meta:
-		db_table = 'villa_phone_numbers'
+    class Meta:
+        db_table = 'villa_phone_numbers'
 
-	def __str__(self):
-		return self.phone
+    def __str__(self):
+        return self.phone
 
 
 class Tour(models.Model):
@@ -65,48 +65,48 @@ class Tour(models.Model):
     plan = models.TextField(null=True, blank=True)
 
     class Meta:
-    	db_table = 'tours'
+        db_table = 'tours'
 
     def __str__(self):
-    	return self.title
+        return self.title
 
 
 class Sight(models.Model):
-	title = models.CharField(max_length=255)
-	description = models.TextField(null=True, blank=True)
-	image = models.ImageField(upload_to='sights', null=True, blank=True)
-	category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    description = models.TextField(null=True, blank=True)
+    image = models.ImageField(upload_to='sights', null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
-	class Meta:
-		db_table = 'sights'
+    class Meta:
+        db_table = 'sights'
 
-	def __str__(self):
-		return self.title
+    def __str__(self):
+        return self.title
 
 
 class Villa(models.Model):
-	title = models.CharField(max_length=255)
-	address = models.CharField(max_length=255, null=True, blank=True)
-	description = models.TextField(null=True, blank=True)
-	d_center = models.PositiveIntegerField(null=True, blank=True)
-	d_airways = models.PositiveIntegerField(null=True, blank=True)
-	d_railways = models.PositiveIntegerField(null=True, blank=True)
+    title = models.CharField(max_length=255)
+    address = models.CharField(max_length=255, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    d_center = models.PositiveIntegerField(null=True, blank=True)
+    d_airways = models.PositiveIntegerField(null=True, blank=True)
+    d_railways = models.PositiveIntegerField(null=True, blank=True)
 
-	class Meta:
-		db_table = 'villas'
+    class Meta:
+        db_table = 'villas'
 
-	def __str__(self):
-		return self.title
+    def __str__(self):
+        return self.title
 
 
 class News(models.Model):
-	title = models.CharField(max_length=255, blank=True, null=True)
-	description = models.TextField(null=True, blank=True)
-	image = models.ImageField(upload_to='news', blank=True, null=True)
-	created = models.DateField(auto_now_add=True)
+    title = models.CharField(max_length=255, blank=True, null=True)
+    description = models.TextField(null=True, blank=True)
+    image = models.ImageField(upload_to='news', blank=True, null=True)
+    created = models.DateField(auto_now_add=True)
 
-	class Meta:
-		db_table = 'news'
+    class Meta:
+        db_table = 'news'
 
-	def __str__(self):
-		return self.title
+    def __str__(self):
+        return self.title
