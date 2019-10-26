@@ -10,8 +10,7 @@
     <meta name="author" content="">
 
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'adminka/assets/images/favicon.png' %}">
-    <title>МЧС Админ</title>
+    <title>OceanView Admin</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static 'adminka/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -89,8 +88,10 @@
                            aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-us"></i></a>
                         <div class="dropdown-menu dropdown-menu-right animated bounceInDown"><a class="dropdown-item"
                                                                                                 href="#"><i
-                                class="flag-icon flag-icon-sa"></i> {% trans 'Arabic' %}</a> <a class="dropdown-item" href="#"><i
-                                class="flag-icon flag-icon-us"></i> {% trans 'English' %}</a> <a class="dropdown-item" href="#"><i
+                                class="flag-icon flag-icon-sa"></i> {% trans 'Arabic' %}</a> <a class="dropdown-item"
+                                                                                                href="#"><i
+                                class="flag-icon flag-icon-us"></i> {% trans 'English' %}</a> <a class="dropdown-item"
+                                                                                                 href="#"><i
                                 class="flag-icon flag-icon-ru"></i> {% trans 'Russian' %}</a></div>
                     </li>
                     <!-- ============================================================== -->
@@ -99,14 +100,14 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"><img
-                                src="{% static 'adminka/assets/images/ncd_admin-01.svg' %}" alt="user"
+                                src="{% static 'adminka/assets/images/profile.png' %}" alt="user"
                                 class="profile-pic"/></a>
                         <div class="dropdown-menu dropdown-menu-right animated flipInY">
                             <ul class="dropdown-user">
                                 <li>
                                     <div class="dw-user-box">
                                         <div class="u-img"><img
-                                                src="{% static 'adminka/assets/images/ncd_admin-01.svg' %}" alt="user">
+                                                src="{% static 'adminka/assets/images/profile.png' %}" alt="user">
                                         </div>
                                         <div class="u-text">
                                             <h4>{{ request.user.username }}</h4>
@@ -115,7 +116,7 @@
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#"><i class="ti-user"></i> {{ request.user.username }}
+                                <li><a href="{% url 'adminka-profile' %}"><i class="ti-user"></i> {{ request.user.username }}
                                 </a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#"><i class="fa fa-power-off"></i> {% trans 'Logout' %}</a></li>
@@ -140,7 +141,7 @@
                 <ul id="sidebarnav">
                     <li class="user-profile"><a class="has-arrow waves-effect waves-dark" href="#"
                                                 aria-expanded="false"><img
-                            src="{% static 'adminka/assets/images/ncd_admin-01.svg' %}" alt="user"/><span
+                            src="{% static 'adminka/assets/images/profile.png' %}" alt="user"/><span
                             class="hide-menu">{% trans 'Admin' %} </span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="#">{% trans 'My profile' %}</a></li>
@@ -149,24 +150,25 @@
                     </li>
                     <li class="nav-devider"></li>
 
-
                     <li>
-                        <a href="{% url 'adminka-tours' %}"><i class="mdi mdi-counter"></i> <span
+                        <a href="{% url 'adminka-tours' %}"><i class="mdi mdi-routes"></i> <span
                                 class="hide-menu">{% trans 'Tours' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'adminka-sights' %}"><i class="mdi mdi-message-bulleted"></i> <span
+                        <a href="{% url 'adminka-sights' %}"><i class="mdi mdi-city"></i> <span
                                 class="hide-menu">{% trans 'Sights' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'adminka-villas' %}"><i class="mdi mdi-account-check"></i> <span
+                        <a href="{% url 'adminka-villas' %}"><i class="mdi mdi-hotel"></i> <span
                                 class="hide-menu">{% trans 'Villas' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'adminka-cars' %}"><i class="mdi mdi-bell-ring"></i> <span class="hide-menu">{% trans 'Cars' %}</span></a>
+                        <a href="{% url 'adminka-cars' %}"><i class="mdi mdi-car"></i> <span
+                                class="hide-menu">{% trans 'Cars' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'adminka-news' %}"><i class="mdi mdi-bell-ring"></i> <span class="hide-menu">{% trans 'News' %}</span></a>
+                        <a href="{% url 'adminka-news' %}"><i class="mdi mdi-newspaper"></i> <span
+                                class="hide-menu">{% trans 'News' %}</span></a>
                     </li>
 
                 </ul>
@@ -194,7 +196,7 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer"> © 2019 MCHS Admin Site</footer>
+        <footer class="footer"> © 2019 Ocean View Admin Site</footer>
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->

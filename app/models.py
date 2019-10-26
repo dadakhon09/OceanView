@@ -1,7 +1,26 @@
 import jsonfield
 from django.db import models
+# from django.db.backends.postgresql import
 
 from phone_field import PhoneField
+
+
+class About(models.Model):
+    text = models.TextField()
+
+    class Meta:
+        db_table = 'about'
+
+    def __str__(self):
+        return self.text[:10]
+
+
+class AboutImage(models.Model):
+    image = models.ImageField(upload_to='about')
+    about = models.ForeignKey(About, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'about-images'
 
 
 class SightCategory(models.Model):

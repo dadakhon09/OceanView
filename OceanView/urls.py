@@ -33,7 +33,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('', include('app.urls')),
-    path('adminka/', include('adminka.urls')),
+    path('admin/', include('adminka.urls')),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
