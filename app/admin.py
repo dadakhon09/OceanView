@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from app.models import SightCategory, Facility, Expense, VillaPhoneNumber, Tour, Sight, Villa, News, VillaServiceCategory, VillaService
+from app.models import SightCategory, Facility, Expense, VillaPhoneNumber, Tour, Sight, Villa, News, \
+    VillaServiceCategory, VillaService
 
 admin.site.register(SightCategory)
 admin.site.register(Facility)

@@ -72,7 +72,7 @@ class Tour(models.Model):
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
     image = models.ImageField(upload_to='tours', null=True, blank=True)
-    route = models.CharField(max_length=255, null=True, blank=True)    # ASK
+    route = models.CharField(max_length=255, null=True, blank=True)                                          # ASK
     duration = models.PositiveIntegerField(null=True, blank=True)
     max_people = models.PositiveIntegerField(null=True, blank=True)
     guide = models.BooleanField(null=True, blank=True)
@@ -137,7 +137,7 @@ class VillaService(models.Model):
 class Villa(models.Model):
     # title = models.CharField(max_length=255)
     title = jsonfield.JSONField()
-    address = models.CharField(max_length=255, null=True, blank=True)    # ASK
+    address = models.CharField(max_length=255, null=True, blank=True)                                # ASK
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
     d_center = models.PositiveIntegerField(null=True, blank=True)
@@ -159,7 +159,7 @@ class News(models.Model):
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
     image = models.ImageField(upload_to='news', blank=True, null=True)
-    created = models.DateField(auto_now_add=True, null=True, blank=True)
+    created = models.DateField(auto_now_add=True)
 
     class Meta:
         db_table = 'news'
