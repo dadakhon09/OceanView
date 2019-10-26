@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.views import View
 
+from app.models import Sight
+
 
 class SightsView(View):
     def get(self, request):
-        return render(request, 'sights.html', {})
+        sights = Sight.objects.all()
+
+        return render(request, 'sights.html', {'sights': sights})

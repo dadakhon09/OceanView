@@ -3,7 +3,7 @@ from django.db import models
 from phone_field import PhoneField
 
 
-class Category(models.Model):
+class SightCategory(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
 
     class Meta:
@@ -16,7 +16,7 @@ class Category(models.Model):
 class Facility(models.Model):
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to='facilities', null=True, blank=True)
-    tour = models.ForeignKey('Tour', on_delete=models.CASCADE)
+    tour = models.ManyToManyField('Tour', related_name='tours')
 
     class Meta:
         db_table = 'facilities'
@@ -28,7 +28,7 @@ class Facility(models.Model):
 class Expense(models.Model):
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to='expenses', null=True, blank=True)
-    tour = models.ForeignKey('Tour', on_delete=models.CASCADE)
+    tour = models.ManyToManyField('Tour', related_name='tours')
 
     class Meta:
         db_table = 'expenses'
@@ -75,13 +75,29 @@ class Sight(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='sights', null=True, blank=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(SightCategory, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'sights'
 
     def __str__(self):
         return self.title
+
+
+class VillaServiceCategory(models.Model):
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'villa_service_categories'
+
+    def __str__(self):
+        return self.name
+
+
+class VillaService(models.Model):
+    name = models.CharField(max_length=255)
+    category = models.ForeignKey(VillaServiceCategory, on_delete=models.CASCADE)
+    villa = models.ManyToManyField('Villa', related_name='villas')
 
 
 class Villa(models.Model):
