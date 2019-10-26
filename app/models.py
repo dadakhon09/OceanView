@@ -99,6 +99,12 @@ class VillaService(models.Model):
     category = models.ForeignKey(VillaServiceCategory, on_delete=models.CASCADE)
     villa = models.ManyToManyField('Villa', related_name='villas')
 
+    class Meta:
+        db_table = 'villa_services'
+
+    def __str__(self):
+        return self.name
+
 
 class Villa(models.Model):
     title = models.CharField(max_length=255)
