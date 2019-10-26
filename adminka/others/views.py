@@ -17,4 +17,4 @@ class AdminIndexView(View):
             'sights': sights,
             'news': news,
         }
-        return render(request, 'index.html', context)
+        return render(request, 'adminka/index.html', context)
