@@ -116,6 +116,7 @@ LANGUAGES = [
 # LANGUAGES = [
 #     ('en', _('English')),
 #     ('ru', _('Russian')),
+#     ('ar', _('Arabic')),
 # ]
 
 LOCALE_PATHS = (
