@@ -4,8 +4,8 @@ from app.sights.views import SightsView
 from app.car.views import CarsView
 from app.news.views import NewsView
 from app.others.views import AboutView, IndexView
-from app.tour.views import ToursView
-from app.villa.views import VillasView
+from app.tours.views import ToursView
+from app.villas.views import VillasView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),

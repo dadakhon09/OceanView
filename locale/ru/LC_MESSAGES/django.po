@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-24 11:14+0500\n"
+"POT-Creation-Date: 2019-10-26 19:18+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,17 +20,41 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: OceanView/settings.py:109
-msgid "English"
-msgstr ""
+#: templates/adminka/_base.html:121
+msgid "Logout"
+msgstr "Выйти"
 
-#: OceanView/settings.py:110
-msgid "Arabic"
-msgstr ""
+#: templates/adminka/_base.html:143
+msgid "Admin"
+msgstr "Администратор"
 
-#: OceanView/settings.py:111
-msgid "Russian"
-msgstr ""
+#: templates/adminka/_base.html:145
+msgid "My profile"
+msgstr "Мой профайл"
+
+#: templates/adminka/_base.html:146
+msgid "logout"
+msgstr "выйти"
+
+#: templates/adminka/_base.html:154
+msgid "Tours"
+msgstr "Туры"
+
+#: templates/adminka/_base.html:158
+msgid "Sights"
+msgstr "Достопримечательности"
+
+#: templates/adminka/_base.html:161
+msgid "Villas"
+msgstr "Виллы"
+
+#: templates/adminka/_base.html:164
+msgid "Cars"
+msgstr "Машины"
+
+#: templates/adminka/_base.html:167
+msgid "News"
+msgstr "Новости"
 
 #: templates/index.html:6
 msgid "Index page"
@@ -38,7 +62,7 @@ msgstr "Индексная страница"
 
 #: venv/lib/python3.6/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
-msgstr ""
+msgstr "Сообщения"
 
 #: venv/lib/python3.6/site-packages/django/contrib/sitemaps/apps.py:7
 msgid "Site Maps"
@@ -1209,4 +1233,9 @@ msgstr ""
 
 #: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:408
 msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: venv/lib/python3.6/site-packages/jsonfield/fields.py:22
+#, python-format
+msgid "'%s' is not a valid JSON string."
 msgstr ""

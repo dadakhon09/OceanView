@@ -4,8 +4,8 @@ from django.views import View
 from app.models import News
 
 
-class NewsView(View):
+class AdminNewsView(View):
     def get(self, request):
         news = News.objects.all()
 
-        return render(request, 'news.html', {'news': news})
+        return render(request, 'adminka/news.html', {'news': news})

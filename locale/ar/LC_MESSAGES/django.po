@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-24 11:21+0500\n"
+"POT-Creation-Date: 2019-10-26 19:18+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,17 +19,42 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: OceanView/settings.py:109
-msgid "English"
-msgstr ""
+#: templates/adminka/_base.html:121
+msgid "Logout"
+msgstr "تسجيل خروج"
 
-#: OceanView/settings.py:110
-msgid "Arabic"
-msgstr ""
+#: templates/adminka/_base.html:143
+msgid "Admin"
+msgstr "مشرف"
 
-#: OceanView/settings.py:111
-msgid "Russian"
-msgstr ""
+#: templates/adminka/_base.html:145
+msgid "My profile"
+msgstr "مشرف"
+
+#: templates/adminka/_base.html:146
+msgid "logout"
+msgstr "تسجيل خروج"
+
+#: templates/adminka/_base.html:154
+msgid "Tours"
+msgstr "جولات"
+
+#: templates/adminka/_base.html:158
+msgid "Sights"
+msgstr "مشاهد"
+
+#: templates/adminka/_base.html:161
+msgid "Villas"
+msgstr "دار صغيرة"
+
+
+#: templates/adminka/_base.html:164
+msgid "Cars"
+msgstr "سيارات"
+
+#: templates/adminka/_base.html:167
+msgid "News"
+msgstr "أخبار"
 
 #: templates/index.html:6
 msgid "Index page"
@@ -37,7 +62,7 @@ msgstr "صفحة فهرس"
 
 #: venv/lib/python3.6/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
-msgstr ""
+msgstr "رسائل"
 
 #: venv/lib/python3.6/site-packages/django/contrib/sitemaps/apps.py:7
 msgid "Site Maps"
@@ -1208,4 +1233,9 @@ msgstr ""
 
 #: venv/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:408
 msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: venv/lib/python3.6/site-packages/jsonfield/fields.py:22
+#, python-format
+msgid "'%s' is not a valid JSON string."
 msgstr ""

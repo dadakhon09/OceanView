@@ -4,8 +4,8 @@ from django.views import View
 from app.models import Villa
 
 
-class VillasView(View):
+class AdminVillasView(View):
     def get(self, request):
         villas = Villa.objects.all()
 
-        return render(request, 'villas.html', {'villas': villas})
+        return render(request, 'adminka/villas.html', {'villas': villas})

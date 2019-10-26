@@ -4,9 +4,9 @@ from django.views import View
 from app.models import Tour
 
 
-class ToursView(View):
+class AdminToursView(View):
     def get(self, request):
         tours = Tour.objects.all()
 
-        return render(request, 'tours.html', {'tours': tours})
+        return render(request, 'adminka/tours.html', {'tours': tours})
 
