@@ -19,16 +19,26 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
+from django.utils import translation
+from django.shortcuts import redirect
 from app.others.views import handler404 as h404
 from app.others.views import handler500 as h500
 
 handler404 = h404
 handler500 = h500
 
+
+def set_language(request):
+    language = request.POST.get('language', settings.LANGUAGE_CODE)
+    translation.activate(language)
+    request.session[translation.LANGUAGE_SESSION_KEY] = language
+    return redirect('adminka-index')
+
+
 urlpatterns = [
     # path('', include('app.urls')),
     path('admin/', admin.site.urls),
-
+    path('set_lang/<str:language>/', set_language, name='set_language'),
 ]
 
 urlpatterns += i18n_patterns(

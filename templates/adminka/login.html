@@ -1,9 +1,9 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'adminka/assets/images/favicon.png' %}">
-	<title>МЧС Админ</title>
+	<title>Ocean View {% trans 'Admin' %}</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -28,13 +28,13 @@
 		<div class="container-login100" style="background-image: url({% static 'login/images/body-bg.jpg' %})">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="{% static 'adminka/login/images/img-01.png' %}" alt="IMG">
+					<img src="{% static 'adminka/login/images/LogoTop.png' %}" alt="IMG">
 				</div>
 
 				<form method="POST" action="" class="login100-form validate-form">
 					{% csrf_token %}
 					<span class="login100-form-title">
-						Административная панель МЧС
+						{% trans 'Admin panel' %}
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Введите логин">
@@ -54,7 +54,7 @@
 					</div>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
-							Войти
+							{% trans 'login' %}
 						</button>
 					</div>
 				</form>

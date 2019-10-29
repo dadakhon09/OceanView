@@ -81,18 +81,22 @@
                 <!-- ============================================================== -->
                 <ul class="navbar-nav my-lg-0">
                     <!-- ============================================================== -->
-                    <!-- Language -->
+                    {% get_current_language as LANGUAGE_CODE %}
+                    
                     <!-- ============================================================== -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-us"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right animated bounceInDown"><a class="dropdown-item"
-                                                                                                href="#"><i
-                                class="flag-icon flag-icon-sa"></i> {% trans 'Arabic' %}</a> <a class="dropdown-item"
-                                                                                                href="#"><i
-                                class="flag-icon flag-icon-us"></i> {% trans 'English' %}</a> <a class="dropdown-item"
-                                                                                                 href="#"><i
-                                class="flag-icon flag-icon-ru"></i> {% trans 'Russian' %}</a></div>
+                           aria-haspopup="true" aria-expanded="false"> 
+                           <i class="flag-icon flag-icon-{% if LANGUAGE_CODE == 'en' %}us{% elif LANGUAGE_CODE == 'ar' %}sa{% elif LANGUAGE_CODE == 'ru' %}ru{% elif LANGUAGE_CODE == 'fa' %}ir{% elif LANGUAGE_CODE == 'zh-cn' %}cn{% elif LANGUAGE_CODE == 'hi' %}in{% endif %}"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right animated bounceInDown">
+                            <a class="dropdown-item {% if LANGUAGE_CODE == 'ar' %}selected{% endif %}" href="{% if LANGUAGE_CODE == 'zh-cn' %}/ar{{request.get_full_path|slice:'6:'}}{% else %}/ar{{request.get_full_path|slice:'3:'}} {% endif %}"><i class="flag-icon flag-icon-sa"></i> {% trans 'Arabic' %}</a> 
+                            <a class="dropdown-item {% if LANGUAGE_CODE == 'en' %}selected{% endif %}" href="{% if LANGUAGE_CODE == 'zh-cn' %}/en{{request.get_full_path|slice:'6:'}}{% else %}/en{{request.get_full_path|slice:'3:'}} {% endif %}"><i class="flag-icon flag-icon-us"></i> {% trans 'English' %}</a>
+                            <a class="dropdown-item {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}" href="{% if LANGUAGE_CODE == 'zh-cn' %}/ru{{request.get_full_path|slice:'6:'}}{% else %}/ru{{request.get_full_path|slice:'3:'}} {% endif %}"><i class="flag-icon flag-icon-ru"></i> {% trans 'Russian' %}</a>
+                            <a class="dropdown-item {% if LANGUAGE_CODE == 'zh-cn' %}selected{% endif %}" href="{% if LANGUAGE_CODE == 'zh-cn' %}/zh-cn{{request.get_full_path|slice:'6:'}}{% else %}/zh-cn{{request.get_full_path|slice:'3:'}} {% endif %}"><i class="flag-icon flag-icon-cn"></i> {% trans 'Chinese' %}</a>
+                            <a class="dropdown-item {% if LANGUAGE_CODE == 'fa' %}selected{% endif %}" href="{% if LANGUAGE_CODE == 'zh-cn' %}/fa{{request.get_full_path|slice:'6:'}}{% else %}/fa{{request.get_full_path|slice:'3:'}} {% endif %}"><i class="flag-icon flag-icon-ir"></i> {% trans 'Persian' %}</a>
+                            <a class="dropdown-item {% if LANGUAGE_CODE == 'hi' %}selected{% endif %}" href="{% if LANGUAGE_CODE == 'zh-cn' %}/hi{{request.get_full_path|slice:'6:'}}{% else %}/hi{{request.get_full_path|slice:'3:'}} {% endif %}"><i class="flag-icon flag-icon-in"></i> {% trans 'Indian' %}</a>
+                        </div>
                     </li>
                     <!-- ============================================================== -->
                     <!-- Profile -->
@@ -156,7 +160,7 @@
                     </li>
                     <li>
                         <a href="{% url 'adminka-sights' %}"><i class="mdi mdi-city"></i> <span
-                                class="hide-menu">{% trans 'Sights' %}</span></a>
+                                class="hide-menu" style="{% if LANGUAGE_CODE == 'ru' %} font-size: 85%;{% endif %}">{% trans 'Sights' %}</span></a>
                     </li>
                     <li>
                         <a href="{% url 'adminka-villas' %}"><i class="mdi mdi-hotel"></i> <span

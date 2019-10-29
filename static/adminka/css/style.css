@@ -84,6 +84,11 @@ a:focus {
 .logotip{
   width: 120px;
 }
+
+.selected{
+  background-color: lightblue;
+}
+
 a.link {
   color: #455a64; }
   a.link:hover, a.link:focus {

@@ -12,7 +12,7 @@ class About(models.Model):
         db_table = 'about'
 
     def __str__(self):
-        return self.text[:10]
+        return self.text[:100]
 
 
 class AboutImage(models.Model):

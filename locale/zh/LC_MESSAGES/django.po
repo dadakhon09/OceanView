@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-27 21:41+0500\n"
+"POT-Creation-Date: 2019-10-29 11:27+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,52 +19,74 @@ msgstr ""
 
 #: templates/adminka/_base.html:91
 msgid "Arabic"
-msgstr ""
+msgstr "阿拉伯"
+
+#: templates/adminka/_base.html:92
+msgid "English"
+msgstr "英语"
 
 #: templates/adminka/_base.html:93
-msgid "English"
-msgstr ""
+msgid "Russian"
+msgstr "俄语"
+
+#: templates/adminka/_base.html:94
+msgid "Chinese"
+msgstr "中文"
 
 #: templates/adminka/_base.html:95
-msgid "Russian"
-msgstr ""
+msgid "Persian"
+msgstr "波斯语"
 
-#: templates/adminka/_base.html:122
+#: templates/adminka/_base.html:96
+msgid "Indian"
+msgstr "印度人"
+
+#: templates/adminka/_base.html:124
 msgid "Logout"
-msgstr ""
+msgstr "登出"
 
-#: templates/adminka/_base.html:145
+#: templates/adminka/_base.html:147 templates/adminka/login.html:6
 msgid "Admin"
-msgstr ""
+msgstr "管理员"
 
-#: templates/adminka/_base.html:147
+#: templates/adminka/_base.html:149
 msgid "My profile"
-msgstr ""
+msgstr "我的简历"
 
-#: templates/adminka/_base.html:148
+#: templates/adminka/_base.html:150
 msgid "logout"
-msgstr ""
+msgstr "登出"
 
-#: templates/adminka/_base.html:155
+#: templates/adminka/_base.html:157
 msgid "Tours"
-msgstr ""
+msgstr "旅游团"
 
-#: templates/adminka/_base.html:159
+#: templates/adminka/_base.html:161
 msgid "Sights"
-msgstr ""
+msgstr "景点"
 
-#: templates/adminka/_base.html:163
+#: templates/adminka/_base.html:165
 msgid "Villas"
-msgstr ""
+msgstr "别墅"
 
-#: templates/adminka/_base.html:167
+#: templates/adminka/_base.html:169
 msgid "Cars"
-msgstr ""
+msgstr "汽车"
 
-#: templates/adminka/_base.html:171
+#: templates/adminka/_base.html:173
 msgid "News"
+msgstr "新闻"
+
+#: templates/adminka/login.html:37
+#, fuzzy
+#| msgid "Admin"
+msgid "Admin panel"
+msgstr "管理员"
+
+#: templates/adminka/login.html:57
+msgid "login"
 msgstr ""
 
 #: templates/index.html:6
 msgid "Index page"
-msgstr ""
+msgstr "索引页"
