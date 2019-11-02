@@ -91,9 +91,9 @@ class Tour(models.Model):
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
     image = models.ImageField(upload_to='tours', null=True, blank=True)
-    route = models.CharField(max_length=255, null=True, blank=True)                                          # ASK
+    route = jsonfield.JSONField()                                          # ASK
     duration = models.PositiveIntegerField(null=True, blank=True)
-    max_people = models.PositiveIntegerField(null=True, blank=True)
+    num_people = models.PositiveIntegerField(null=True, blank=True)
     guide = models.BooleanField(null=True, blank=True)
     price = models.PositiveIntegerField(null=True, blank=True)
     # plan = models.TextField(null=True, blank=True)

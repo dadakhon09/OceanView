@@ -19,7 +19,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="">
+                        <form action="{% url 'tours-create' %}" method="post">{% csrf_token %}
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#1tab"
                                                         role="tab"><span class="hidden-sm-up"><i
@@ -83,6 +83,19 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-3 text-right">
+                                                    <label for="route_en"
+                                                           class="control-label">{% trans 'Route' %}(en)</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="route_en"
+                                                           name="route_en"
+                                                           autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane p-20" id="2tab" role="tabpanel">
@@ -120,6 +133,19 @@
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" id="description_ar"
                                                        name="description_ar"
+                                                       autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="route_ar"
+                                                       class="control-label">{% trans 'Route' %}(ar)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="route_ar" name="route_ar"
                                                        autocomplete="off">
                                             </div>
                                         </div>
@@ -164,6 +190,19 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="route_fa"
+                                                       class="control-label">{% trans 'Route' %}(fa)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="route_fa" name="route_fa"
+                                                       autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="tab-pane p-20" id="4tab" role="tabpanel">
                                     <div class="form-group">
@@ -204,6 +243,19 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="route_hi"
+                                                       class="control-label">{% trans 'Route' %}(hi)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="route_hi" name="route_hi"
+                                                       autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="tab-pane p-20" id="5tab" role="tabpanel">
                                     <div class="form-group">
@@ -240,6 +292,19 @@
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" id="description_ru"
                                                        name="description_ru"
+                                                       autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="route_ru"
+                                                       class="control-label">{% trans 'Route' %}(ru)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="route_ru" name="route_ru"
                                                        autocomplete="off">
                                             </div>
                                         </div>
@@ -285,6 +350,19 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="route_zh"
+                                                       class="control-label">{% trans 'Route' %}(zh)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="route_zh" name="route_zh"
+                                                       autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="p-20">
@@ -300,17 +378,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-3 text-right">
-                                            <label for="route" class="control-label">{% trans 'Route' %}</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" id="route" name="route"
-                                                   autocomplete="off">
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3 text-right">
@@ -363,7 +431,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button id="createButton" type="submit"
+                                            <button id="" type="submit"
                                                     class="btn btn-success"><i
                                                     class="fa fa-check"></i>{% trans 'Save' %}
                                             </button>
@@ -381,7 +449,7 @@
             </div>
         </div>
         <!-- ============================================================== -->
-        <!-- End PAge Content -->
+        <!-- End Page Content -->
         <!-- ============================================================== -->
 
     </div>
@@ -442,7 +510,7 @@
 
             $("#kv-explorer").fileinput({
                 'theme': 'explorer-fas',
-                language: 'ru',
+                language: 'en',
                 fileType: "any",
                 showUpload: false,
                 showCaption: true,
