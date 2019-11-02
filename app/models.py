@@ -156,9 +156,12 @@ class VillaService(models.Model):
 class Villa(models.Model):
     # title = models.CharField(max_length=255)
     title = jsonfield.JSONField()
-    address = models.CharField(max_length=255, null=True, blank=True)                                # ASK
+    address = models.CharField(max_length=255, null=True, blank=True)
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
+    bedroom = models.PositiveIntegerField(null=True, blank=True)
+    square_meter = models.PositiveIntegerField(null=True, blank=True)
+    status = models.CharField(max_length=255, null=True, blank=True)
     d_center = models.PositiveIntegerField(null=True, blank=True)
     d_airways = models.PositiveIntegerField(null=True, blank=True)
     d_railways = models.PositiveIntegerField(null=True, blank=True)

@@ -34,27 +34,28 @@
 				<form method="POST" action="" class="login100-form validate-form">
 					{% csrf_token %}
 					<span class="login100-form-title">
-						{% trans 'Admin panel' %}
+						Admin panel
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Введите логин">
-						<input class="input100" type="text" name="username" placeholder="Логин">
+					<div class="wrap-input100 validate-input" data-validate = "Enter login">
+						<input class="input100" type="text" name="username" placeholder="Login">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Введите пароль">
-						<input class="input100" type="password" name="password" placeholder="Пароль">
+					<div class="wrap-input100 validate-input" data-validate = "Enter password">
+						<input class="input100" type="password" name="password" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
 					<div class="container-login100-form-btn">
+                        {% if error == True %} <h5 style="color: red; margin-bottom: 2px">User not found</h5>{% endif %}
 						<button class="login100-form-btn" type="submit">
-							{% trans 'login' %}
+							login
 						</button>
 					</div>
 				</form>

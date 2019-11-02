@@ -10,3 +10,7 @@ class AdminToursView(View):
 
         return render(request, 'adminka/tours.html', {'tours': tours})
 
+
+class ToursCreateView(View):
+    def get(self, request):
+        return render(request, 'adminka/tours_create.html', {})

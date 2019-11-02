@@ -1,0 +1,395 @@
+{% extends 'adminka/_base.html' %}
+{% load static i18n %}
+
+{% block head %}
+    <link href="{% static 'adminka/css/pages/tab-page.css' %}" rel="stylesheet">
+    <link href="{% static 'adminka/assets/plugins/uploader/css/fileinput.css' %}" media="all" rel="stylesheet"
+          type="text/css"/>
+    <link href="{% static 'adminka/assets/plugins/uploader/themes/explorer-fas/theme.css' %}" media="all"
+          rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#1tab"
+                                                        role="tab"><span class="hidden-sm-up"><i
+                                        class="ti-home"></i></span> <span
+                                        class="hidden-xs-down">{% trans 'English' %}</span></a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#2tab" role="tab"><span
+                                        class="hidden-sm-up"><i class="ti-email"></i></span> <span
+                                        class="hidden-xs-down">{% trans 'Arabic' %}</span></a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#3tab" role="tab"><span
+                                        class="hidden-sm-up"><i class="ti-email"></i></span> <span
+                                        class="hidden-xs-down">{% trans 'Persian' %}</span></a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#4tab" role="tab"><span
+                                        class="hidden-sm-up"><i class="ti-email"></i></span> <span
+                                        class="hidden-xs-down">{% trans 'Indian' %}</span></a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#5tab" role="tab"><span
+                                        class="hidden-sm-up"><i class="ti-email"></i></span> <span
+                                        class="hidden-xs-down">{% trans 'Russian' %}</span></a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#6tab" role="tab"><span
+                                        class="hidden-sm-up"><i class="ti-email"></i></span> <span
+                                        class="hidden-xs-down">{% trans 'Chinese' %}</span></a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content tabcontent-border">
+                                <div class="tab-pane active" id="1tab" role="tabpanel">
+                                    <div class="p-20">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-3 text-right">
+                                                    <label for="title_ru" class="control-label">{% trans 'Title' %} Загаловок (en)</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="title_ru" class="form-control"
+                                                           name="title_ru" placeholder="" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-3 text-right">
+                                                    <label for="content_ru" class="control-label">{% trans 'Content' %} Cодержание (en)</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <textarea type="text" id="content_ru" class="moxiecut form-control"
+                                                              name="content_ru"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane p-20" id="2tab" role="tabpanel">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="title_uz" class="control-label">{% trans 'Title' %}Загаловок (ar)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" id="title_uz" class="form-control" name="title_uz"
+                                                       placeholder="" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="content_uz" class="control-label">{% trans 'Content' %}Cодержание (ar)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <textarea type="text" id="content_uz" class="moxiecut form-control"
+                                                          name="content_uz"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane p-20" id="3tab" role="tabpanel">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="title_uz" class="control-label">{% trans 'Title' %}Загаловок (fa)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" id="title_uz" class="form-control" name="title_uz"
+                                                       placeholder="" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="content_uz" class="control-label">{% trans 'Content' %}Cодержание (fa)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <textarea type="text" id="content_uz" class="moxiecut form-control"
+                                                          name="content_uz"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane p-20" id="4tab" role="tabpanel">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="title_uz" class="control-label">{% trans 'Title' %}Загаловок (hi)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" id="title_uz" class="form-control" name="title_uz"
+                                                       placeholder="" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="content_uz" class="control-label">{% trans 'Content' %}Cодержание (hi)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <textarea type="text" id="content_uz" class="moxiecut form-control"
+                                                          name="content_uz"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane p-20" id="5tab" role="tabpanel">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="title_uz" class="control-label">{% trans 'Title' %}Загаловок (ru)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" id="title_uz" class="form-control" name="title_uz"
+                                                       placeholder="" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="content_uz" class="control-label">{% trans 'Content' %}Cодержание (ru)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <textarea type="text" id="content_uz" class="moxiecut form-control"
+                                                          name="content_uz"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane p-20" id="6tab" role="tabpanel">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="title_uz" class="control-label">{% trans 'Title' %}Загаловок (zh)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" id="title_uz" class="form-control" name="title_uz"
+                                                       placeholder="" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3 text-right">
+                                                <label for="content_uz" class="control-label">{% trans 'Content' %} (zh)</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <textarea type="text" id="content_uz" class="moxiecut form-control"
+                                                          name="content_uz"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-20">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3 text-right">
+                                            <label for="file" class="control-label">{% trans 'Images' %}Изображения</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="file-loading">
+                                                <input id="kv-explorer" type="file" name="file">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3 text-right">
+                                            <label for="route" class="control-label">{% trans 'Route' %}</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" id="route" name="route" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3 text-right">
+                                            <label for="duration" class="control-label">{% trans 'Duration' %}</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" id="duration" name="route" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3 text-right">
+                                            <label for="duration" class="control-label">{% trans 'Number of people' %}</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" id="duration" name="route" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3 text-right">
+                                            <label for="status" class="control-label">Статус</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select name="status" id="status" class="form-control custom-select">
+                                                <option value="1">Активный</option>
+                                                <option value="0"> Не активный</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="offset-sm-3 col-md-9">
+                                            <button id="createButton" type="submit" data-url="#"
+                                                    class="btn btn-success"><i class="fa fa-check"></i>{% trans 'Save' %}
+                                            </button>
+                                            <button type="button" class="btn btn-inverse">{% trans 'Cancel' %}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'adminka/assets/tinymce/js/tinymce/tinymce.min.js' %}"></script>
+    <script>
+        tinymce.init({
+            selector: "textarea.moxiecut",
+            theme: "modern",
+            width: '100%',
+            height: 300,
+            plugins: [
+                'advlist autolink lists link image charmap preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code',
+                'insertdatetime nonbreaking table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools codesample'
+            ],
+            toolbar: 'insertfile undo redo | bold italic sizeselect fontsizeselect | hr alignleft aligncenter alignjustify | bullist numlist | emoticons | code',
+            fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt",
+            branding: false,
+            menubar: false
+        });
+    </script>
+
+    <script src="{% static 'adminka/assets/plugins/uploader/js/plugins/piexif.js' %}" type="text/javascript"></script>
+    <script src="{% static 'adminka/assets/plugins/uploader/js/plugins/sortable.js' %}" type="text/javascript"></script>
+    <script src="{% static 'adminka/assets/plugins/uploader/js/fileinput.js' %}" type="text/javascript"></script>
+    <script src="{% static 'adminka/assets/plugins/uploader/js/locales/ru.js' %}" type="text/javascript"></script>
+    <script src="{% static 'adminka/assets/plugins/uploader/js/locales/uz.js' %}" type="text/javascript"></script>
+    <script src="{% static 'adminka/assets/plugins/uploader/themes/fas/theme.js' %}" type="text/javascript"></script>
+    <script src="{% static 'adminka/assets/plugins/uploader/themes/explorer-fas/theme.js' %}"
+            type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#kv-logo").fileinput({
+                'theme': 'explorer-fas',
+                language: 'ru',
+                fileType: "any",
+                showUpload: false,
+                showCaption: true,
+                overwriteInitial: false,
+                initialPreviewAsData: true,
+                initialPreview: [
+                    /*"http://lorempixel.com/1920/1080/nature/1",
+                    "http://lorempixel.com/1920/1080/nature/2",
+                    "http://lorempixel.com/1920/1080/nature/3"*/
+                ],
+                initialPreviewConfig: [
+                    /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                    {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
+                ]
+            });
+
+            $("#kv-explorer").fileinput({
+                'theme': 'explorer-fas',
+                language: 'ru',
+                fileType: "any",
+                showUpload: false,
+                showCaption: true,
+                overwriteInitial: false,
+                initialPreviewAsData: true,
+                initialPreview: [
+                    /*"http://lorempixel.com/1920/1080/nature/1",
+                    "http://lorempixel.com/1920/1080/nature/2",
+                    "http://lorempixel.com/1920/1080/nature/3"*/
+                ],
+                initialPreviewConfig: [
+                    /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                    {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
+                ]
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#createButton").click(function (e) {
+                e.preventDefault();
+
+                var contentRu = tinymce.get('content_ru').getContent();
+                var contentUz = tinymce.get('content_uz').getContent();
+
+                let formData = new FormData();
+
+                formData.append('title_ru', $('input[name="title_ru"]').val());
+                formData.append('content_ru', contentRu);
+                formData.append('title_uz', $('input[name="title_uz"]').val());
+                formData.append('content_uz', contentUz);
+
+                formData.append('status', $('select[name="status"]').val());
+
+                for (let i = 0; i < $('#kv-logo')[0].files.length; i++) {
+                    formData.append('logo', $('#kv-logo')[0].files[i]);
+                }
+                for (let i = 0; i < $('#kv-explorer')[0].files.length; i++) {
+                    formData.append('image', $('#kv-explorer')[0].files[i]);
+                }
+                var url = $("#createButton").data("url");
+                $.ajax({
+                    headers: {"X-CSRFToken": "{{csrf_token}}"},
+                    url: url,
+                    processData: false,
+                    contentType: false,
+                    method: 'POST',
+                    data: formData,
+                    success: function (data) {
+                        window.location.href = '/first-aid/list';
+                    },
+                    error: function (data) {
+                        alert('Error');
+                    }
+                });
+
+            })
+        });
+    </script>
+{% endblock %}
