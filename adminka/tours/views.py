@@ -102,4 +102,13 @@ class ToursCreateView(View):
 
 
 class ToursUpdateView(View):
-    pass
+    def get(self, request):
+        tour = Tour.objects.get(id=self.kwargs['id'])
+        return render(request, 'adminka/tours_update.html', {'tour': tour})
+
+
+class ToursDeleteView(View):
+    def delete(self, request):
+        tour = Tour.objects.get(id=self.kwargs['id'])
+        tour.delete()
+        return HttpResponseRedirect(reverse('adminka-tours'))

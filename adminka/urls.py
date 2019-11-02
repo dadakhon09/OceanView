@@ -4,7 +4,7 @@ from adminka.car.views import AdminCarsView
 from adminka.news.views import AdminNewsView
 from adminka.others.views import AdminIndexView, AdminLoginView, ProfileView, AdminLogoutView, ProfileUpdateView
 from adminka.sights.views import AdminSightsView
-from adminka.tours.views import AdminToursView, ToursCreateView, ToursUpdateView
+from adminka.tours.views import AdminToursView, ToursCreateView, ToursUpdateView, ToursDeleteView
 from adminka.villas.views import AdminVillasView
 
 urlpatterns = [
@@ -19,6 +19,7 @@ urlpatterns = [
     path('tours/', AdminToursView.as_view(), name='adminka-tours'),
     path('tours/create/', ToursCreateView.as_view(), name='tours-create'),
     path('tours/update/<int:id>/', ToursUpdateView.as_view(), name='tours-update'),
+    path('tours/delete/<int:id>/', ToursDeleteView.as_view(), name='tours-delete'),
 
     path('villas/', AdminVillasView.as_view(), name='adminka-villas'),
 
