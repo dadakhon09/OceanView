@@ -53,7 +53,8 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <input type="text" id="title_en" class="form-control"
-                                                           name="title_en" placeholder="{{ tour.title.title_en }}" autocomplete="off">
+                                                           name="title_en" placeholder="{{ tour.title.title_en }}"
+                                                           autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>
@@ -78,7 +79,8 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <input type="text" class="form-control" id="description_en"
-                                                           name="description_en" placeholder="{{ tour.description.description_en }}"
+                                                           name="description_en"
+                                                           placeholder="{{ tour.description.description_en }}"
                                                            autocomplete="off">
                                                 </div>
                                             </div>
@@ -132,7 +134,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" id="description_ar"
-                                                       name="description_ar" placeholder="{{ tour.description.description_ar }}"
+                                                       name="description_ar"
+                                                       placeholder="{{ tour.description.description_ar }}"
                                                        autocomplete="off">
                                             </div>
                                         </div>
@@ -185,7 +188,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" id="description_fa"
-                                                       name="description_fa" placeholder="{{ tour.description.description_fa }}"
+                                                       name="description_fa"
+                                                       placeholder="{{ tour.description.description_fa }}"
                                                        autocomplete="off">
                                             </div>
                                         </div>
@@ -238,7 +242,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" id="description_hi"
-                                                       name="description_hi" placeholder="{{ tour.description.description_hi }}"
+                                                       name="description_hi"
+                                                       placeholder="{{ tour.description.description_hi }}"
                                                        autocomplete="off">
                                             </div>
                                         </div>
@@ -291,7 +296,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" id="description_ru"
-                                                       name="description_ru" placeholder="{{ tour.description.description_ru }}"
+                                                       name="description_ru"
+                                                       placeholder="{{ tour.description.description_ru }}"
                                                        autocomplete="off">
                                             </div>
                                         </div>
@@ -344,7 +350,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" id="description_zh"
-                                                       name="description_zh" placeholder="{{ tour.description.description_zh }}"
+                                                       name="description_zh"
+                                                       placeholder="{{ tour.description.description_zh }}"
                                                        autocomplete="off">
                                             </div>
                                         </div>
@@ -386,7 +393,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" id="duration" name="duration"
-                                                   autocomplete="off">
+                                                   autocomplete="off" placeholder="{{ tour.duration }}">
                                         </div>
                                     </div>
                                 </div>
@@ -398,7 +405,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" id="num_people" name="num_people"
-                                                   autocomplete="off">
+                                                   autocomplete="off" placeholder="{{ tour.num_people }}">
                                         </div>
                                     </div>
                                 </div>
@@ -409,7 +416,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" id="price" name="price"
-                                                   autocomplete="off">
+                                                   autocomplete="off" placeholder="{{ tour.price }}">
                                         </div>
                                     </div>
                                 </div>
@@ -421,8 +428,15 @@
                                         </div>
                                         <div class="col-md-9">
                                             <select name="guide" id="guide" class="form-control custom-select">
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>
+                                                {% if tour.guide %}
+                                                    <option value="1">Yes</option>
+                                                    <option value="0">No</option>
+                                                {% else %}
+                                                    <option value="0">No</option>
+                                                    <option value="1">Yes</option>
+
+                                                {% endif %}
+
                                             </select>
                                         </div>
                                     </div>
