@@ -62,7 +62,13 @@ class TourExpense(models.Model):
 
 class TourImage(models.Model):
     image = models.ImageField(upload_to='tours', null=True, blank=True)
-    tour = models.ForeignKey('Tour', on_delete=models.CASCADE)
+    tour = models.ForeignKey('Tour', on_delete=models.CASCADE, related_name='images')
+
+    class Meta:
+        db_table = 'tour_images'
+
+    def __str__(self):
+        return self.image.name
 
 
 class Tour(models.Model):

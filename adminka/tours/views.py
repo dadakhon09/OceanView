@@ -76,8 +76,6 @@ class ToursCreateView(View):
 
         images = post.getlist('image')
 
-        for i in images:
-            TourImage.objects.create()
 
         title = {
             'title_en': title_en,
@@ -122,10 +120,17 @@ class ToursCreateView(View):
         for f in t_facilities:
             obj = TourFacility.objects.get(id=f)
             obj.tours.add(tour)
+            obj.save()
 
         for t in t_expenses:
             obj = TourExpense.objects.get(id=t)
             obj.tours.add(tour)
+            obj.save()
+
+        for i in images:
+            ti = TourImage.objects.create(image=i, tour=tour)
+            tour.images.add(ti)
+            tour.save()
 
         return HttpResponseRedirect(reverse('adminka-tours'))
 
