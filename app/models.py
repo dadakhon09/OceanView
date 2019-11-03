@@ -24,19 +24,19 @@ class AboutImage(models.Model):
 
 
 class SightCategory(models.Model):
-    # name = models.CharField(max_length=255, null=True, blank=True)
-    name = jsonfield.JSONField()
+    # title = models.CharField(max_length=255, null=True, blank=True)
+    title = jsonfield.JSONField()
 
     class Meta:
         db_table = 'categories'
 
     def __str__(self):
-        return self.name['name_en']
+        return self.title['title_en']
 
 
 class TourFacility(models.Model):
-    # name = models.CharField(max_length=255)
-    name = jsonfield.JSONField()
+    # title = models.CharField(max_length=255)
+    title = jsonfield.JSONField()
     image = models.ImageField(upload_to='facilities', null=True, blank=True)
     tour = models.ManyToManyField('Tour', related_name='tour_facilities')
 
@@ -44,12 +44,12 @@ class TourFacility(models.Model):
         db_table = 'facilities'
 
     def __str__(self):
-        return self.name['name_en']
+        return self.title['title_en']
 
 
 class TourExpense(models.Model):
-    # name = models.CharField(max_length=255)
-    name = jsonfield.JSONField()
+    # title = models.CharField(max_length=255)
+    title = jsonfield.JSONField()
     image = models.ImageField(upload_to='expenses', null=True, blank=True)
     tour = models.ManyToManyField('Tour', related_name='tour_expenses')
 
@@ -57,7 +57,7 @@ class TourExpense(models.Model):
         db_table = 'expenses'
 
     def __str__(self):
-        return self.name['name_en']
+        return self.title['title_en']
 
 
 class TourImage(models.Model):
@@ -120,19 +120,19 @@ class VillaPhoneNumber(models.Model):
 
 
 class VillaServiceCategory(models.Model):
-    # name = models.CharField(max_length=255)
-    name = jsonfield.JSONField()
+    # title = models.CharField(max_length=255)
+    title = jsonfield.JSONField()
 
     class Meta:
         db_table = 'villa_service_categories'
 
     def __str__(self):
-        return self.name['name_en']
+        return self.title['title_en']
 
 
 class VillaService(models.Model):
-    # name = models.CharField(max_length=255)
-    name = jsonfield.JSONField()
+    # title = models.CharField(max_length=255)
+    title = jsonfield.JSONField()
     category = models.ForeignKey(VillaServiceCategory, on_delete=models.CASCADE)
     villa = models.ManyToManyField('Villa', related_name='villas')
 
@@ -140,7 +140,7 @@ class VillaService(models.Model):
         db_table = 'villa_services'
 
     def __str__(self):
-        return self.name['name_en']
+        return self.title['title_en']
 
 
 class Villa(models.Model):
@@ -179,7 +179,7 @@ class News(models.Model):
 
 
 class Car(models.Model):
-    name = jsonfield.JSONField()
+    title = jsonfield.JSONField()
     description = jsonfield.JSONField()
     image = models.ImageField(upload_to='cars', null=Tour, blank=True)
     price = models.PositiveIntegerField(null=True, blank=True)
@@ -189,4 +189,4 @@ class Car(models.Model):
         db_table = 'cars'
 
     def __str__(self):
-        return self.name['name_en']
+        return self.title['title_en']

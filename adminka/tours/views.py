@@ -54,8 +54,6 @@ class ToursCreateView(View):
         if not duration:
             duration = None
 
-        image = post.get('image')
-
         num_people = post.get('num_people')
 
         if not num_people:
@@ -104,7 +102,7 @@ class ToursCreateView(View):
             'route_zh': route_zh,
         }
 
-        tour = Tour.objects.create(title=title, description=description, plan=plan, route=route, image=image,
+        tour = Tour.objects.create(title=title, description=description, plan=plan, route=route,
                                    duration=duration, num_people=num_people, guide=guide, price=price)
 
         return HttpResponseRedirect(reverse('adminka-tours'))
@@ -155,8 +153,6 @@ class ToursUpdateView(View):
         duration = post.get('duration')
         if not duration:
             duration = None
-
-        image = post.get('image')
 
         num_people = post.get('num_people')
 
@@ -210,7 +206,6 @@ class ToursUpdateView(View):
         tour.description = description
         tour.plan = plan
         tour.route = route
-        tour.image = image
         tour.duration = duration
         tour.num_people = num_people
         tour.guide = guide
@@ -237,6 +232,31 @@ class AdminToursExpensesView(View):
 class AdminToursExpensesCreateView(View):
     def get(self, request):
         return render(request, 'adminka/tours/tour_expenses_create.html')
+
+    def post(self, request):
+        post = self.request.POST
+
+        title_en = post.get('title_en')
+        title_ar = post.get('title_ar')
+        title_fa = post.get('title_fa')
+        title_hi = post.get('title_hi')
+        title_ru = post.get('title_ru')
+        title_zh = post.get('title_zh')
+
+        title = {
+            'title_en': title_en,
+            'title_ar': title_ar,
+            'title_fa': title_fa,
+            'title_hi': title_hi,
+            'title_ru': title_ru,
+            'title_zh': title_zh,
+        }
+
+        image = post.get('image')
+
+        TourExpense.objects.create(title=title, image=image)
+
+        return HttpResponseRedirect(reverse('tour-expenses'))
 
 
 class AdminToursExpensesUpdateView(View):

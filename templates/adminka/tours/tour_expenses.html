@@ -18,7 +18,7 @@
                         <div class="card-main__title">
                             <h2>{% trans 'Tour Expenses' %}</h2>
                         </div>
-                        <a href="{% url 'tours-expenses-create' %}" type="button"
+                        <a href="{% url 'tour-expenses-create' %}" type="button"
                            class="btn btn-info m-t-10 float-right">{% trans 'Add' %}</a>
                         <!-- Add Contact Popup Model -->
                         <div class="table-responsive">
@@ -27,7 +27,6 @@
                                 <thead>
                                 <tr>
                                     <th width="1%">#</th>
-                                    <th width="1%">{% trans 'Guide' %}</th>
                                     <th width="100">{% trans 'Title' %}</th>
                                     <th width="1%"></th>
                                     <th width="1%"></th>
@@ -38,25 +37,18 @@
                                 {% for tour in tours %}
                                     <tr>
                                         <td>{{ tour.id }}</td>
-
-                                        {% if tour.guide %}
-                                            <td><span class="label label-success">Yes</span></td>
-                                        {% else %}
-                                            <td><span class="label label-danger">No</span></td>
-                                        {% endif %}
-
                                         <td>
-                                            <a href="{% url 'tours-update' tour.id %}">
+                                            <a href="{% url 'tour-expenses-update' tour.id %}">
                                                 <div>
                                                     <span>{{ tour.title.title_en }}</span>
                                                 </div>
                                             </a>
                                         </td>
-                                        <td><a href="{% url 'tours-update' tour.id %}" class="label label-info"><i
+                                        <td><a href="{% url 'tour-expenses-update' tour.id %}" class="label label-info"><i
                                                 class="fas fa-edit"></i>{% trans 'Edit' %}</a></td>
 
 
-                                        <td><a href="{% url 'tours-delete' tour.id %}" class="label label-danger"><i
+                                        <td><a href="{% url 'tour-expenses-delete' tour.id %}" class="label label-danger"><i
                                                 class="fas fa-trash"></i></a></td>
                                     </tr>
                                 {% endfor %}

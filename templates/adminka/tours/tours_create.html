@@ -435,10 +435,10 @@
                                                     class="btn btn-success"><i
                                                     class="fa fa-check"></i>{% trans 'Save' %}
                                             </button>
-                                            <a href="{% url 'adminka-tours' %}">
-                                                <button type="button"
-                                                        class="btn btn-inverse">{% trans 'Cancel' %}</button>
-                                            </a>
+
+                                            <button type="button"
+                                                    class="btn btn-inverse" id="cancelBtn">{% trans 'Cancel' %}</button>
+
                                         </div>
                                     </div>
                                 </div>
@@ -451,7 +451,23 @@
         <!-- ============================================================== -->
         <!-- End Page Content -->
         <!-- ============================================================== -->
+        <div id="myModal" class="modal-custom">
 
+            <!-- Modal content -->
+            <div class="modal-content-custom">
+                <span class="close">&times;</span>
+                <h2>{% trans 'Are you sure you want to cancel?' %}</h2>
+                <a href="{% url 'adminka-tours' %}">
+                    <button type="button" class="btn btn-success">
+                        Yes
+                    </button>
+                </a>
+                <button type="button" class="btn btn-danger No">
+                    No
+                </button>
+            </div>
+
+        </div>
     </div>
 
 {% endblock %}

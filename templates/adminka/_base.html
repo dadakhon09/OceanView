@@ -21,6 +21,7 @@
 
     <!-- Custom CSS -->
     <link href="{% static 'adminka/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'adminka/css/new.css' %}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="{% static 'adminka/css/colors/default.css' %}" id="theme" rel="stylesheet">
 
@@ -177,11 +178,11 @@
                                 class="hide-menu">{% trans 'News' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'tour-expenses' %}"><i class="mdi mdi-expense"></i> <span
+                        <a href="{% url 'tour-expenses' %}"><i class="mdi mdi-coin"></i> <span
                                 class="hide-menu">{% trans 'Tour Expenses' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'tour-facilities' %}"><i class="mdi mdi-facility"></i> <span
+                        <a href="{% url 'tour-facilities' %}"><i class="mdi mdi-tooltip-text"></i> <span
                                 class="hide-menu">{% trans 'Tour Facilities' %}</span></a>
                     </li>
                 </ul>
@@ -236,6 +237,7 @@
 <script src="{% static 'adminka/js/sidebarmenu.js' %}"></script>
 <!--Custom JavaScript -->
 <script src="{% static 'adminka/js/custom.min.js' %}"></script>
+<script src="{% static 'adminka/js/new.js' %}"></script>
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->

@@ -34,8 +34,9 @@
                                     <th width="1%"></th>
                                 </tr>
                                 <tbody>
-
                                 {% for tour in tours %}
+
+
                                     <tr>
                                         <td>{{ tour.id }}</td>
 
@@ -56,7 +57,7 @@
                                                 class="fas fa-edit"></i>{% trans 'Edit' %}</a></td>
 
 
-                                        <td><a href="{% url 'tours-delete' tour.id %}" class="label label-danger"><i
+                                        <td><a href="#" id="cancelBtn" class="label label-danger"><i
                                                 class="fas fa-trash"></i></a></td>
                                     </tr>
                                 {% endfor %}
@@ -71,6 +72,23 @@
         <!-- ============================================================== -->
         <!-- End PAge Content -->
         <!-- ============================================================== -->
+        <div id="myModal" class="modal-custom">
+
+            <!-- Modal content -->
+            <div class="modal-content-custom">
+                <span class="close">&times;</span>
+                <h2>{% trans 'Are you sure you want to delete?' %}</h2>
+                <a href="#">
+                    <button type="button" class="btn btn-success">
+                        Yes
+                    </button>
+                </a>
+                <button type="button" class="btn btn-danger No">
+                    No
+                </button>
+            </div>
+
+        </div>
 
     </div>
 
