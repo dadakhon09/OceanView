@@ -5,7 +5,9 @@ from adminka.news.views import AdminNewsView
 from adminka.others.views import AdminIndexView, AdminLoginView, ProfileView, AdminLogoutView, ProfileUpdateView
 from adminka.sights.views import AdminSightsView
 from adminka.tours.views import AdminToursView, ToursCreateView, ToursUpdateView, ToursDeleteView, \
-    AdminToursExpensesView, AdminToursFacilitiesView
+    AdminToursExpensesView, AdminToursFacilitiesView, AdminToursExpensesUpdateView, AdminToursExpensesDeleteView, \
+    AdminToursFacilitiesUpdateView, AdminToursFacilitiesDeleteView, AdminToursExpensesCreateView, \
+    AdminToursFacilitiesCreateView
 from adminka.villas.views import AdminVillasView
 
 urlpatterns = [
@@ -22,7 +24,13 @@ urlpatterns = [
     path('tours/update/<int:id>/', ToursUpdateView.as_view(), name='tours-update'),
     path('tours/delete/<int:id>/', ToursDeleteView.as_view(), name='tours-delete'),
     path('tours/expenses/', AdminToursExpensesView.as_view(), name='tour-expenses'),
+    path('tours/expenses/create/', AdminToursExpensesCreateView.as_view(), name='tours-expenses-create'),
+    path('tours/expenses/update/<int:id>/', AdminToursExpensesUpdateView.as_view(), name='tours-expenses-update'),
+    path('tours/expenses/delete/<int:id>/', AdminToursExpensesDeleteView.as_view(), name='tours-expenses-delete'),
     path('tours/facilities/', AdminToursFacilitiesView.as_view(), name='tour-facilities'),
+    path('tours/facilities/create/', AdminToursFacilitiesCreateView.as_view(), name='tour-facilities-create'),
+    path('tours/facilities/update/<int:id>/', AdminToursFacilitiesUpdateView.as_view(), name='tour-facilities-update'),
+    path('tours/facilities/delete/<int:id>/', AdminToursFacilitiesDeleteView.as_view(), name='tour-facilities-delete'),
 
     path('villas/', AdminVillasView.as_view(), name='adminka-villas'),
 

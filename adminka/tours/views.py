@@ -117,9 +117,6 @@ class ToursUpdateView(View):
 
     def get(self, request, id):
         tour = Tour.objects.get(id=self.kwargs['id'])
-        if not tour.image:
-            tour.image = None
-            tour.save()
         return render(request, 'adminka/tours/tours_update.html', {'tour': tour})
 
     def post(self, request, id):
@@ -233,11 +230,47 @@ class ToursDeleteView(View):
 
 class AdminToursExpensesView(View):
     def get(self, request):
-        tours = TourExpense.objects.all()
-        return render(request, 'adminka/tours/tour_expenses.html', {'tours': tours})
+        tour_expenses = TourExpense.objects.all()
+        return render(request, 'adminka/tours/tour_expenses.html', {'tours': tour_expenses})
+
+
+class AdminToursExpensesCreateView(View):
+    def get(self, request):
+        return render(request, 'adminka/tours/tour_expenses_create.html')
+
+
+class AdminToursExpensesUpdateView(View):
+    def get(self, request, id):
+        t_expense = TourExpense.objects.get(id=id)
+        return render(request, 'adminka/tours/tour_expenses.html', {'tour': t_expense})
+
+
+class AdminToursExpensesDeleteView(View):
+    def get(self, request, id):
+        t = TourExpense.objects.get(id=id)
+        t.delete()
+        return HttpResponseRedirect(reverse('tour-expenses'))
 
 
 class AdminToursFacilitiesView(View):
     def get(self, request):
-        tours = TourFacility.objects.all()
-        return render(request, 'adminka/tours/tour_facilities.html', {'tours': tours})
+        tour_facilities = TourFacility.objects.all()
+        return render(request, 'adminka/tours/tour_facilities.html', {'tours': tour_facilities})
+
+
+class AdminToursFacilitiesCreateView(View):
+    def get(self, request):
+        return render(request, 'adminka/tours/tour_facilities_create.html')
+
+
+class AdminToursFacilitiesUpdateView(View):
+    def get(self, request, id):
+        t_facility = TourFacility.objects.get(id=id)
+        return render(request, 'adminka/tours/tour_expenses.html', {'tour': t_facility})
+
+
+class AdminToursFacilitiesDeleteView(View):
+    def get(self, request, id):
+        t = TourFacility.objects.get(id=id)
+        t.delete()
+        return HttpResponseRedirect(reverse('tour-facilities'))
