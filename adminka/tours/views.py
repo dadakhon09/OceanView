@@ -277,6 +277,31 @@ class AdminToursFacilitiesView(View):
         tour_facilities = TourFacility.objects.all()
         return render(request, 'adminka/tours/tour_facilities.html', {'tours': tour_facilities})
 
+    def post(self, request):
+        post = self.request.POST
+
+        title_en = post.get('title_en')
+        title_ar = post.get('title_ar')
+        title_fa = post.get('title_fa')
+        title_hi = post.get('title_hi')
+        title_ru = post.get('title_ru')
+        title_zh = post.get('title_zh')
+
+        title = {
+            'title_en': title_en,
+            'title_ar': title_ar,
+            'title_fa': title_fa,
+            'title_hi': title_hi,
+            'title_ru': title_ru,
+            'title_zh': title_zh,
+        }
+
+        image = post.get('image')
+
+        TourFacility.objects.create(title=title, image=image)
+
+        return HttpResponseRedirect(reverse('tour-facilities'))
+
 
 class AdminToursFacilitiesCreateView(View):
     def get(self, request):
