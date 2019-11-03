@@ -31,12 +31,10 @@ class SightCategory(models.Model):
         db_table = 'categories'
 
     def __str__(self):
-        for key in self.name.values():
-            first = key
-            return first
+        return self.name['name_en']
 
 
-class Facility(models.Model):
+class TourFacility(models.Model):
     # name = models.CharField(max_length=255)
     name = jsonfield.JSONField()
     image = models.ImageField(upload_to='facilities', null=True, blank=True)
@@ -46,12 +44,10 @@ class Facility(models.Model):
         db_table = 'facilities'
 
     def __str__(self):
-        for key in self.name.values():
-            first = key
-            return first
+        return self.name['name_en']
 
 
-class Expense(models.Model):
+class TourExpense(models.Model):
     # name = models.CharField(max_length=255)
     name = jsonfield.JSONField()
     image = models.ImageField(upload_to='expenses', null=True, blank=True)
@@ -61,9 +57,47 @@ class Expense(models.Model):
         db_table = 'expenses'
 
     def __str__(self):
-        for key in self.name.values():
-            first = key
-            return first
+        return self.name['name_en']
+
+
+class TourImage(models.Model):
+    image = models.ImageField(upload_to='tours', null=True, blank=True)
+    tour = models.ForeignKey('Tour', on_delete=models.CASCADE)
+
+
+class Tour(models.Model):
+    # title = models.CharField(max_length=255)
+    title = jsonfield.JSONField()
+    # description = models.TextField(null=True, blank=True)
+    description = jsonfield.JSONField()
+    route = jsonfield.JSONField()  # ASK
+    duration = models.PositiveIntegerField(null=True, blank=True)
+    num_people = models.PositiveIntegerField(blank=True, null=True)
+    guide = models.BooleanField(null=True, blank=True)
+    price = models.PositiveIntegerField(null=True, blank=True)
+    # plan = models.TextField(null=True, blank=True)
+    plan = jsonfield.JSONField()
+
+    class Meta:
+        db_table = 'tours'
+
+    def __str__(self):
+        return self.title['title_en']
+
+
+class Sight(models.Model):
+    # title = models.CharField(max_length=255)
+    title = jsonfield.JSONField()
+    # description = models.TextField(null=True, blank=True)
+    description = jsonfield.JSONField()
+    image = models.ImageField(upload_to='sights', null=True, blank=True)
+    category = models.ForeignKey(SightCategory, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'sights'
+
+    def __str__(self):
+        return self.title['title_en']
 
 
 class VillaImage(models.Model):
@@ -85,46 +119,6 @@ class VillaPhoneNumber(models.Model):
         return str(self.phone)
 
 
-class Tour(models.Model):
-    # title = models.CharField(max_length=255)
-    title = jsonfield.JSONField()
-    # description = models.TextField(null=True, blank=True)
-    description = jsonfield.JSONField()
-    image = models.ImageField(upload_to='tours', null=True, blank=True)
-    route = jsonfield.JSONField()                                          # ASK
-    duration = models.PositiveIntegerField(null=True, blank=True)
-    num_people = models.PositiveIntegerField(blank=True, null=True)
-    guide = models.BooleanField(null=True, blank=True)
-    price = models.PositiveIntegerField(null=True, blank=True)
-    # plan = models.TextField(null=True, blank=True)
-    plan = jsonfield.JSONField()
-
-    class Meta:
-        db_table = 'tours'
-
-    def __str__(self):
-        for key in self.title.values():
-            first = key
-            return first
-
-
-class Sight(models.Model):
-    # title = models.CharField(max_length=255)
-    title = jsonfield.JSONField()
-    # description = models.TextField(null=True, blank=True)
-    description = jsonfield.JSONField()
-    image = models.ImageField(upload_to='sights', null=True, blank=True)
-    category = models.ForeignKey(SightCategory, on_delete=models.CASCADE)
-
-    class Meta:
-        db_table = 'sights'
-
-    def __str__(self):
-        for key in self.title.values():
-            first = key
-            return first
-
-
 class VillaServiceCategory(models.Model):
     # name = models.CharField(max_length=255)
     name = jsonfield.JSONField()
@@ -133,9 +127,7 @@ class VillaServiceCategory(models.Model):
         db_table = 'villa_service_categories'
 
     def __str__(self):
-        for key in self.name.values():
-            first = key
-            return first
+        return self.name['name_en']
 
 
 class VillaService(models.Model):
@@ -148,9 +140,7 @@ class VillaService(models.Model):
         db_table = 'villa_services'
 
     def __str__(self):
-        for key in self.name.values():
-            first = key
-            return first
+        return self.name['name_en']
 
 
 class Villa(models.Model):
@@ -170,9 +160,7 @@ class Villa(models.Model):
         db_table = 'villas'
 
     def __str__(self):
-        for key in self.title.values():
-            first = key
-            return first
+        return self.title['title_en']
 
 
 class News(models.Model):
@@ -187,6 +175,18 @@ class News(models.Model):
         db_table = 'news'
 
     def __str__(self):
-        for key in self.title.values():
-            first = key
-            return first
+        return self.title['title_en']
+
+
+class Car(models.Model):
+    name = jsonfield.JSONField()
+    description = jsonfield.JSONField()
+    image = models.ImageField(upload_to='cars', null=Tour, blank=True)
+    price = models.PositiveIntegerField(null=True, blank=True)
+    duration = models.PositiveIntegerField(null=True, blank=True)
+
+    class Meta:
+        db_table = 'cars'
+
+    def __str__(self):
+        return self.name['name_en']

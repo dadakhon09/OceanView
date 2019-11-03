@@ -8,4 +8,4 @@ class AdminSightsView(View):
     def get(self, request):
         sights = Sight.objects.all()
 
-        return render(request, 'adminka/sights.html', {'sights': sights})
+        return render(request, 'adminka/sights/sights.html', {'sights': sights})

@@ -4,19 +4,19 @@ from django.urls import reverse
 from django.views import View
 from django.views.generic import UpdateView
 
-from app.models import Tour
+from app.models import Tour, TourExpense, TourFacility
 
 
 class AdminToursView(View):
     def get(self, request):
         tours = Tour.objects.all()
 
-        return render(request, 'adminka/tours.html', {'tours': tours})
+        return render(request, 'adminka/tours/tours.html', {'tours': tours})
 
 
 class ToursCreateView(View):
     def get(self, request):
-        return render(request, 'adminka/tours_create.html', {})
+        return render(request, 'adminka/tours/tours_create.html', {})
 
     def post(self, request):
 
@@ -111,12 +111,19 @@ class ToursCreateView(View):
 
 
 class ToursUpdateView(View):
+    # model = Tour
+    # template_name = 'adminka/tours_update.html'
+    # fields = ['title', 'plan', 'description', 'route', 'image', 'duration', 'num_people', 'guide', 'price']
+
     def get(self, request, id):
         tour = Tour.objects.get(id=self.kwargs['id'])
-        return render(request, 'adminka/tours_update.html', {'tour': tour})
+        if not tour.image:
+            tour.image = None
+            tour.save()
+        return render(request, 'adminka/tours/tours_update.html', {'tour': tour})
 
     def post(self, request, id):
-        # tour = Tour.objects.get(id=self.kwargs['id'])
+        tour = Tour.objects.get(id=self.kwargs['id'])
 
         post = self.request.POST
 
@@ -202,14 +209,35 @@ class ToursUpdateView(View):
             'route_zh': route_zh,
         }
 
-        tour = Tour(title=title, description=description, plan=plan, route=route, image=image, duration=duration,
-                    num_people=num_people, guide=guide, price=price)
+        tour.title = title
+        tour.description = description
+        tour.plan = plan
+        tour.route = route
+        tour.image = image
+        tour.duration = duration
+        tour.num_people = num_people
+        tour.guide = guide
+        tour.price = price
+
         tour.save()
+
         return HttpResponseRedirect(reverse('adminka-tours'))
 
 
 class ToursDeleteView(View):
     def get(self, request, id):
-        tour = Tour.objects.get(id=self.kwargs['id'])
+        tour = Tour.objects.get(id=id)
         tour.delete()
         return HttpResponseRedirect(reverse('adminka-tours'))
+
+
+class AdminToursExpensesView(View):
+    def get(self, request):
+        tours = TourExpense.objects.all()
+        return render(request, 'adminka/tours/tour_expenses.html', {'tours': tours})
+
+
+class AdminToursFacilitiesView(View):
+    def get(self, request):
+        tours = TourFacility.objects.all()
+        return render(request, 'adminka/tours/tour_facilities.html', {'tours': tours})

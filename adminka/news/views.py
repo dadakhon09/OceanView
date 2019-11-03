@@ -8,4 +8,4 @@ class AdminNewsView(View):
     def get(self, request):
         news = News.objects.all()
 
-        return render(request, 'adminka/news.html', {'news': news})
+        return render(request, 'adminka/news/news.html', {'news': news})

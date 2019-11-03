@@ -8,4 +8,4 @@ class AdminVillasView(View):
     def get(self, request):
         villas = Villa.objects.all()
 
-        return render(request, 'adminka/villas.html', {'villas': villas})
+        return render(request, 'adminka/villas/villas.html', {'villas': villas})

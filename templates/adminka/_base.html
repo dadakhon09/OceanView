@@ -90,30 +90,12 @@
                             <i class="flag-icon flag-icon-{% if LANGUAGE_CODE == 'en' %}us{% elif LANGUAGE_CODE == 'ar' %}sa{% elif LANGUAGE_CODE == 'ru' %}ru{% elif LANGUAGE_CODE == 'fa' %}ir{% elif LANGUAGE_CODE == 'zh-cn' %}cn{% elif LANGUAGE_CODE == 'hi' %}in{% endif %}"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right animated bounceInDown">
-                            <a class="dropdown-item {% if LANGUAGE_CODE == 'ar' %}selected{% endif %}"
-                               href="{% if LANGUAGE_CODE == 'zh-cn' %}/ar
-                                   {{ request.get_full_path|slice:'6:' }}{% else %}/ar{{ request.get_full_path|slice:'3:' }} {% endif %}"><i
-                                    class="flag-icon flag-icon-sa"></i> {% trans 'Arabic' %}</a>
                             <a class="dropdown-item {% if LANGUAGE_CODE == 'en' %}selected{% endif %}"
-                               href="{% if LANGUAGE_CODE == 'zh-cn' %}/en
-                                   {{ request.get_full_path|slice:'6:' }}{% else %}/en{{ request.get_full_path|slice:'3:' }} {% endif %}"><i
+                               href="{% if LANGUAGE_CODE == 'en' %}#{% else %}/en{{ request.get_full_path|slice:'3:' }}{% endif %}"><i
                                     class="flag-icon flag-icon-us"></i> {% trans 'English' %}</a>
                             <a class="dropdown-item {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}"
-                               href="{% if LANGUAGE_CODE == 'zh-cn' %}/ru
-                                   {{ request.get_full_path|slice:'6:' }}{% else %}/ru{{ request.get_full_path|slice:'3:' }} {% endif %}"><i
+                               href="{% if LANGUAGE_CODE == 'ru' %}#{% else %}/ru{{ request.get_full_path|slice:'3:' }}{% endif %}"><i
                                     class="flag-icon flag-icon-ru"></i> {% trans 'Russian' %}</a>
-                            <a class="dropdown-item {% if LANGUAGE_CODE == 'zh-cn' %}selected{% endif %}"
-                               href="{% if LANGUAGE_CODE == 'zh-cn' %}/zh-cn
-                                   {{ request.get_full_path|slice:'6:' }}{% else %}/zh-cn{{ request.get_full_path|slice:'3:' }} {% endif %}"><i
-                                    class="flag-icon flag-icon-cn"></i> {% trans 'Chinese' %}</a>
-                            <a class="dropdown-item {% if LANGUAGE_CODE == 'fa' %}selected{% endif %}"
-                               href="{% if LANGUAGE_CODE == 'zh-cn' %}/fa
-                                   {{ request.get_full_path|slice:'6:' }}{% else %}/fa{{ request.get_full_path|slice:'3:' }} {% endif %}"><i
-                                    class="flag-icon flag-icon-ir"></i> {% trans 'Persian' %}</a>
-                            <a class="dropdown-item {% if LANGUAGE_CODE == 'hi' %}selected{% endif %}"
-                               href="{% if LANGUAGE_CODE == 'zh-cn' %}/hi
-                                   {{ request.get_full_path|slice:'6:' }}{% else %}/hi{{ request.get_full_path|slice:'3:' }} {% endif %}"><i
-                                    class="flag-icon flag-icon-in"></i> {% trans 'Indian' %}</a>
                         </div>
                     </li>
                     <!-- ============================================================== -->
@@ -133,7 +115,6 @@
                                         </div>
                                         <div class="u-text">
                                             <h4>{{ request.user.username }}</h4>
-                                            <!--<p class="text-muted">varun@gmail.com</p>-->
                                         </div>
                                     </div>
                                 </li>
@@ -195,7 +176,14 @@
                         <a href="{% url 'adminka-news' %}"><i class="mdi mdi-newspaper"></i> <span
                                 class="hide-menu">{% trans 'News' %}</span></a>
                     </li>
-
+                    <li>
+                        <a href="{% url 'tour-expenses' %}"><i class="mdi mdi-expense"></i> <span
+                                class="hide-menu">{% trans 'Tour Expenses' %}</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'tour-facilities' %}"><i class="mdi mdi-facility"></i> <span
+                                class="hide-menu">{% trans 'Tour Facilities' %}</span></a>
+                    </li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

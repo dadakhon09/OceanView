@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-02 11:21+0500\n"
+"POT-Creation-Date: 2019-11-03 09:52+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,63 +18,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/adminka/_base.html:93
-msgid "Arabic"
-msgstr ""
-
-#: templates/adminka/_base.html:94
+#: templates/adminka/_base.html:95 templates/adminka/tours_create.html:27
+#: templates/adminka/tours_update.html:27
 msgid "English"
 msgstr ""
 
-#: templates/adminka/_base.html:95
+#: templates/adminka/_base.html:98 templates/adminka/tours_create.html:39
+#: templates/adminka/tours_update.html:39
 msgid "Russian"
 msgstr ""
 
-#: templates/adminka/_base.html:96
-msgid "Chinese"
-msgstr ""
-
-#: templates/adminka/_base.html:97
-msgid "Persian"
-msgstr ""
-
-#: templates/adminka/_base.html:98
-msgid "Indian"
-msgstr ""
-
-#: templates/adminka/_base.html:126
+#: templates/adminka/_base.html:127
 msgid "Logout"
 msgstr ""
 
-#: templates/adminka/_base.html:149 templates/adminka/login.html:6
+#: templates/adminka/_base.html:150 templates/adminka/login.html:6
 msgid "Admin"
 msgstr ""
 
-#: templates/adminka/_base.html:151
+#: templates/adminka/_base.html:152
 msgid "My profile"
 msgstr ""
 
-#: templates/adminka/_base.html:152
+#: templates/adminka/_base.html:153
 msgid "logout"
 msgstr ""
 
-#: templates/adminka/_base.html:159
+#: templates/adminka/_base.html:160 templates/adminka/tours.html:19
 msgid "Tours"
 msgstr ""
 
-#: templates/adminka/_base.html:163
+#: templates/adminka/_base.html:165
 msgid "Sights"
 msgstr ""
 
-#: templates/adminka/_base.html:167
+#: templates/adminka/_base.html:169
 msgid "Villas"
 msgstr ""
 
-#: templates/adminka/_base.html:171
+#: templates/adminka/_base.html:173
 msgid "Cars"
 msgstr ""
 
-#: templates/adminka/_base.html:175
+#: templates/adminka/_base.html:177
 msgid "News"
 msgstr ""
 
@@ -102,12 +88,128 @@ msgstr ""
 msgid "Passwords do not match"
 msgstr ""
 
-#: templates/adminka/profile.html:77
+#: templates/adminka/profile.html:77 templates/adminka/tours_create.html:436
+#: templates/adminka/tours_update.html:451
 msgid "Save"
 msgstr ""
 
-#: templates/adminka/profile.html:79
+#: templates/adminka/profile.html:79 templates/adminka/tours_create.html:440
+#: templates/adminka/tours_update.html:455
 msgid "Cancel"
+msgstr ""
+
+#: templates/adminka/tours.html:22
+msgid "Add"
+msgstr ""
+
+#: templates/adminka/tours.html:30 templates/adminka/tours_create.html:420
+#: templates/adminka/tours_update.html:427
+msgid "Guide"
+msgstr ""
+
+#: templates/adminka/tours.html:31 templates/adminka/tours_create.html:51
+#: templates/adminka/tours_create.html:106
+#: templates/adminka/tours_create.html:159
+#: templates/adminka/tours_create.html:212
+#: templates/adminka/tours_create.html:265
+#: templates/adminka/tours_create.html:318
+#: templates/adminka/tours_update.html:51
+#: templates/adminka/tours_update.html:108
+#: templates/adminka/tours_update.html:162
+#: templates/adminka/tours_update.html:216
+#: templates/adminka/tours_update.html:270
+#: templates/adminka/tours_update.html:324
+msgid "Title"
+msgstr ""
+
+#: templates/adminka/tours.html:56
+msgid "Edit"
+msgstr ""
+
+#: templates/adminka/tours_create.html:30
+#: templates/adminka/tours_update.html:30
+msgid "Arabic"
+msgstr ""
+
+#: templates/adminka/tours_create.html:33
+#: templates/adminka/tours_update.html:33
+msgid "Persian"
+msgstr ""
+
+#: templates/adminka/tours_create.html:36
+#: templates/adminka/tours_update.html:36
+msgid "Indian"
+msgstr ""
+
+#: templates/adminka/tours_create.html:42
+#: templates/adminka/tours_update.html:42
+msgid "Chinese"
+msgstr ""
+
+#: templates/adminka/tours_create.html:64
+#: templates/adminka/tours_create.html:119
+#: templates/adminka/tours_create.html:172
+#: templates/adminka/tours_create.html:225
+#: templates/adminka/tours_create.html:278
+#: templates/adminka/tours_create.html:330
+#: templates/adminka/tours_update.html:65
+#: templates/adminka/tours_update.html:121
+#: templates/adminka/tours_update.html:175
+#: templates/adminka/tours_update.html:229
+#: templates/adminka/tours_update.html:283
+#: templates/adminka/tours_update.html:336
+msgid "Plan"
+msgstr ""
+
+#: templates/adminka/tours_create.html:77
+#: templates/adminka/tours_create.html:131
+#: templates/adminka/tours_create.html:184
+#: templates/adminka/tours_create.html:237
+#: templates/adminka/tours_create.html:290
+#: templates/adminka/tours_create.html:343
+#: templates/adminka/tours_update.html:78
+#: templates/adminka/tours_update.html:133
+#: templates/adminka/tours_update.html:187
+#: templates/adminka/tours_update.html:241
+#: templates/adminka/tours_update.html:295
+#: templates/adminka/tours_update.html:349
+msgid "Description"
+msgstr ""
+
+#: templates/adminka/tours_create.html:90
+#: templates/adminka/tours_create.html:145
+#: templates/adminka/tours_create.html:198
+#: templates/adminka/tours_create.html:251
+#: templates/adminka/tours_create.html:304
+#: templates/adminka/tours_create.html:357
+#: templates/adminka/tours_update.html:92
+#: templates/adminka/tours_update.html:148
+#: templates/adminka/tours_update.html:202
+#: templates/adminka/tours_update.html:256
+#: templates/adminka/tours_update.html:310
+#: templates/adminka/tours_update.html:364
+msgid "Route"
+msgstr ""
+
+#: templates/adminka/tours_create.html:372
+#: templates/adminka/tours_update.html:379
+msgid "Images"
+msgstr ""
+
+#: templates/adminka/tours_create.html:385
+#: templates/adminka/tours_update.html:392
+#: venv/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1592
+msgid "Duration"
+msgstr ""
+
+#: templates/adminka/tours_create.html:397
+#: templates/adminka/tours_update.html:404
+msgid "Number of people"
+msgstr ""
+
+#: templates/adminka/tours_create.html:408
+#: templates/adminka/tours_update.html:415
+msgid "Price"
 msgstr ""
 
 #: templates/index.html:6
@@ -398,10 +500,6 @@ msgstr ""
 msgid ""
 "'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
 "uuuuuu] format."
-msgstr ""
-
-#: venv/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1592
-msgid "Duration"
 msgstr ""
 
 #: venv/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1642

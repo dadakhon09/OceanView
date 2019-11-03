@@ -46,7 +46,11 @@
                                         {% endif %}
 
                                         <td>
-                                            <span>{{ tour.title.title_en }}</span>
+                                            <a href="{% url 'tours-update' tour.id %}">
+                                                <div>
+                                                    <span>{{ tour.title.title_en }}</span>
+                                                </div>
+                                            </a>
                                         </td>
                                         <td><a href="{% url 'tours-update' tour.id %}" class="label label-info"><i
                                                 class="fas fa-edit"></i>{% trans 'Edit' %}</a></td>
