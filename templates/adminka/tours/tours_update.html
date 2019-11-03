@@ -435,7 +435,47 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3 text-right">
+                                            <label class="control-label">{% trans 'Facilities' %}</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="row">
+                                                {% for f in t_facilities %}
+                                                    <div class="col-6">
+                                                        <label for="t_facility{{ f.id }}">{{ f.title.title_en }}</label>
 
+                                                        <input type="checkbox" class=""
+                                                               id="t_facility{{ f.id }}"
+                                                               name="t_facilities"
+                                                               value="{{ f.id }}">
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3 text-right">
+                                            <label class="control-label">{% trans 'Expenses' %}</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="row">
+                                                {% for e in t_expenses %}
+                                                    <div class="col-6">
+                                                        <label for="t_expense{{ e.id }}">{{ e.title.title_en }}</label>
+                                                        <input type="checkbox" class=""
+                                                               id="t_expense{{ e.id }}"
+                                                               name="t_expenses"
+                                                               value="{{ e.id }}">
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3 text-right">

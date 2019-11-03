@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views import View
 from django.views.generic import UpdateView
 
-from app.models import Tour, TourExpense, TourFacility
+from app.models import Tour, TourExpense, TourFacility, TourImage
 
 
 class AdminToursView(View):
@@ -68,11 +68,16 @@ class ToursCreateView(View):
         price = post.get('price')
 
         t_facilities = post.getlist('t_facilities')
-
+        print(t_facilities)
         t_expenses = post.getlist('t_expenses')
-
+        print(t_expenses)
         if not price:
             price = None
+
+        images = post.getlist('image')
+
+        for i in images:
+            TourImage.objects.create()
 
         title = {
             'title_en': title_en,
@@ -111,15 +116,15 @@ class ToursCreateView(View):
         }
 
         tour = Tour(title=title, description=description, plan=plan, route=route,
-                                   duration=duration, num_people=num_people, guide=guide, price=price)
+                    duration=duration, num_people=num_people, guide=guide, price=price)
         tour.save()
 
         for f in t_facilities:
             obj = TourFacility.objects.get(id=f)
             obj.tours.add(tour)
 
-        for f in t_expenses:
-            obj = TourExpense.objects.get(id=f)
+        for t in t_expenses:
+            obj = TourExpense.objects.get(id=t)
             obj.tours.add(tour)
 
         return HttpResponseRedirect(reverse('adminka-tours'))
@@ -128,7 +133,11 @@ class ToursCreateView(View):
 class ToursUpdateView(View):
     def get(self, request, id):
         tour = Tour.objects.get(id=self.kwargs['id'])
-        return render(request, 'adminka/tours/tours_update.html', {'tour': tour})
+        t_expenses = TourExpense.objects.all()
+        t_facilities = TourFacility.objects.all()
+
+        return render(request, 'adminka/tours/tours_update.html',
+                      {'tour': tour, 't_expenses': t_expenses, 't_facilities': t_facilities})
 
     def post(self, request, id):
         tour = Tour.objects.get(id=self.kwargs['id'])
@@ -214,6 +223,11 @@ class ToursUpdateView(View):
             'route_ru': route_ru,
             'route_zh': route_zh,
         }
+
+        image = post.get('image')
+        print(image)
+
+        # images = TourImage.objects.filter(tour=tour)
 
         tour.title = title
         tour.description = description
