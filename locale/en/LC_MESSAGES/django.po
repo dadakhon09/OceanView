@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-03 09:52+0500\n"
+"POT-Creation-Date: 2019-11-03 15:45+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,50 +18,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/adminka/_base.html:95 templates/adminka/tours_create.html:27
-#: templates/adminka/tours_update.html:27
+#: templates/adminka/_base.html:96
+#: templates/adminka/tours/tour_expenses_create.html:29
+#: templates/adminka/tours/tour_expenses_update.html:29
+#: templates/adminka/tours/tour_facilities_create.html:27
+#: templates/adminka/tours/tour_facilities_update.html:27
+#: templates/adminka/tours/tours_create.html:27
+#: templates/adminka/tours/tours_update.html:27
 msgid "English"
 msgstr ""
 
-#: templates/adminka/_base.html:98 templates/adminka/tours_create.html:39
-#: templates/adminka/tours_update.html:39
+#: templates/adminka/_base.html:99
+#: templates/adminka/tours/tour_expenses_create.html:41
+#: templates/adminka/tours/tour_expenses_update.html:41
+#: templates/adminka/tours/tour_facilities_create.html:39
+#: templates/adminka/tours/tour_facilities_update.html:39
+#: templates/adminka/tours/tours_create.html:39
+#: templates/adminka/tours/tours_update.html:39
 msgid "Russian"
 msgstr ""
 
-#: templates/adminka/_base.html:127
+#: templates/adminka/_base.html:128
 msgid "Logout"
 msgstr ""
 
-#: templates/adminka/_base.html:150 templates/adminka/login.html:6
+#: templates/adminka/_base.html:151 templates/adminka/login.html:6
 msgid "Admin"
 msgstr ""
 
-#: templates/adminka/_base.html:152
+#: templates/adminka/_base.html:153
 msgid "My profile"
 msgstr ""
 
-#: templates/adminka/_base.html:153
+#: templates/adminka/_base.html:154
 msgid "logout"
 msgstr ""
 
-#: templates/adminka/_base.html:160 templates/adminka/tours.html:19
+#: templates/adminka/_base.html:161 templates/adminka/tours/tours.html:19
 msgid "Tours"
 msgstr ""
 
-#: templates/adminka/_base.html:165
+#: templates/adminka/_base.html:166
 msgid "Sights"
 msgstr ""
 
-#: templates/adminka/_base.html:169
+#: templates/adminka/_base.html:170
 msgid "Villas"
 msgstr ""
 
-#: templates/adminka/_base.html:173
+#: templates/adminka/_base.html:174
 msgid "Cars"
 msgstr ""
 
-#: templates/adminka/_base.html:177
+#: templates/adminka/_base.html:178
 msgid "News"
+msgstr ""
+
+#: templates/adminka/_base.html:182
+#: templates/adminka/tours/tour_expenses.html:19
+msgid "Tour Expenses"
+msgstr ""
+
+#: templates/adminka/_base.html:186
+#: templates/adminka/tours/tour_facilities.html:19
+msgid "Tour Facilities"
 msgstr ""
 
 #: templates/adminka/profile.html:27
@@ -88,127 +108,201 @@ msgstr ""
 msgid "Passwords do not match"
 msgstr ""
 
-#: templates/adminka/profile.html:77 templates/adminka/tours_create.html:436
-#: templates/adminka/tours_update.html:451
+#: templates/adminka/profile.html:77
+#: templates/adminka/tours/tour_expenses_create.html:153
+#: templates/adminka/tours/tour_expenses_update.html:153
+#: templates/adminka/tours/tour_facilities_create.html:151
+#: templates/adminka/tours/tour_facilities_update.html:151
+#: templates/adminka/tours/tours_create.html:436
+#: templates/adminka/tours/tours_update.html:466
 msgid "Save"
 msgstr ""
 
-#: templates/adminka/profile.html:79 templates/adminka/tours_create.html:440
-#: templates/adminka/tours_update.html:455
+#: templates/adminka/profile.html:79
+#: templates/adminka/tours/tour_expenses_create.html:156
+#: templates/adminka/tours/tour_expenses_update.html:156
+#: templates/adminka/tours/tour_facilities_create.html:155
+#: templates/adminka/tours/tour_facilities_update.html:155
+#: templates/adminka/tours/tours_create.html:440
+#: templates/adminka/tours/tours_update.html:470
 msgid "Cancel"
 msgstr ""
 
-#: templates/adminka/tours.html:22
+#: templates/adminka/tours/tour_expenses.html:22
+#: templates/adminka/tours/tour_facilities.html:22
+#: templates/adminka/tours/tours.html:22
 msgid "Add"
 msgstr ""
 
-#: templates/adminka/tours.html:30 templates/adminka/tours_create.html:420
-#: templates/adminka/tours_update.html:427
-msgid "Guide"
-msgstr ""
-
-#: templates/adminka/tours.html:31 templates/adminka/tours_create.html:51
-#: templates/adminka/tours_create.html:106
-#: templates/adminka/tours_create.html:159
-#: templates/adminka/tours_create.html:212
-#: templates/adminka/tours_create.html:265
-#: templates/adminka/tours_create.html:318
-#: templates/adminka/tours_update.html:51
-#: templates/adminka/tours_update.html:108
-#: templates/adminka/tours_update.html:162
-#: templates/adminka/tours_update.html:216
-#: templates/adminka/tours_update.html:270
-#: templates/adminka/tours_update.html:324
+#: templates/adminka/tours/tour_expenses.html:30
+#: templates/adminka/tours/tour_expenses_create.html:53
+#: templates/adminka/tours/tour_expenses_create.html:69
+#: templates/adminka/tours/tour_expenses_create.html:83
+#: templates/adminka/tours/tour_expenses_create.html:97
+#: templates/adminka/tours/tour_expenses_create.html:111
+#: templates/adminka/tours/tour_expenses_create.html:125
+#: templates/adminka/tours/tour_expenses_update.html:53
+#: templates/adminka/tours/tour_expenses_update.html:69
+#: templates/adminka/tours/tour_expenses_update.html:83
+#: templates/adminka/tours/tour_expenses_update.html:97
+#: templates/adminka/tours/tour_expenses_update.html:111
+#: templates/adminka/tours/tour_expenses_update.html:125
+#: templates/adminka/tours/tour_facilities.html:30
+#: templates/adminka/tours/tour_facilities_create.html:51
+#: templates/adminka/tours/tour_facilities_create.html:67
+#: templates/adminka/tours/tour_facilities_create.html:81
+#: templates/adminka/tours/tour_facilities_create.html:95
+#: templates/adminka/tours/tour_facilities_create.html:109
+#: templates/adminka/tours/tour_facilities_create.html:123
+#: templates/adminka/tours/tour_facilities_update.html:51
+#: templates/adminka/tours/tour_facilities_update.html:67
+#: templates/adminka/tours/tour_facilities_update.html:81
+#: templates/adminka/tours/tour_facilities_update.html:95
+#: templates/adminka/tours/tour_facilities_update.html:109
+#: templates/adminka/tours/tour_facilities_update.html:123
+#: templates/adminka/tours/tours.html:31
+#: templates/adminka/tours/tours_create.html:51
+#: templates/adminka/tours/tours_create.html:106
+#: templates/adminka/tours/tours_create.html:159
+#: templates/adminka/tours/tours_create.html:212
+#: templates/adminka/tours/tours_create.html:265
+#: templates/adminka/tours/tours_create.html:318
+#: templates/adminka/tours/tours_update.html:51
+#: templates/adminka/tours/tours_update.html:108
+#: templates/adminka/tours/tours_update.html:162
+#: templates/adminka/tours/tours_update.html:216
+#: templates/adminka/tours/tours_update.html:270
+#: templates/adminka/tours/tours_update.html:324
 msgid "Title"
 msgstr ""
 
-#: templates/adminka/tours.html:56
+#: templates/adminka/tours/tour_expenses.html:48
+#: templates/adminka/tours/tour_facilities.html:48
+#: templates/adminka/tours/tours.html:57
 msgid "Edit"
 msgstr ""
 
-#: templates/adminka/tours_create.html:30
-#: templates/adminka/tours_update.html:30
+#: templates/adminka/tours/tour_expenses_create.html:32
+#: templates/adminka/tours/tour_expenses_update.html:32
+#: templates/adminka/tours/tour_facilities_create.html:30
+#: templates/adminka/tours/tour_facilities_update.html:30
+#: templates/adminka/tours/tours_create.html:30
+#: templates/adminka/tours/tours_update.html:30
 msgid "Arabic"
 msgstr ""
 
-#: templates/adminka/tours_create.html:33
-#: templates/adminka/tours_update.html:33
+#: templates/adminka/tours/tour_expenses_create.html:35
+#: templates/adminka/tours/tour_expenses_update.html:35
+#: templates/adminka/tours/tour_facilities_create.html:33
+#: templates/adminka/tours/tour_facilities_update.html:33
+#: templates/adminka/tours/tours_create.html:33
+#: templates/adminka/tours/tours_update.html:33
 msgid "Persian"
 msgstr ""
 
-#: templates/adminka/tours_create.html:36
-#: templates/adminka/tours_update.html:36
+#: templates/adminka/tours/tour_expenses_create.html:38
+#: templates/adminka/tours/tour_expenses_update.html:38
+#: templates/adminka/tours/tour_facilities_create.html:36
+#: templates/adminka/tours/tour_facilities_update.html:36
+#: templates/adminka/tours/tours_create.html:36
+#: templates/adminka/tours/tours_update.html:36
 msgid "Indian"
 msgstr ""
 
-#: templates/adminka/tours_create.html:42
-#: templates/adminka/tours_update.html:42
+#: templates/adminka/tours/tour_expenses_create.html:44
+#: templates/adminka/tours/tour_expenses_update.html:44
+#: templates/adminka/tours/tour_facilities_create.html:42
+#: templates/adminka/tours/tour_facilities_update.html:42
+#: templates/adminka/tours/tours_create.html:42
+#: templates/adminka/tours/tours_update.html:42
 msgid "Chinese"
 msgstr ""
 
-#: templates/adminka/tours_create.html:64
-#: templates/adminka/tours_create.html:119
-#: templates/adminka/tours_create.html:172
-#: templates/adminka/tours_create.html:225
-#: templates/adminka/tours_create.html:278
-#: templates/adminka/tours_create.html:330
-#: templates/adminka/tours_update.html:65
-#: templates/adminka/tours_update.html:121
-#: templates/adminka/tours_update.html:175
-#: templates/adminka/tours_update.html:229
-#: templates/adminka/tours_update.html:283
-#: templates/adminka/tours_update.html:336
-msgid "Plan"
-msgstr ""
-
-#: templates/adminka/tours_create.html:77
-#: templates/adminka/tours_create.html:131
-#: templates/adminka/tours_create.html:184
-#: templates/adminka/tours_create.html:237
-#: templates/adminka/tours_create.html:290
-#: templates/adminka/tours_create.html:343
-#: templates/adminka/tours_update.html:78
-#: templates/adminka/tours_update.html:133
-#: templates/adminka/tours_update.html:187
-#: templates/adminka/tours_update.html:241
-#: templates/adminka/tours_update.html:295
-#: templates/adminka/tours_update.html:349
-msgid "Description"
-msgstr ""
-
-#: templates/adminka/tours_create.html:90
-#: templates/adminka/tours_create.html:145
-#: templates/adminka/tours_create.html:198
-#: templates/adminka/tours_create.html:251
-#: templates/adminka/tours_create.html:304
-#: templates/adminka/tours_create.html:357
-#: templates/adminka/tours_update.html:92
-#: templates/adminka/tours_update.html:148
-#: templates/adminka/tours_update.html:202
-#: templates/adminka/tours_update.html:256
-#: templates/adminka/tours_update.html:310
-#: templates/adminka/tours_update.html:364
-msgid "Route"
-msgstr ""
-
-#: templates/adminka/tours_create.html:372
-#: templates/adminka/tours_update.html:379
+#: templates/adminka/tours/tour_expenses_create.html:139
+#: templates/adminka/tours/tour_expenses_update.html:139
+#: templates/adminka/tours/tour_facilities_create.html:137
+#: templates/adminka/tours/tour_facilities_update.html:137
+#: templates/adminka/tours/tours_create.html:372
+#: templates/adminka/tours/tours_update.html:379
 msgid "Images"
 msgstr ""
 
-#: templates/adminka/tours_create.html:385
-#: templates/adminka/tours_update.html:392
+#: templates/adminka/tours/tour_expenses_create.html:174
+#: templates/adminka/tours/tour_expenses_update.html:174
+#: templates/adminka/tours/tour_facilities_create.html:174
+#: templates/adminka/tours/tour_facilities_update.html:174
+#: templates/adminka/tours/tours_create.html:459
+msgid "Are you sure you want to cancel?"
+msgstr ""
+
+#: templates/adminka/tours/tours.html:30
+#: templates/adminka/tours/tours_create.html:420
+#: templates/adminka/tours/tours_update.html:442
+msgid "Guide"
+msgstr ""
+
+#: templates/adminka/tours/tours.html:80
+msgid "Are you sure you want to delete?"
+msgstr ""
+
+#: templates/adminka/tours/tours_create.html:64
+#: templates/adminka/tours/tours_create.html:119
+#: templates/adminka/tours/tours_create.html:172
+#: templates/adminka/tours/tours_create.html:225
+#: templates/adminka/tours/tours_create.html:278
+#: templates/adminka/tours/tours_create.html:330
+#: templates/adminka/tours/tours_update.html:65
+#: templates/adminka/tours/tours_update.html:121
+#: templates/adminka/tours/tours_update.html:175
+#: templates/adminka/tours/tours_update.html:229
+#: templates/adminka/tours/tours_update.html:283
+#: templates/adminka/tours/tours_update.html:336
+msgid "Plan"
+msgstr ""
+
+#: templates/adminka/tours/tours_create.html:77
+#: templates/adminka/tours/tours_create.html:131
+#: templates/adminka/tours/tours_create.html:184
+#: templates/adminka/tours/tours_create.html:237
+#: templates/adminka/tours/tours_create.html:290
+#: templates/adminka/tours/tours_create.html:343
+#: templates/adminka/tours/tours_update.html:78
+#: templates/adminka/tours/tours_update.html:133
+#: templates/adminka/tours/tours_update.html:187
+#: templates/adminka/tours/tours_update.html:241
+#: templates/adminka/tours/tours_update.html:295
+#: templates/adminka/tours/tours_update.html:349
+msgid "Description"
+msgstr ""
+
+#: templates/adminka/tours/tours_create.html:90
+#: templates/adminka/tours/tours_create.html:145
+#: templates/adminka/tours/tours_create.html:198
+#: templates/adminka/tours/tours_create.html:251
+#: templates/adminka/tours/tours_create.html:304
+#: templates/adminka/tours/tours_create.html:357
+#: templates/adminka/tours/tours_update.html:92
+#: templates/adminka/tours/tours_update.html:148
+#: templates/adminka/tours/tours_update.html:202
+#: templates/adminka/tours/tours_update.html:256
+#: templates/adminka/tours/tours_update.html:310
+#: templates/adminka/tours/tours_update.html:364
+msgid "Route"
+msgstr ""
+
+#: templates/adminka/tours/tours_create.html:385
+#: templates/adminka/tours/tours_update.html:392
 #: venv/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1592
 msgid "Duration"
 msgstr ""
 
-#: templates/adminka/tours_create.html:397
-#: templates/adminka/tours_update.html:404
+#: templates/adminka/tours/tours_create.html:397
+#: templates/adminka/tours/tours_update.html:409
 msgid "Number of people"
 msgstr ""
 
-#: templates/adminka/tours_create.html:408
-#: templates/adminka/tours_update.html:415
+#: templates/adminka/tours/tours_create.html:408
+#: templates/adminka/tours/tours_update.html:425
 msgid "Price"
 msgstr ""
 

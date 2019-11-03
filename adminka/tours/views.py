@@ -16,7 +16,11 @@ class AdminToursView(View):
 
 class ToursCreateView(View):
     def get(self, request):
-        return render(request, 'adminka/tours/tours_create.html', {})
+        t_expenses = TourExpense.objects.all()
+        t_facilities = TourFacility.objects.all()
+
+        return render(request, 'adminka/tours/tours_create.html',
+                      {'t_expenses': t_expenses, 't_facilities': t_facilities})
 
     def post(self, request):
 
@@ -63,6 +67,10 @@ class ToursCreateView(View):
 
         price = post.get('price')
 
+        t_facilities = post.getlist('t_facilities')
+
+        t_expenses = post.getlist('t_expenses')
+
         if not price:
             price = None
 
@@ -102,17 +110,22 @@ class ToursCreateView(View):
             'route_zh': route_zh,
         }
 
-        tour = Tour.objects.create(title=title, description=description, plan=plan, route=route,
+        tour = Tour(title=title, description=description, plan=plan, route=route,
                                    duration=duration, num_people=num_people, guide=guide, price=price)
+        tour.save()
+
+        for f in t_facilities:
+            obj = TourFacility.objects.get(id=f)
+            obj.tours.add(tour)
+
+        for f in t_expenses:
+            obj = TourExpense.objects.get(id=f)
+            obj.tours.add(tour)
 
         return HttpResponseRedirect(reverse('adminka-tours'))
 
 
 class ToursUpdateView(View):
-    # model = Tour
-    # template_name = 'adminka/tours_update.html'
-    # fields = ['title', 'plan', 'description', 'route', 'image', 'duration', 'num_people', 'guide', 'price']
-
     def get(self, request, id):
         tour = Tour.objects.get(id=self.kwargs['id'])
         return render(request, 'adminka/tours/tours_update.html', {'tour': tour})
@@ -225,8 +238,8 @@ class ToursDeleteView(View):
 
 class AdminToursExpensesView(View):
     def get(self, request):
-        tour_expenses = TourExpense.objects.all()
-        return render(request, 'adminka/tours/tour_expenses.html', {'tours': tour_expenses})
+        t_expenses = TourExpense.objects.all()
+        return render(request, 'adminka/tours/tour_expenses.html', {'t_expenses': t_expenses})
 
 
 class AdminToursExpensesCreateView(View):
@@ -262,7 +275,35 @@ class AdminToursExpensesCreateView(View):
 class AdminToursExpensesUpdateView(View):
     def get(self, request, id):
         t_expense = TourExpense.objects.get(id=id)
-        return render(request, 'adminka/tours/tour_expenses.html', {'tour': t_expense})
+        return render(request, 'adminka/tours/tour_expenses_update.html', {'t_expense': t_expense})
+
+    def post(self, request, id):
+        t_expense = TourExpense.objects.get(id=id)
+        post = self.request.POST
+
+        title_en = post.get('title_en')
+        title_ar = post.get('title_ar')
+        title_fa = post.get('title_fa')
+        title_hi = post.get('title_hi')
+        title_ru = post.get('title_ru')
+        title_zh = post.get('title_zh')
+
+        title = {
+            'title_en': title_en,
+            'title_ar': title_ar,
+            'title_fa': title_fa,
+            'title_hi': title_hi,
+            'title_ru': title_ru,
+            'title_zh': title_zh,
+        }
+
+        image = post.get('image')
+
+        t_expense.title = title
+        t_expense.image = image
+
+        t_expense.save()
+        return HttpResponseRedirect(reverse('tour-expenses'))
 
 
 class AdminToursExpensesDeleteView(View):
@@ -274,8 +315,13 @@ class AdminToursExpensesDeleteView(View):
 
 class AdminToursFacilitiesView(View):
     def get(self, request):
-        tour_facilities = TourFacility.objects.all()
-        return render(request, 'adminka/tours/tour_facilities.html', {'tours': tour_facilities})
+        t_facilities = TourFacility.objects.all()
+        return render(request, 'adminka/tours/tour_facilities.html', {'t_facilities': t_facilities})
+
+
+class AdminToursFacilitiesCreateView(View):
+    def get(self, request):
+        return render(request, 'adminka/tours/tour_facilities_create.html')
 
     def post(self, request):
         post = self.request.POST
@@ -303,15 +349,38 @@ class AdminToursFacilitiesView(View):
         return HttpResponseRedirect(reverse('tour-facilities'))
 
 
-class AdminToursFacilitiesCreateView(View):
-    def get(self, request):
-        return render(request, 'adminka/tours/tour_facilities_create.html')
-
-
 class AdminToursFacilitiesUpdateView(View):
     def get(self, request, id):
         t_facility = TourFacility.objects.get(id=id)
-        return render(request, 'adminka/tours/tour_expenses.html', {'tour': t_facility})
+        return render(request, 'adminka/tours/tour_facilities_update.html', {'t_facility': t_facility})
+
+    def post(self, request, id):
+        t_facility = TourFacility.objects.get(id=id)
+        post = self.request.POST
+
+        title_en = post.get('title_en')
+        title_ar = post.get('title_ar')
+        title_fa = post.get('title_fa')
+        title_hi = post.get('title_hi')
+        title_ru = post.get('title_ru')
+        title_zh = post.get('title_zh')
+
+        title = {
+            'title_en': title_en,
+            'title_ar': title_ar,
+            'title_fa': title_fa,
+            'title_hi': title_hi,
+            'title_ru': title_ru,
+            'title_zh': title_zh,
+        }
+
+        image = post.get('image')
+
+        t_facility.title = title
+        t_facility.image = image
+
+        t_facility.save()
+        return HttpResponseRedirect(reverse('tour-facilities'))
 
 
 class AdminToursFacilitiesDeleteView(View):

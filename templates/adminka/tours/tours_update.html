@@ -380,7 +380,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <div class="file-loading">
-                                                <input id="kv-explorer" type="file" name="image">
+                                                <input id="kv-explorer" type="file" name="image" multiple>
                                             </div>
                                         </div>
                                     </div>
@@ -541,8 +541,8 @@
             $("#kv-explorer").fileinput({
                 'theme': 'explorer-fas',
                 language: 'en',
-                fileType: "any",
-                showUpload: false,
+                allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
+                showUpload: true,
                 showCaption: true,
                 overwriteInitial: false,
                 initialPreviewAsData: true,

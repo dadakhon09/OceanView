@@ -19,7 +19,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{% url 'tour-expenses-create' %}" method="post">{% csrf_token %}
+                        <form action="{% url 'tour-facilities-create' %}" method="post">{% csrf_token %}
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#1tab"
                                                         role="tab"><span class="hidden-sm-up"><i
@@ -219,31 +219,12 @@
 
     <script>
         $(document).ready(function () {
-            $("#kv-logo").fileinput({
-                'theme': 'explorer-fas',
-                language: 'en',
-                fileType: "any",
-                showUpload: false,
-                showCaption: true,
-                overwriteInitial: false,
-                initialPreviewAsData: true,
-                initialPreview: [
-                    /*"http://lorempixel.com/1920/1080/nature/1",
-                    "http://lorempixel.com/1920/1080/nature/2",
-                    "http://lorempixel.com/1920/1080/nature/3"*/
-                ],
-                initialPreviewConfig: [
-                    /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                    {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
-                ]
-            });
 
             $("#kv-explorer").fileinput({
                 'theme': 'explorer-fas',
                 language: 'en',
-                fileType: "any",
-                showUpload: false,
+                allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
+                showUpload: true,
                 showCaption: true,
                 overwriteInitial: false,
                 initialPreviewAsData: true,

@@ -34,21 +34,21 @@
                                 </tr>
                                 <tbody>
 
-                                {% for tour in tours %}
+                                {% for t_facility in t_facilities %}
                                     <tr>
-                                        <td>{{ tour.id }}</td>
+                                        <td>{{ t_facility.id }}</td>
                                         <td>
-                                            <a href="{% url 'tour-facilities-update' tour.id %}">
+                                            <a href="{% url 'tour-facilities-update' t_facility.id %}">
                                                 <div>
-                                                    <span>{{ tour.title.title_en }}</span>
+                                                    <span>{{ t_facility.title.title_en }}</span>
                                                 </div>
                                             </a>
                                         </td>
-                                        <td><a href="{% url 'tour-facilities-update' tour.id %}" class="label label-info"><i
+                                        <td><a href="{% url 'tour-facilities-update' t_facility.id %}" class="label label-info"><i
                                                 class="fas fa-edit"></i>{% trans 'Edit' %}</a></td>
 
 
-                                        <td><a href="{% url 'tour-facilities-delete' tour.id %}" class="label label-danger"><i
+                                        <td><a href="{% url 'tour-facilities-delete' t_facility.id %}" class="label label-danger"><i
                                                 class="fas fa-trash"></i></a></td>
                                     </tr>
                                 {% endfor %}

@@ -373,7 +373,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <div class="file-loading">
-                                                <input id="kv-explorer" type="file" name="image">
+                                                <input id="kv-explorer" type="file" name="image" multiple>
                                             </div>
                                         </div>
                                     </div>
@@ -413,7 +413,47 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3 text-right">
+                                            <label class="control-label">{% trans 'Facilities' %}</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="row">
+                                                {% for f in t_facilities %}
+                                                    <div class="col-6">
+                                                        <label for="t_facility{{ f.id }}">{{ f.title.title_en }}</label>
 
+                                                        <input type="checkbox" class=""
+                                                               id="t_facility{{ f.id }}"
+                                                               name="t_facilities"
+                                                               value="{{ f.id }}">
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3 text-right">
+                                            <label class="control-label">{% trans 'Expenses' %}</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="row">
+                                                {% for e in t_expenses %}
+                                                    <div class="col-6">
+                                                        <label for="t_expense{{ e.id }}">{{ e.title.title_en }}</label>
+                                                        <input type="checkbox" class=""
+                                                               id="t_expense{{ e.id }}"
+                                                               name="t_expenses"
+                                                               value="{{ e.id }}">
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3 text-right">
@@ -431,7 +471,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
-                                            <button id="" type="submit"
+                                            <button id="saveBtn" type="submit"
                                                     class="btn btn-success"><i
                                                     class="fa fa-check"></i>{% trans 'Save' %}
                                             </button>
@@ -474,6 +514,30 @@
 
 {% block js %}
     <script src="{% static 'adminka/assets/tinymce/js/tinymce/tinymce.min.js' %}"></script>
+{#    <script>#}
+{#    $("#saveBtn").on("click", function (e) {#}
+{#        e.preventDefault();#}
+{#        var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();#}
+{#        var arr_e = [];#}
+{#        var arr_f = [];#}
+{##}
+{#        $("input:checkbox[name=t_expenses]:checked").each(function () {#}
+{#            arr_e.push($(this).val());#}
+{#        });#}
+{#        $("input:checkbox[name=t_facilities]:checked").each(function () {#}
+{#            arr_f.push($(this).val());#}
+{#        });#}
+{#        $.post({#}
+{#            method: "post",#}
+{#            url:"{% url 'tours-create'%}",#}
+{#            data: { "t_expenses": arr_e, "t_facilities": arr_f },#}
+{#            headers: {#}
+{#                "X-CSRFToken": csrftoken,#}
+{#            }#}
+{#        });#}
+{#    });#}
+{##}
+{#    </script>#}
     <script>
         tinymce.init({
             selector: "textarea.moxiecut",
@@ -504,31 +568,11 @@
 
     <script>
         $(document).ready(function () {
-            $("#kv-logo").fileinput({
-                'theme': 'explorer-fas',
-                language: 'en',
-                fileType: "any",
-                showUpload: false,
-                showCaption: true,
-                overwriteInitial: false,
-                initialPreviewAsData: true,
-                initialPreview: [
-                    /*"http://lorempixel.com/1920/1080/nature/1",
-                    "http://lorempixel.com/1920/1080/nature/2",
-                    "http://lorempixel.com/1920/1080/nature/3"*/
-                ],
-                initialPreviewConfig: [
-                    /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                    {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
-                ]
-            });
-
             $("#kv-explorer").fileinput({
                 'theme': 'explorer-fas',
                 language: 'en',
-                fileType: "any",
-                showUpload: false,
+                allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
+                showUpload: true,
                 showCaption: true,
                 overwriteInitial: false,
                 initialPreviewAsData: true,
@@ -543,48 +587,6 @@
                     {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
                 ]
             });
-        });
-    </script>
-    <script>
-        $(document).ready(function () {
-            $("#createButton").click(function (e) {
-                e.preventDefault();
-
-                var contentRu = tinymce.get('content_ru').getContent();
-                var contentUz = tinymce.get('content_uz').getContent();
-
-                let formData = new FormData();
-
-                formData.append('title_ru', $('input[name="title_ru"]').val());
-                formData.append('content_ru', contentRu);
-                formData.append('title_uz', $('input[name="title_uz"]').val());
-                formData.append('content_uz', contentUz);
-
-                formData.append('status', $('select[name="status"]').val());
-
-                for (let i = 0; i < $('#kv-logo')[0].files.length; i++) {
-                    formData.append('logo', $('#kv-logo')[0].files[i]);
-                }
-                for (let i = 0; i < $('#kv-explorer')[0].files.length; i++) {
-                    formData.append('image', $('#kv-explorer')[0].files[i]);
-                }
-                var url = $("#createButton").data("url");
-                $.ajax({
-                    headers: {"X-CSRFToken": "{{csrf_token}}"},
-                    url: url,
-                    processData: false,
-                    contentType: false,
-                    method: 'POST',
-                    data: formData,
-                    success: function (data) {
-                        window.location.href = '/first-aid/list';
-                    },
-                    error: function (data) {
-                        alert('Error');
-                    }
-                });
-
-            })
         });
     </script>
 {% endblock %}

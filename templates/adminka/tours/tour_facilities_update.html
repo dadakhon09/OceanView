@@ -53,7 +53,7 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <input type="text" id="title_en" class="form-control"
-                                                           name="title_en" placeholder="" autocomplete="off">
+                                                           name="title_en" placeholder="" autocomplete="off" value="{{ t_facility.title.title_en }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -68,7 +68,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" id="title_ar" class="form-control" name="title_ar"
-                                                       placeholder="" autocomplete="off">
+                                                       placeholder="" autocomplete="off" value="{{ t_facility.title.title_ar }}">
                                             </div>
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" id="title_fa" class="form-control" name="title_fa"
-                                                       placeholder="" autocomplete="off">
+                                                       placeholder="" autocomplete="off" value="{{ t_facility.title.title_fa }}">
                                             </div>
                                         </div>
                                     </div>
@@ -96,7 +96,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" id="title_hi" class="form-control" name="title_hi"
-                                                       placeholder="" autocomplete="off">
+                                                       placeholder="" autocomplete="off" value="{{ t_facility.title.title_hi }}">
                                             </div>
                                         </div>
                                     </div>
@@ -110,7 +110,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" id="title_ru" class="form-control" name="title_ru"
-                                                       placeholder="" autocomplete="off">
+                                                       placeholder="" autocomplete="off" value="{{ t_facility.title.title_ru }}">
                                             </div>
                                         </div>
                                     </div>
@@ -124,7 +124,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" id="title_zh" class="form-control" name="title_zh"
-                                                       placeholder="" autocomplete="off">
+                                                       placeholder="" autocomplete="off" value="{{ t_facility.title.title_zh }}">
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <div class="file-loading">
-                                                <input id="kv-explorer" type="file" name="image">
+                                                <input id="kv-explorer" type="file" name="image" multiple>
                                             </div>
                                         </div>
                                     </div>
@@ -219,31 +219,12 @@
 
     <script>
         $(document).ready(function () {
-            $("#kv-logo").fileinput({
-                'theme': 'explorer-fas',
-                language: 'en',
-                fileType: "any",
-                showUpload: false,
-                showCaption: true,
-                overwriteInitial: false,
-                initialPreviewAsData: true,
-                initialPreview: [
-                    /*"http://lorempixel.com/1920/1080/nature/1",
-                    "http://lorempixel.com/1920/1080/nature/2",
-                    "http://lorempixel.com/1920/1080/nature/3"*/
-                ],
-                initialPreviewConfig: [
-                    /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                    {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
-                ]
-            });
 
             $("#kv-explorer").fileinput({
                 'theme': 'explorer-fas',
                 language: 'en',
-                fileType: "any",
-                showUpload: false,
+                allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
+                showUpload: true,
                 showCaption: true,
                 overwriteInitial: false,
                 initialPreviewAsData: true,
