@@ -2,7 +2,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
-from django.views.generic import UpdateView
 
 from app.models import Tour, TourExpense, TourFacility, TourImage
 
@@ -76,7 +75,6 @@ class ToursCreateView(View):
 
         images = post.getlist('image')
 
-
         title = {
             'title_en': title_en,
             'title_ar': title_ar,
@@ -137,15 +135,15 @@ class ToursCreateView(View):
 
 class ToursUpdateView(View):
     def get(self, request, id):
-        tour = Tour.objects.get(id=self.kwargs['id'])
+        tour = Tour.objects.get(id=id)
         t_expenses = TourExpense.objects.all()
         t_facilities = TourFacility.objects.all()
-
+        t_images = TourImage.objects.filter(tour=tour)
         return render(request, 'adminka/tours/tours_update.html',
-                      {'tour': tour, 't_expenses': t_expenses, 't_facilities': t_facilities})
+                      {'tour': tour, 't_expenses': t_expenses, 't_facilities': t_facilities, 't_images': t_images})
 
     def post(self, request, id):
-        tour = Tour.objects.get(id=self.kwargs['id'])
+        tour = Tour.objects.get(id=id)
 
         post = self.request.POST
 
@@ -230,7 +228,6 @@ class ToursUpdateView(View):
         }
 
         image = post.get('image')
-        print(image)
 
         # images = TourImage.objects.filter(tour=tour)
 

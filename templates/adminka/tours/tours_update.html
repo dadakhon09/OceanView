@@ -517,7 +517,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>{% for i in t_images %}
+        {{ i.image.url }}
+    {% endfor %}
         <!-- ============================================================== -->
         <!-- End Page Content -->
         <!-- ============================================================== -->
@@ -558,27 +560,8 @@
 
     <script>
         $(document).ready(function () {
-            $("#kv-logo").fileinput({
-                'theme': 'explorer-fas',
-                language: 'en',
-                fileType: "any",
-                showUpload: false,
-                showCaption: true,
-                overwriteInitial: false,
-                initialPreviewAsData: true,
-                initialPreview: [
-                    /*"http://lorempixel.com/1920/1080/nature/1",
-                    "http://lorempixel.com/1920/1080/nature/2",
-                    "http://lorempixel.com/1920/1080/nature/3"*/
-                ],
-                initialPreviewConfig: [
-                    /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                    {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
-                ]
-            });
-
-            $("#kv-explorer").fileinput({
+            {% for i in t_images %}
+                $("#kv-explorer").fileinput({
                 'theme': 'explorer-fas',
                 language: 'en',
                 allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
@@ -587,18 +570,19 @@
                 overwriteInitial: false,
                 initialPreviewAsData: true,
                 initialPreview: [
-                    "{{tour.image.url}}"
-                    /*"http://lorempixel.com/1920/1080/nature/1",
+                    "{{i.image.url}}",
+                    "http://lorempixel.com/1920/1080/nature/1",
                     "http://lorempixel.com/1920/1080/nature/2",
-                    "http://lorempixel.com/1920/1080/nature/3"*/
+                    "http://lorempixel.com/1920/1080/nature/3"
                 ],
                 initialPreviewConfig: [
-                    {caption: "{{tour.image.name}}", size: {{tour.image.size}}, width: "120px", url: "{$url}", key: 1}
-                    /*{caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                    {caption: "{{i.image.name}}", size: {{i.image.size}}, width: "120px", url: "{$url}", key: 1},
+                    {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
                     {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}*/
+                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}
                 ]
             });
+            {% endfor %}
         });
     </script>
     <script>
