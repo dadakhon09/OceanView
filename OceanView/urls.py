@@ -28,23 +28,15 @@ handler404 = h404
 handler500 = h500
 
 
-def set_language(request):
-    language = request.POST.get('language', settings.LANGUAGE_CODE)
-    translation.activate(language)
-    request.session[translation.LANGUAGE_SESSION_KEY] = language
-    return redirect('adminka-index')
-
-
 urlpatterns = [
     # path('', include('app.urls')),
     path('admin/', admin.site.urls),
-    path('set_lang/<str:language>/', set_language, name='set_language'),
 ]
 
 urlpatterns += i18n_patterns(
     path('', include('app.urls')),
     path('admin/', include('adminka.urls')),
-
+    
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

@@ -16,7 +16,7 @@ class About(models.Model):
 
 
 class AboutImage(models.Model):
-    image = models.ImageField(upload_to='about')
+    image = models.ImageField(upload_to='about', null=True, blank=True)
     about = models.ForeignKey(About, on_delete=models.CASCADE)
 
     class Meta:
@@ -61,7 +61,7 @@ class TourExpense(models.Model):
 
 
 class TourImage(models.Model):
-    image = models.ImageField(upload_to='tours', null=True, blank=True)
+    image = models.ImageField(upload_to='media/tours/', null=True, blank=True)
     tour = models.ForeignKey('Tour', on_delete=models.CASCADE, related_name='images')
 
     class Meta:

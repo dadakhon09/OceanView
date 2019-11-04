@@ -67,13 +67,14 @@ class ToursCreateView(View):
         price = post.get('price')
 
         t_facilities = post.getlist('t_facilities')
-        print(t_facilities)
+        
         t_expenses = post.getlist('t_expenses')
-        print(t_expenses)
+        
         if not price:
             price = None
 
         images = post.getlist('image')
+        
 
         title = {
             'title_en': title_en,
@@ -125,10 +126,13 @@ class ToursCreateView(View):
             obj.tours.add(tour)
             obj.save()
 
-        for i in images:
-            ti = TourImage.objects.create(image=i, tour=tour)
-            tour.images.add(ti)
-            tour.save()
+
+        if images[0] is not '':
+            for i in images:
+                print(111111)
+                ti = TourImage.objects.create(image=i, tour=tour)
+                tour.images.add(ti)
+                tour.save()
 
         return HttpResponseRedirect(reverse('adminka-tours'))
 
@@ -138,7 +142,11 @@ class ToursUpdateView(View):
         tour = Tour.objects.get(id=id)
         t_expenses = TourExpense.objects.all()
         t_facilities = TourFacility.objects.all()
-        t_images = TourImage.objects.filter(tour=tour)
+        if TourImage.objects.filter(tour=tour).exists():
+            t_images = TourImage.objects.filter(tour=tour)
+        else:
+            t_images = []
+        print(t_images)
         return render(request, 'adminka/tours/tours_update.html',
                       {'tour': tour, 't_expenses': t_expenses, 't_facilities': t_facilities, 't_images': t_images})
 
