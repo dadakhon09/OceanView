@@ -6,7 +6,7 @@ from phone_field import PhoneField
 
 
 class About(models.Model):
-    text = models.TextField()
+    text = jsonfield.JSONField()
 
     class Meta:
         db_table = 'about'
@@ -21,17 +21,6 @@ class AboutImage(models.Model):
 
     class Meta:
         db_table = 'about-images'
-
-
-class SightCategory(models.Model):
-    # title = models.CharField(max_length=255, null=True, blank=True)
-    title = jsonfield.JSONField()
-
-    class Meta:
-        db_table = 'categories'
-
-    def __str__(self):
-        return self.title['title_en']
 
 
 class TourFacility(models.Model):
@@ -86,6 +75,17 @@ class Tour(models.Model):
 
     class Meta:
         db_table = 'tours'
+
+    def __str__(self):
+        return self.title['title_en']
+
+
+class SightCategory(models.Model):
+    # title = models.CharField(max_length=255, null=True, blank=True)
+    title = jsonfield.JSONField()
+
+    class Meta:
+        db_table = 'categories'
 
     def __str__(self):
         return self.title['title_en']

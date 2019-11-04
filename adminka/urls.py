@@ -3,7 +3,7 @@ from django.urls import path
 from adminka.car.views import AdminCarsView
 from adminka.news.views import AdminNewsView
 from adminka.others.views import AdminIndexView, AdminLoginView, ProfileView, AdminLogoutView, ProfileUpdateView
-from adminka.sights.views import AdminSightsView
+from adminka.sights.views import AdminSightsView, SightsCreateView, SightsUpdateView, SightsDeleteView, SightsCategoriesView, SightsCategoriesCreateView, SightsCategoriesUpdateView, SightsCategoriesDeleteView
 from adminka.tours.views import AdminToursView, ToursCreateView, ToursUpdateView, ToursDeleteView, \
     AdminToursExpensesView, AdminToursFacilitiesView, AdminToursExpensesUpdateView, AdminToursExpensesDeleteView, \
     AdminToursFacilitiesUpdateView, AdminToursFacilitiesDeleteView, AdminToursExpensesCreateView, \
@@ -18,6 +18,13 @@ urlpatterns = [
     path('news/', AdminNewsView.as_view(), name='adminka-news'),
 
     path('sights/', AdminSightsView.as_view(), name='adminka-sights'),
+    path('sights/create/', SightsCreateView.as_view(), name='sights-create'),
+    path('sights/update/<int:id>/', SightsUpdateView.as_view(), name='sights-update'),
+    path('sights/delete/<int:id>/', SightsDeleteView.as_view(), name='sights-delete'),
+    path('sights/categories/', SightsCategoriesView.as_view(), name='sight-categories'),
+    path('sights/categories/create/', SightsCategoriesCreateView.as_view(), name='sight-categories-create'),
+    path('sights/categories/update/<int:id>/', SightsCategoriesUpdateView.as_view(), name='sight-categories-update'),
+    path('sights/categories/delete/<int:id>/', SightsCategoriesDeleteView.as_view(), name='sight-categories-delete'),
 
     path('tours/', AdminToursView.as_view(), name='adminka-tours'),
     path('tours/create/', ToursCreateView.as_view(), name='tours-create'),
