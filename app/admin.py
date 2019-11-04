@@ -1,12 +1,12 @@
 from django.contrib import admin
 
-from app.models import SightCategory, TourFacility, TourExpense, VillaPhoneNumber, Tour, Sight, Villa, News, \
+from app.models import SightCategory, TourFacility, TourExpense, Tour, Sight, Villa, News, \
     VillaServiceCategory, VillaService, About, TourImage, VillaImage, AboutImage
 
 admin.site.register(SightCategory)
 admin.site.register(TourFacility)
 admin.site.register(TourExpense)
-admin.site.register(VillaPhoneNumber)
+# admin.site.register(VillaPhoneNumber)
 admin.site.register(Tour)
 admin.site.register(TourImage)
 admin.site.register(VillaServiceCategory)

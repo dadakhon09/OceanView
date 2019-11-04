@@ -107,7 +107,6 @@ class Sight(models.Model):
     title = jsonfield.JSONField()
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
-    image = models.ImageField(upload_to='sights', null=True, blank=True)
     category = models.ForeignKey(SightCategory, on_delete=models.CASCADE)
 
     class Meta:
@@ -128,15 +127,15 @@ class VillaImage(models.Model):
         return self.image.name
 
 
-class VillaPhoneNumber(models.Model):
-    phone = PhoneField(null=True, blank=True, help_text='Contact phone number')
-    villa = models.ForeignKey('Villa', on_delete=models.CASCADE)
+# class VillaPhoneNumber(models.Model):
+#     phone = PhoneField(null=True, blank=True, help_text='Contact phone number')
+#     villa = models.ForeignKey('Villa', on_delete=models.CASCADE)
 
-    class Meta:
-        db_table = 'villa_phone_numbers'
+#     class Meta:
+#         db_table = 'villa_phone_numbers'
 
-    def __str__(self):
-        return str(self.phone)
+#     def __str__(self):
+#         return str(self.phone)
 
 
 class VillaServiceCategory(models.Model):
@@ -169,6 +168,7 @@ class Villa(models.Model):
     address = models.CharField(max_length=255, null=True, blank=True)
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
+    phone = models.CharField(max_length=255, null=True, blank=True)
     bedroom = models.PositiveIntegerField(null=True, blank=True)
     square_meter = models.PositiveIntegerField(null=True, blank=True)
     status = models.CharField(max_length=255, null=True, blank=True)
@@ -189,7 +189,7 @@ class News(models.Model):
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
     image = models.ImageField(upload_to='news', blank=True, null=True)
-    created = models.DateField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = 'news'

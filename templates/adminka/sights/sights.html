@@ -37,7 +37,13 @@
                                 {% for sight in sights %}
                                     <tr>
                                         <td>{{ sight.id }}</td>
-                                        <td><a href="{% url 'sight-categories' %}">{{ sight.category }}</a></td>
+                                        <td>
+                                            <a href="{% url 'sight-categories-update' sight.category.id %}">
+                                                <div>
+                                                    <span>{{ sight.category }}</span>
+                                                </div>
+                                            </a>
+                                        </td>
                                         <td>
                                             <a href="{% url 'sights-update' sight.id %}">
                                                 <div>

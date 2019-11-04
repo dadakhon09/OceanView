@@ -1,7 +1,7 @@
 from django.urls import path
 
 from adminka.car.views import AdminCarsView
-from adminka.news.views import AdminNewsView
+from adminka.news.views import AdminNewsView, NewsCreateView, NewsUpdateView, NewsDeleteView
 from adminka.others.views import AdminIndexView, AdminLoginView, ProfileView, AdminLogoutView, ProfileUpdateView
 from adminka.sights.views import AdminSightsView, SightsCreateView, SightsUpdateView, SightsDeleteView, SightsCategoriesView, SightsCategoriesCreateView, SightsCategoriesUpdateView, SightsCategoriesDeleteView
 from adminka.tours.views import AdminToursView, ToursCreateView, ToursUpdateView, ToursDeleteView, \
@@ -16,6 +16,9 @@ urlpatterns = [
     path('cars/', AdminCarsView.as_view(), name='adminka-cars'),
 
     path('news/', AdminNewsView.as_view(), name='adminka-news'),
+    path('news/create/', NewsCreateView.as_view(), name='news-create'),
+    path('news/update/<int:id>/', NewsUpdateView.as_view(), name='news-update'),
+    path('news/delete/<int:id>/', NewsDeleteView.as_view(), name='news-delete'),
 
     path('sights/', AdminSightsView.as_view(), name='adminka-sights'),
     path('sights/create/', SightsCreateView.as_view(), name='sights-create'),
@@ -40,6 +43,9 @@ urlpatterns = [
     path('tours/facilities/delete/<int:id>/', AdminToursFacilitiesDeleteView.as_view(), name='tour-facilities-delete'),
 
     path('villas/', AdminVillasView.as_view(), name='adminka-villas'),
+    # path('villas/create/', VillasCreateView.as_view(), name='villas-create'),
+    # path('villas/update/<int:id>/', VillasUpdateView.as_view(), name='villas-update'),
+    # path('villas/delete/<int:id>/', VillasDeleteView.as_view(), name='villas-delete'),
 
     path('login/', AdminLoginView.as_view(), name='adminka-login'),
     path('profile/', ProfileView.as_view(), name='adminka-profile'),
