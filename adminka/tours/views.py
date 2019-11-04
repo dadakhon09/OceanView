@@ -146,7 +146,7 @@ class ToursUpdateView(View):
             t_images = TourImage.objects.filter(tour=tour)
         else:
             t_images = []
-        print(t_images)
+        
         return render(request, 'adminka/tours/tours_update.html',
                       {'tour': tour, 't_expenses': t_expenses, 't_facilities': t_facilities, 't_images': t_images})
 
@@ -235,9 +235,13 @@ class ToursUpdateView(View):
             'route_zh': route_zh,
         }
 
-        image = post.get('image')
-
+        images = post.getlist('image')
+        print(images)
         # images = TourImage.objects.filter(tour=tour)
+        if images:
+            for i in images:
+                ti, _ = TourImage.objects.get_or_create(image=i, tour=tour)
+                tour.images.add(ti)
 
         tour.title = title
         tour.description = description
@@ -247,7 +251,7 @@ class ToursUpdateView(View):
         tour.num_people = num_people
         tour.guide = guide
         tour.price = price
-
+            
         tour.save()
 
         return HttpResponseRedirect(reverse('adminka-tours'))
