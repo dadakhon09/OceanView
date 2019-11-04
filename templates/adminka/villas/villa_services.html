@@ -1,0 +1,96 @@
+{% extends 'adminka/_base.html' %}
+{% load static i18n %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-main__title">
+                            <h2>{% trans 'Villa Services' %}</h2>
+                        </div>
+                        <a href="{% url 'villa-services-create' %}" type="button"
+                           class="btn btn-info m-t-10 float-right">{% trans 'Add' %}</a>
+                        <!-- Add Contact Popup Model -->
+                        <div class="table-responsive">
+                            <table id="demo-foo-addrow" class="table table-bordered m-t-30 table-hover contact-list"
+                                   data-paging="true" data-paging-size="7">
+                                <thead>
+                                <tr>
+                                    <th width="1%">#</th>
+                                    <th width="1%">{% trans 'Category' %}</th>
+                                    <th width="100">{% trans 'Title' %}</th>
+                                    <th width="1%"></th>
+                                    <th width="1%"></th>
+                                    <th width="1%"></th>
+                                </tr>
+                                <tbody>
+                                {% for v_service in v_services %}
+
+                                    <tr>
+                                        <td>{{ v_service.id }}</td>
+										<td>
+                                            <a href="{% url 'villa-service-categories-update' v_service.category.id %}">
+                                                <div>
+                                                    <span>{{ v_service.category }}</span>
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'villa-services-update' v_service.id %}">
+                                                <div>
+                                                    <span>{{ v_service.title.title_en }}</span>
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td><a href="{% url 'villa-services-update' v_service.id %}" class="label label-info"><i
+                                                class="fas fa-edit"></i>{% trans 'Edit' %}</a></td>
+
+
+                                        <td><a href="{% url 'villa-services-delete' v_service.id %}" id="" class="label label-danger"><i
+                                                class="fas fa-trash"></i></a></td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <div id="myModal" class="modal-custom">
+
+            <!-- Modal content -->
+            <div class="modal-content-custom">
+                <span class="close">&times;</span>
+                <h2>{% trans 'Are you sure you want to delete?' %}</h2>
+                <a href="#">
+                    <button type="button" class="btn btn-success">
+                        Yes
+                    </button>
+                </a>
+                <button type="button" class="btn btn-danger No">
+                    No
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

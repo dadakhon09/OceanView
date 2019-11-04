@@ -165,7 +165,7 @@ class VillaService(models.Model):
 class Villa(models.Model):
     # title = models.CharField(max_length=255)
     title = jsonfield.JSONField()
-    address = models.CharField(max_length=255, null=True, blank=True)
+    address = jsonfield.JSONField()
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
     phone = models.CharField(max_length=255, null=True, blank=True)

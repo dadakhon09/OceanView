@@ -514,30 +514,7 @@
 
 {% block js %}
     <script src="{% static 'adminka/assets/tinymce/js/tinymce/tinymce.min.js' %}"></script>
-{#    <script>#}
-{#    $("#saveBtn").on("click", function (e) {#}
-        {#e.preventDefault();#}
-{#        var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();#}
-{#        var arr_e = [];#}
-{#        var arr_f = [];#}
-{##}
-{#        $("input:checkbox[name=t_expenses]:checked").each(function () {#}
-{#            arr_e.push($(this).val());#}
-{#        });#}
-{#        $("input:checkbox[name=t_facilities]:checked").each(function () {#}
-{#            arr_f.push($(this).val());#}
-{#        });#}
-{#        $.post({#}
-{#            method: "post",#}
-{#            url:"{% url 'tours-create'%}",#}
-{#            data: { "t_expenses": arr_e, "t_facilities": arr_f },#}
-{#            headers: {#}
-{#                "X-CSRFToken": csrftoken,#}
-{#            }#}
-{#        });#}
-{#    });#}
-{##}
-{#    </script>#}
+
     <script>
         tinymce.init({
             selector: "textarea.moxiecut",

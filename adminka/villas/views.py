@@ -9,7 +9,6 @@ from app.models import Villa, VillaService, VillaServiceCategory
 class AdminVillasView(View):
     def get(self, request):
         villas = Villa.objects.all()
-
         return render(request, 'adminka/villas/villas.html', {'villas': villas})
 
 
@@ -20,7 +19,8 @@ class VillasCreateView(View):
 
 class VillasUpdateView(View):
 	def get(self, request, id):
-		return render(request, 'adminka/villas/villas_update.html')
+		villa = Villa.objects.get(id=id)
+		return render(request, 'adminka/villas/villas_update.html', {'villa': villa})
 
 
 class VillasDeleteView(View):
@@ -44,7 +44,8 @@ class VillaServicesCreateView(View):
 
 class VillaServicesUpdateView(View):
 	def get(self, request, id):
-		return render(request, 'adminka/villas/villa_services_update.html')
+		v_service = VillaService.objects.get(id=id)
+		return render(request, 'adminka/villas/villa_services_update.html', {'v_service', v_service})
 
 
 class VillaServicesDeleteView(View):
@@ -68,7 +69,8 @@ class VillaServiceCategoriesCreateView(View):
 
 class VillaServiceCategoriesUpdateView(View):
 	def get(self, request, id):
-		return render(request, 'adminka/villas/villa_service_categories_update.html')
+		v_service_category = VillaServiceCategory.objects.get(id=id)
+		return render(request, 'adminka/villas/villa_service_categories_update.html', {'v_service_category': v_service_category})
 
 
 class VillaServiceCategoriesDeleteView(View):
