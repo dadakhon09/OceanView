@@ -33,23 +33,21 @@
                                     <th width="1%"></th>
                                 </tr>
                                 <tbody>
-                                {% for sight in sights %}
-
-
+                                {% for c in s_categories %}
                                     <tr>
-                                        <td>{{ sight.id }}</td>
+                                        <td>{{ c.id }}</td>
                                         <td>
-                                            <a href="{% url 'sight-categories-update' sight.id %}">
+                                            <a href="{% url 'sight-categories-update' c.id %}">
                                                 <div>
-                                                    <span>{{ sight.title.title_en }}</span>
+                                                    <span>{{ c.title.title_en }}</span>
                                                 </div>
                                             </a>
                                         </td>
-                                        <td><a href="{% url 'sight-categories-update' sight.id %}" class="label label-info"><i
+                                        <td><a href="{% url 'sight-categories-update' c.id %}" class="label label-info"><i
                                                 class="fas fa-edit"></i>{% trans 'Edit' %}</a></td>
 
 
-                                        <td><a href="{% url 'sight-categories-delete' sight.id %}" id="" class="label label-danger"><i class="fas fa-trash"></i></a></td>
+                                        <td><a href="{% url 'sight-categories-delete' c.id %}" id="" class="label label-danger"><i class="fas fa-trash"></i></a></td>
                                     </tr>
                                 {% endfor %}
 

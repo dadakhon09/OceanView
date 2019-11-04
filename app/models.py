@@ -50,7 +50,7 @@ class TourExpense(models.Model):
 
 
 class TourImage(models.Model):
-    image = models.ImageField(upload_to='media/tours/', null=True, blank=True)
+    image = models.ImageField(upload_to='tours', null=True, blank=True)
     tour = models.ForeignKey('Tour', on_delete=models.CASCADE, related_name='images')
 
     class Meta:
@@ -91,6 +91,17 @@ class SightCategory(models.Model):
         return self.title['title_en']
 
 
+class SightImage(models.Model):
+    image = models.ImageField(upload_to='sights', null=True, blank=True)
+    sight = models.ForeignKey('Sight', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'sight_images'
+
+    def __str__(self):
+        return self.image.name
+
+
 class Sight(models.Model):
     # title = models.CharField(max_length=255)
     title = jsonfield.JSONField()
@@ -112,6 +123,9 @@ class VillaImage(models.Model):
 
     class Meta:
         db_table = 'villa_images'
+
+    def __str__(self):
+        return self.image.name
 
 
 class VillaPhoneNumber(models.Model):
@@ -184,10 +198,20 @@ class News(models.Model):
         return self.title['title_en']
 
 
+class CarImage(models.Model):
+    image = models.ImageField(upload_to='cars', null=True, blank=True)
+    car = models.ForeignKey('Car', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'car_images'
+
+    def __str__(self):
+        return self.image.name
+
+
 class Car(models.Model):
     title = jsonfield.JSONField()
     description = jsonfield.JSONField()
-    image = models.ImageField(upload_to='cars', null=Tour, blank=True)
     price = models.PositiveIntegerField(null=True, blank=True)
     duration = models.PositiveIntegerField(null=True, blank=True)
 
