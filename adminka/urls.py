@@ -8,7 +8,7 @@ from adminka.tours.views import AdminToursView, ToursCreateView, ToursUpdateView
     AdminToursExpensesView, AdminToursFacilitiesView, AdminToursExpensesUpdateView, AdminToursExpensesDeleteView, \
     AdminToursFacilitiesUpdateView, AdminToursFacilitiesDeleteView, AdminToursExpensesCreateView, \
     AdminToursFacilitiesCreateView
-from adminka.villas.views import AdminVillasView
+from adminka.villas.views import AdminVillasView, VillasCreateView, VillasUpdateView, VillasDeleteView, VillaServicesView, VillaServicesCreateView, VillaServicesUpdateView, VillaServicesDeleteView, VillaServiceCategoriesView, VillaServiceCategoriesCreateView, VillaServiceCategoriesUpdateView, VillaServiceCategoriesDeleteView
 
 urlpatterns = [
     path('', AdminIndexView.as_view(), name='adminka-index'),
@@ -43,9 +43,17 @@ urlpatterns = [
     path('tours/facilities/delete/<int:id>/', AdminToursFacilitiesDeleteView.as_view(), name='tour-facilities-delete'),
 
     path('villas/', AdminVillasView.as_view(), name='adminka-villas'),
-    # path('villas/create/', VillasCreateView.as_view(), name='villas-create'),
-    # path('villas/update/<int:id>/', VillasUpdateView.as_view(), name='villas-update'),
-    # path('villas/delete/<int:id>/', VillasDeleteView.as_view(), name='villas-delete'),
+    path('villas/create/', VillasCreateView.as_view(), name='villas-create'),
+    path('villas/update/<int:id>/', VillasUpdateView.as_view(), name='villas-update'),
+    path('villas/delete/<int:id>/', VillasDeleteView.as_view(), name='villas-delete'),
+    path('villas/services/', VillaServicesView.as_view(), name='villa-services'),
+    path('villas/services/create/', VillaServicesCreateView.as_view(), name='villa-services-create'),
+    path('villas/services/update/<int:id>/', VillaServicesUpdateView.as_view(), name='villa-services-update'),
+    path('villas/services/delete/<int:id>/', VillaServicesDeleteView.as_view(), name='villa-services-delete'),
+    path('villas/services/categories/', VillaServiceCategoriesView.as_view(), name='villa-service-categories'),
+    path('villas/services/categories/create/', VillaServiceCategoriesCreateView.as_view(), name='villa-service-categories-create'),
+    path('villas/services/categories/update/<int:id>/', VillaServiceCategoriesUpdateView.as_view(), name='villa-service-categories-update'),
+    path('villas/services/categories/delete/<int:id>/', VillaServiceCategoriesDeleteView.as_view(), name='villa-service-categories-delete'),
 
     path('login/', AdminLoginView.as_view(), name='adminka-login'),
     path('profile/', ProfileView.as_view(), name='adminka-profile'),
