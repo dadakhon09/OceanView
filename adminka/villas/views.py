@@ -8,7 +8,7 @@ from app.models import Villa, VillaService, VillaServiceCategory
 
 class AdminVillasView(View):
     def get(self, request):
-        villas = Villa.objects.all()
+        villas = Villa.objects.all().order_by('-id')
         return render(request, 'adminka/villas/villas.html', {'villas': villas})
 
 
@@ -73,6 +73,8 @@ class VillasCreateView(View):
 
 		status = post.get('status')
 
+		v_services = post.getlist('v_services')
+
 		bedroom = post.get('bedroom')
 		if not bedroom:
 		    bedroom = None
@@ -95,6 +97,12 @@ class VillasCreateView(View):
 
 		villa = Villa.objects.create(title=title, address=address, description=description, phone=phone, status=status, bedroom=bedroom, square_meter=square_meter, d_airways=d_airways, d_railways=d_railways, d_center=d_center)
 
+		for s in v_services:
+		    obj = VillaService.objects.get(id=s)
+		    obj.villas.add(villa)
+		    obj.save()
+
+		villa.save()
 
 		return HttpResponseRedirect(reverse('adminka-villas'))		
 
@@ -163,6 +171,8 @@ class VillasUpdateView(View):
 
 		status = post.get('status')
 
+		v_services = post.getlist('v_services')
+
 		bedroom = post.get('bedroom')
 		if not bedroom:
 		    bedroom = None
@@ -193,6 +203,13 @@ class VillasUpdateView(View):
 		villa.d_center = d_center
 		villa.d_railways = d_railways
 		villa.d_airways = d_airways
+
+		villa.v_services.clear()
+		for s in v_services:
+		    obj = VillaService.objects.get(id=s)
+		    obj.villas.add(villa)
+		    obj.save()
+
 		villa.save()
 
 		return HttpResponseRedirect(reverse('adminka-villas'))	
@@ -207,7 +224,7 @@ class VillasDeleteView(View):
 
 class VillaServicesView(View):
     def get(self, request):
-        v_services = VillaService.objects.all()
+        v_services = VillaService.objects.all().order_by('-id')
 
         return render(request, 'adminka/villas/villa_services.html', {'v_services': v_services})
 
@@ -288,7 +305,7 @@ class VillaServicesDeleteView(View):
 
 class VillaServiceCategoriesView(View):
     def get(self, request):
-        v_service_categories = VillaServiceCategory.objects.all()
+        v_service_categories = VillaServiceCategory.objects.all().order_by('-id')
         return render(request, 'adminka/villas/villa_service_categories.html', {'v_service_categories': v_service_categories})
 
 

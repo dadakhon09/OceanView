@@ -153,7 +153,7 @@ class VillaService(models.Model):
     # title = models.CharField(max_length=255)
     title = jsonfield.JSONField()
     category = models.ForeignKey(VillaServiceCategory, on_delete=models.CASCADE)
-    villas = models.ManyToManyField('Villa', related_name='villas')
+    villas = models.ManyToManyField('Villa', related_name='v_services')
 
     class Meta:
         db_table = 'villa_services'

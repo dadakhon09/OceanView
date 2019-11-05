@@ -133,6 +133,8 @@ class ToursCreateView(View):
                 ti = TourImage.objects.create(image=i, tour=tour)
                 tour.images.add(ti)
                 tour.save()
+        
+        tour.save()
 
         return HttpResponseRedirect(reverse('adminka-tours'))
 
