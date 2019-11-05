@@ -86,7 +86,8 @@ class SightsUpdateView(View):
 	def get(self, request, id):
 		sight = Sight.objects.get(id=id)
 		s_categories = SightCategory.objects.exclude(id=sight.category.id)
-		return render(request, 'adminka/sights/sights_update.html', {'sight': sight, 's_categories': s_categories})
+		s_images = SightImage.objects.filter(sight=sight)
+		return render(request, 'adminka/sights/sights_update.html', {'sight': sight, 's_categories': s_categories, 's_images': s_images})
 
 	def post(self, request, id):
 		sight = Sight.objects.get(id=id)

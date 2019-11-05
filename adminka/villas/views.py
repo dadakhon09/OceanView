@@ -130,7 +130,8 @@ class VillasUpdateView(View):
 		villa = Villa.objects.get(id=id)
 		v_services = VillaService.objects.all()
 		v_service_categories = VillaServiceCategory.objects.all()
-		return render(request, 'adminka/villas/villas_update.html', {'villa': villa, 'v_services': v_services, 'v_service_categories': v_service_categories})
+		v_images = VillaImage.objects.filter(villa=villa)
+		return render(request, 'adminka/villas/villas_update.html', {'villa': villa, 'v_images': v_images, 'v_services': v_services, 'v_service_categories': v_service_categories})
 
 	def post(self, request, id):
 		villa = Villa.objects.get(id=id)

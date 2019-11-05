@@ -85,7 +85,8 @@ class CarsCreateView(View):
 class CarsUpdateView(View):
 	def get(self, request, id):
 		car = Car.objects.get(id=id)
-		return render(request, 'adminka/cars/cars_update.html', {'car': car})
+		c_images = CarImage.objects.filter(car=car)
+		return render(request, 'adminka/cars/cars_update.html', {'car': car, 'c_images': c_images})
 
 	def post(self, request, id):
 		car = Car.objects.get(id=id)

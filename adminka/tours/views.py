@@ -139,7 +139,6 @@ class ToursCreateView(View):
 
         if images[0] is not '':
             for i in images:
-                print(111111)
                 ti = TourImage.objects.create(image=i, tour=tour)
                 tour.images.add(ti)
                 tour.save()

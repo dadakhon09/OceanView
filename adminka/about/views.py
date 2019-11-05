@@ -9,7 +9,8 @@ from app.models import About, AboutImage
 class AdminAboutView(View):
 	def get(self, request):
 		about = About.objects.get(id=1)
-		return render(request, 'adminka/about/about.html', {'about': about}) 
+		a_images = AboutImage.objects.filter(about=about)
+		return render(request, 'adminka/about/about.html', {'about': about, 'a_images': a_images}) 
 
 	def post(self, request):
 		about = About.objects.get(id=1)
@@ -39,6 +40,6 @@ class AdminAboutView(View):
 
 		if images:
 			for i in images:
-				AboutImage.objects.create(image=i, about=about)
+				ai, _ = AboutImage.objects.get_or_create(image=i, about=about)
 
 		return HttpResponseRedirect(reverse('adminka-index'))
