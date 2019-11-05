@@ -14,13 +14,188 @@ class AdminVillasView(View):
 
 class VillasCreateView(View):
 	def get(self, request):
-		return render(request, 'adminka/villas/villas_create.html')
+		v_services = VillaService.objects.all()
+		v_service_categories = VillaServiceCategory.objects.all()
+		return render(request, 'adminka/villas/villas_create.html', {'v_service_categories': v_service_categories, 'v_services': v_services})
+
+	def post(self, request):
+		post = self.request.POST
+
+		title_en = post.get('title_en')
+		title_ar = post.get('title_ar')
+		title_fa = post.get('title_fa')
+		title_hi = post.get('title_hi')
+		title_ru = post.get('title_ru')
+		title_zh = post.get('title_zh')
+
+		title = {
+            'title_en': title_en,
+            'title_ar': title_ar,
+            'title_fa': title_fa,
+            'title_hi': title_hi,
+            'title_ru': title_ru,
+            'title_zh': title_zh,
+        }
+
+		address_en = post.get('address_en')
+		address_ar = post.get('address_ar')
+		address_fa = post.get('address_fa')
+		address_hi = post.get('address_hi')
+		address_ru = post.get('address_ru')
+		address_zh = post.get('address_zh')
+
+		address = {
+            'address_en': address_en,
+            'address_ar': address_ar,
+            'address_fa': address_fa,
+            'address_hi': address_hi,
+            'address_ru': address_ru,
+            'address_zh': address_zh,
+        }
+
+		description_en = post.get('description_en')
+		description_ar = post.get('description_ar')
+		description_fa = post.get('description_fa')
+		description_hi = post.get('description_hi')
+		description_ru = post.get('description_ru')
+		description_zh = post.get('description_zh')
+        
+		description = {
+            'description_en': description_en,
+            'description_ar': description_ar,
+            'description_fa': description_fa,
+            'description_hi': description_hi,
+            'description_ru': description_ru,
+            'description_zh': description_zh,
+        }
+
+		phone = post.get('phone')
+
+		status = post.get('status')
+
+		bedroom = post.get('bedroom')
+		if not bedroom:
+		    bedroom = None
+
+		square_meter = post.get('square_meter')
+		if not square_meter:
+		    square_meter = None
+
+		d_center = post.get('d_center')
+		if not d_center:
+		    d_center = None
+
+		d_railways = post.get('d_railways')
+		if not d_railways:
+		    d_railways = None
+
+		d_airways = post.get('d_airways')
+		if not d_airways:
+		    d_airways = None
+
+		villa = Villa.objects.create(title=title, address=address, description=description, phone=phone, status=status, bedroom=bedroom, square_meter=square_meter, d_airways=d_airways, d_railways=d_railways, d_center=d_center)
+
+
+		return HttpResponseRedirect(reverse('adminka-villas'))		
 
 
 class VillasUpdateView(View):
 	def get(self, request, id):
 		villa = Villa.objects.get(id=id)
-		return render(request, 'adminka/villas/villas_update.html', {'villa': villa})
+		v_services = VillaService.objects.all()
+		v_service_categories = VillaServiceCategory.objects.all()
+		return render(request, 'adminka/villas/villas_update.html', {'villa': villa, 'v_services': v_services, 'v_service_categories': v_service_categories})
+
+	def post(self, request, id):
+		villa = Villa.objects.get(id=id)
+
+		post = self.request.POST
+
+		title_en = post.get('title_en')
+		title_ar = post.get('title_ar')
+		title_fa = post.get('title_fa')
+		title_hi = post.get('title_hi')
+		title_ru = post.get('title_ru')
+		title_zh = post.get('title_zh')
+
+		title = {
+            'title_en': title_en,
+            'title_ar': title_ar,
+            'title_fa': title_fa,
+            'title_hi': title_hi,
+            'title_ru': title_ru,
+            'title_zh': title_zh,
+        }
+
+		address_en = post.get('address_en')
+		address_ar = post.get('address_ar')
+		address_fa = post.get('address_fa')
+		address_hi = post.get('address_hi')
+		address_ru = post.get('address_ru')
+		address_zh = post.get('address_zh')
+
+		address = {
+            'address_en': address_en,
+            'address_ar': address_ar,
+            'address_fa': address_fa,
+            'address_hi': address_hi,
+            'address_ru': address_ru,
+            'address_zh': address_zh,
+        }
+
+		description_en = post.get('description_en')
+		description_ar = post.get('description_ar')
+		description_fa = post.get('description_fa')
+		description_hi = post.get('description_hi')
+		description_ru = post.get('description_ru')
+		description_zh = post.get('description_zh')
+        
+		description = {
+            'description_en': description_en,
+            'description_ar': description_ar,
+            'description_fa': description_fa,
+            'description_hi': description_hi,
+            'description_ru': description_ru,
+            'description_zh': description_zh,
+        }
+
+		phone = post.get('phone')
+
+		status = post.get('status')
+
+		bedroom = post.get('bedroom')
+		if not bedroom:
+		    bedroom = None
+
+		square_meter = post.get('square_meter')
+		if not square_meter:
+		    square_meter = None
+
+		d_center = post.get('d_center')
+		if not d_center:
+		    d_center = None
+
+		d_railways = post.get('d_railways')
+		if not d_railways:
+		    d_railways = None
+
+		d_airways = post.get('d_airways')
+		if not d_airways:
+		    d_airways = None
+
+		villa.title = title
+		villa.address = address
+		villa.description = description
+		villa.phone = phone
+		villa.status = status
+		villa.bedroom = bedroom
+		villa.square_meter = square_meter
+		villa.d_center = d_center
+		villa.d_railways = d_railways
+		villa.d_airways = d_airways
+		villa.save()
+
+		return HttpResponseRedirect(reverse('adminka-villas'))	
 
 
 class VillasDeleteView(View):
@@ -39,13 +214,69 @@ class VillaServicesView(View):
 
 class VillaServicesCreateView(View):
 	def get(self, request):
-		return render(request, 'adminka/villas/villa_services_create.html')
+		v_service_categories = VillaServiceCategory.objects.all()
+		return render(request, 'adminka/villas/villa_services_create.html', {'v_service_categories': v_service_categories})
+
+	def post(self, request):
+		post = self.request.POST
+
+		title_en = post.get('title_en')
+		title_ar = post.get('title_ar')
+		title_fa = post.get('title_fa')
+		title_hi = post.get('title_hi')
+		title_ru = post.get('title_ru')
+		title_zh = post.get('title_zh')
+
+		title = {
+            'title_en': title_en,
+            'title_ar': title_ar,
+            'title_fa': title_fa,
+            'title_hi': title_hi,
+            'title_ru': title_ru,
+            'title_zh': title_zh,
+        }
+
+		c = post.get('category')
+		category = VillaServiceCategory(id=int(c))
+
+		v_service = VillaService.objects.create(title=title, category=category)
+		
+		return HttpResponseRedirect(reverse('villa-services'))
 
 
 class VillaServicesUpdateView(View):
 	def get(self, request, id):
 		v_service = VillaService.objects.get(id=id)
-		return render(request, 'adminka/villas/villa_services_update.html', {'v_service', v_service})
+		return render(request, 'adminka/villas/villa_services_update.html', {'v_service': v_service})
+
+	def post(self, request, id):
+		v_service = VillaService.objects.get(id=id)
+
+		post = self.request.POST
+
+		title_en = post.get('title_en')
+		title_ar = post.get('title_ar')
+		title_fa = post.get('title_fa')
+		title_hi = post.get('title_hi')
+		title_ru = post.get('title_ru')
+		title_zh = post.get('title_zh')
+
+		title = {
+            'title_en': title_en,
+            'title_ar': title_ar,
+            'title_fa': title_fa,
+            'title_hi': title_hi,
+            'title_ru': title_ru,
+            'title_zh': title_zh,
+        }
+
+		c = post.get('category')
+		category = VillaServiceCategory(id=int(c))
+
+		v_service.title = title
+		v_service.category = category
+		v_service.save()
+		return HttpResponseRedirect(reverse('villa-services'))
 
 
 class VillaServicesDeleteView(View):
@@ -58,7 +289,6 @@ class VillaServicesDeleteView(View):
 class VillaServiceCategoriesView(View):
     def get(self, request):
         v_service_categories = VillaServiceCategory.objects.all()
-
         return render(request, 'adminka/villas/villa_service_categories.html', {'v_service_categories': v_service_categories})
 
 
@@ -66,11 +296,60 @@ class VillaServiceCategoriesCreateView(View):
 	def get(self, request):
 		return render(request, 'adminka/villas/villa_service_categories_create.html')
 
+	def post(self, request):
+		post = self.request.POST
+
+		title_en = post.get('title_en')
+		title_ar = post.get('title_ar')
+		title_fa = post.get('title_fa')
+		title_hi = post.get('title_hi')
+		title_ru = post.get('title_ru')
+		title_zh = post.get('title_zh')
+
+		title = {
+            'title_en': title_en,
+            'title_ar': title_ar,
+            'title_fa': title_fa,
+            'title_hi': title_hi,
+            'title_ru': title_ru,
+            'title_zh': title_zh,
+        }
+
+		VillaServiceCategory.objects.create(title=title)
+
+		return HttpResponseRedirect(reverse('villa-service-categories'))
+
 
 class VillaServiceCategoriesUpdateView(View):
 	def get(self, request, id):
 		v_service_category = VillaServiceCategory.objects.get(id=id)
 		return render(request, 'adminka/villas/villa_service_categories_update.html', {'v_service_category': v_service_category})
+
+	def post(self, request, id):
+		v_service_category = VillaServiceCategory.objects.get(id=id)
+
+		post = self.request.POST
+
+		title_en = post.get('title_en')
+		title_ar = post.get('title_ar')
+		title_fa = post.get('title_fa')
+		title_hi = post.get('title_hi')
+		title_ru = post.get('title_ru')
+		title_zh = post.get('title_zh')
+
+		title = {
+            'title_en': title_en,
+            'title_ar': title_ar,
+            'title_fa': title_fa,
+            'title_hi': title_hi,
+            'title_ru': title_ru,
+            'title_zh': title_zh,
+        }
+
+		v_service_category.title = title
+		v_service_category.save()
+
+		return HttpResponseRedirect(reverse('villa-service-categories'))
 
 
 class VillaServiceCategoriesDeleteView(View):

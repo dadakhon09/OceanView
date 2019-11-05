@@ -323,7 +323,8 @@
                                             {% if villa.phone %}
                                             value="{{ villa.phone }}"
                                             {% else  %}
-                                            placeholder="{{ villa.phone }}" 
+                                            placeholder="{{ villa.phone }}"
+                                            {% endif %} 
                                             >
                                         </div>
                                     </div>
@@ -340,7 +341,8 @@
                                                    {% if villa.bedroom %}
                                                     value="{{ villa.bedroom }}"
                                                     {% else  %}
-                                                    placeholder="{{ villa.bedroom }}" >
+                                                    placeholder="{{ villa.bedroom }}"
+                                                    {% endif %} >
                                         </div>
                                     </div>
                                 </div>
@@ -355,7 +357,8 @@
                                                    {% if villa.square_meter %}
                                                     value="{{ villa.square_meter }}"
                                                     {% else  %}
-                                                    placeholder="{{ villa.square_meter }}" >
+                                                    placeholder="{{ villa.square_meter }}"
+                                                    {% endif %} >
                                         </div>
                                     </div>
                                 </div>
@@ -366,7 +369,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" id="status" name="status"
-                                                   autocomplete="off" >
+                                                   autocomplete="off" value="{{ villa.status }}" >
                                         </div>
                                     </div>
                                 </div>
@@ -381,7 +384,8 @@
                                                    {% if villa.d_railways %}
                                                     value="{{ villa.d_railways }}"
                                                     {% else  %}
-                                                    placeholder="{{ villa.d_railways }}" >
+                                                    placeholder="{{ villa.d_railways }}"
+                                                    {% endif %} >
                                         </div>
                                     </div>
                                 </div>
@@ -396,7 +400,8 @@
                                                    {% if villa.d_center %}
                                                     value="{{ villa.d_center }}"
                                                     {% else  %}
-                                                    placeholder="{{ villa.d_center }}" >
+                                                    placeholder="{{ villa.d_center }}" 
+                                                    {% endif %}>
                                         </div>
                                     </div>
                                 </div>
@@ -411,7 +416,8 @@
                                                    {% if villa.d_airways %}
                                                     value="{{ villa.d_airways }}"
                                                     {% else  %}
-                                                    placeholder="{{ villa.d_airways }}" >
+                                                    placeholder="{{ villa.d_airways }}" 
+                                                    {% endif %}>
                                         </div>
                                     </div>
                                 </div>
