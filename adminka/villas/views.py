@@ -2,13 +2,25 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from app.models import Villa, VillaService, VillaServiceCategory, VillaImage
 
 
 class AdminVillasView(View):
     def get(self, request):
-        villas = Villa.objects.all().order_by('-id')
+        villas = Villa.objects.all()
+
+        page = request.GET.get('page', 1)
+
+        paginator = Paginator(villas, 15)
+        try:
+            villas = paginator.page(page)
+        except PageNotAnInteger:
+            villas = paginator.page(1)
+        except EmptyPage:
+            villas = paginator.page(paginator.num_pages)
+
         return render(request, 'adminka/villas/villas.html', {'villas': villas})
 
 
@@ -236,7 +248,17 @@ class VillasDeleteView(View):
 
 class VillaServicesView(View):
     def get(self, request):
-        v_services = VillaService.objects.all().order_by('-id')
+        v_services = VillaService.objects.all()
+
+        page = request.GET.get('page', 1)
+
+        paginator = Paginator(v_services, 15)
+        try:
+            v_services = paginator.page(page)
+        except PageNotAnInteger:
+            v_services = paginator.page(1)
+        except EmptyPage:
+            v_services = paginator.page(paginator.num_pages)
 
         return render(request, 'adminka/villas/villa_services.html', {'v_services': v_services})
 
@@ -317,7 +339,18 @@ class VillaServicesDeleteView(View):
 
 class VillaServiceCategoriesView(View):
     def get(self, request):
-        v_service_categories = VillaServiceCategory.objects.all().order_by('-id')
+        v_service_categories = VillaServiceCategory.objects.all()
+
+        page = request.GET.get('page', 1)
+
+        paginator = Paginator(v_service_categories, 15)
+        try:
+            v_service_categories = paginator.page(page)
+        except PageNotAnInteger:
+            v_service_categories = paginator.page(1)
+        except EmptyPage:
+            v_service_categories = paginator.page(paginator.num_pages)
+
         return render(request, 'adminka/villas/villa_service_categories.html', {'v_service_categories': v_service_categories})
 
 

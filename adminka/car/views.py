@@ -2,12 +2,24 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import View
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from app.models import Car, CarImage
 
 class AdminCarsView(View):
     def get(self, request):
-    	cars = Car.objects.all().order_by('-id')
+    	cars = Car.objects.all()
+
+    	page = request.GET.get('page', 1)
+
+    	paginator = Paginator(cars, 15)
+    	try:
+    		cars = paginator.page(page)
+    	except PageNotAnInteger:
+    		cars = paginator.page(1)
+    	except EmptyPage:
+    		cars = paginator.page(paginator.num_pages)
+
     	return render(request, 'adminka/cars/cars.html', {'cars': cars})
 
 

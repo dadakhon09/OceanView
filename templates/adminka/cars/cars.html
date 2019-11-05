@@ -14,6 +14,27 @@
                     <div class="card-main__title">
                         <h2>{% trans 'Cars' %}</h2>
                     </div>
+                    {% if cars.has_other_pages %}
+                    <ul class="pagination">
+                        {% if cars.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ cars.previous_page_number }}">&laquo;</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                        {% endif %}
+                        {% for i in cars.paginator.page_range %}
+                        {% if cars.number == i %}
+                        <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if cars.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ cars.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
                     <a href="{% url 'cars-create' %}" type="button" class="btn btn-info m-t-10 float-right">{% trans 'Add' %}</a>
                     <!-- Add Contact Popup Model -->
                     <div class="table-responsive">

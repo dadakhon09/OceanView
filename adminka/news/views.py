@@ -2,14 +2,25 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from app.models import News
 
 
 class AdminNewsView(View):
     def get(self, request):
-        news_list = News.objects.all()
-        return render(request, 'adminka/news/news.html', {'news_list': news_list})
+    	news_list = News.objects.all()
+    	page = request.GET.get('page', 1)
+
+    	paginator = Paginator(news_list, 15)
+    	try:
+    		news_list = paginator.page(page)
+    	except PageNotAnInteger:
+    		news_list = paginator.page(1)
+    	except EmptyPage:
+    		news_list = paginator.page(paginator.num_pages)
+
+    	return render(request, 'adminka/news/news.html', {'news_list': news_list})
 
 
 class NewsCreateView(View):

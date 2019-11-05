@@ -2,13 +2,23 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from app.models import Tour, TourExpense, TourFacility, TourImage
 
 
 class AdminToursView(View):
     def get(self, request):
-        tours = Tour.objects.all().order_by('-id')
+        tours = Tour.objects.all()
+        page = request.GET.get('page', 1)
+
+        paginator = Paginator(tours, 15)
+        try:
+            tours = paginator.page(page)
+        except PageNotAnInteger:
+            tours = paginator.page(1)
+        except EmptyPage:
+            tours = paginator.page(paginator.num_pages)
 
         return render(request, 'adminka/tours/tours.html', {'tours': tours})
 
@@ -279,6 +289,16 @@ class ToursDeleteView(View):
 class AdminToursExpensesView(View):
     def get(self, request):
         t_expenses = TourExpense.objects.all()
+        page = request.GET.get('page', 1)
+
+        paginator = Paginator(t_expenses, 15)
+        try:
+            t_expenses = paginator.page(page)
+        except PageNotAnInteger:
+            t_expenses = paginator.page(1)
+        except EmptyPage:
+            t_expenses = paginator.page(paginator.num_pages)
+
         return render(request, 'adminka/tours/tour_expenses.html', {'t_expenses': t_expenses})
 
 
@@ -356,6 +376,17 @@ class AdminToursExpensesDeleteView(View):
 class AdminToursFacilitiesView(View):
     def get(self, request):
         t_facilities = TourFacility.objects.all()
+
+        page = request.GET.get('page', 1)
+
+        paginator = Paginator(t_facilities, 15)
+        try:
+            t_facilities = paginator.page(page)
+        except PageNotAnInteger:
+            t_facilities = paginator.page(1)
+        except EmptyPage:
+            t_facilities = paginator.page(paginator.num_pages)
+
         return render(request, 'adminka/tours/tour_facilities.html', {'t_facilities': t_facilities})
 
 

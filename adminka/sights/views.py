@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import View
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from app.models import Sight, SightCategory
 
@@ -9,6 +10,17 @@ from app.models import Sight, SightCategory
 class AdminSightsView(View):
     def get(self, request):
         sights = Sight.objects.all()
+
+        page = request.GET.get('page', 1)
+
+        paginator = Paginator(sights, 15)
+        try:
+            sights = paginator.page(page)
+        except PageNotAnInteger:
+            sights = paginator.page(1)
+        except EmptyPage:
+            sights = paginator.page(paginator.num_pages)
+
         return render(request, 'adminka/sights/sights.html', {'sights': sights})
 
 

@@ -1,30 +1,45 @@
 {% extends 'adminka/_base.html' %}
 {% load static i18n %}
-
 {% block head %}
-
 {% endblock %}
-
 {% block body %}
-
-    <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Start Page Content -->
-        <!-- ============================================================== -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-main__title">
-                            <h2>{% trans 'Tour Facilities' %}</h2>
-                        </div>
-                        <a href="{% url 'tour-facilities-create' %}" type="button"
-                           class="btn btn-info m-t-10 float-right">{% trans 'Add' %}</a>
-                        <!-- Add Contact Popup Model -->
-                        <div class="table-responsive">
-                            <table id="demo-foo-addrow" class="table table-bordered m-t-30 table-hover contact-list"
-                                   data-paging="true" data-paging-size="7">
-                                <thead>
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-main__title">
+                        <h2>{% trans 'Tour Facilities' %}</h2>
+                    </div>
+                    {% if t_facilities.has_other_pages %}
+                    <ul class="pagination">
+                        {% if t_facilities.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ t_facilities.previous_page_number }}">&laquo;</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                        {% endif %}
+                        {% for i in t_facilities.paginator.page_range %}
+                        {% if t_facilities.number == i %}
+                        <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if t_facilities.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ t_facilities.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
+                    <a href="{% url 'tour-facilities-create' %}" type="button" class="btn btn-info m-t-10 float-right">{% trans 'Add' %}</a>
+                    <!-- Add Contact Popup Model -->
+                    <div class="table-responsive">
+                        <table id="demo-foo-addrow" class="table table-bordered m-t-30 table-hover contact-list" data-paging="true" data-paging-size="7">
+                            <thead>
                                 <tr>
                                     <th width="1%">#</th>
                                     <th width="100">{% trans 'Title' %}</th>
@@ -32,40 +47,30 @@
                                     <th width="1%"></th>
                                     <th width="1%"></th>
                                 </tr>
-                                <tbody>
-
+                            <tbody>
                                 {% for t_facility in t_facilities %}
-                                    <tr>
-                                        <td>{{ t_facility.id }}</td>
-                                        <td>
-                                            <a href="{% url 'tour-facilities-update' t_facility.id %}">
-                                                <div>
-                                                    <span>{{ t_facility.title.title_en }}</span>
-                                                </div>
-                                            </a>
-                                        </td>
-                                        <td><a href="{% url 'tour-facilities-update' t_facility.id %}" class="label label-info"><i
-                                                class="fas fa-edit"></i>{% trans 'Edit' %}</a></td>
-
-
-                                        <td><a href="{% url 'tour-facilities-delete' t_facility.id %}" class="label label-danger"><i
-                                                class="fas fa-trash"></i></a></td>
-                                    </tr>
+                                <tr>
+                                    <td>{{ t_facility.id }}</td>
+                                    <td>
+                                        <a href="{% url 'tour-facilities-update' t_facility.id %}">
+                                            <div>
+                                                <span>{{ t_facility.title.title_en }}</span>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td><a href="{% url 'tour-facilities-update' t_facility.id %}" class="label label-info"><i class="fas fa-edit"></i>{% trans 'Edit' %}</a></td>
+                                    <td><a href="{% url 'tour-facilities-delete' t_facility.id %}" class="label label-danger"><i class="fas fa-trash"></i></a></td>
+                                </tr>
                                 {% endfor %}
-
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End PAge Content -->
-        <!-- ============================================================== -->
-
     </div>
-
-
-
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+</div>
 {% endblock %}
