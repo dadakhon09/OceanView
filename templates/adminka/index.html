@@ -1,12 +1,26 @@
 {% extends 'adminka/_base.html' %}
 {% load static %}
-
 {% block head %}
-
 {% endblock %}
-
 {% block body %}
-
-
-
+<div>
+    <h1>Tours: {{ tours }}</h1>
+    <h1>Villas: {{ villas }}</h1>
+    <h1>Sights: {{ sights }}</h1>
+    <h1>News: {{ news }}</h1>
+    <h1>Cars: {{ cars }}</h1>
+</div>
+<span class="counter">1,234,567.00</span>
+<span>$</span><span class="counter">1.99</span>
+<span class="counter">12345</span>
+{% endblock %}
+{% block js %}
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="jquery.counterup.min.js"></script>
+<script>
+$('.counter').counterUp({
+    delay: 10,
+    time: 1000
+});
+</script>
 {% endblock %}

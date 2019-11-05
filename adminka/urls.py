@@ -1,6 +1,6 @@
 from django.urls import path
 
-from adminka.car.views import AdminCarsView
+from adminka.car.views import AdminCarsView, CarsCreateView, CarsUpdateView, CarsDeleteView
 from adminka.news.views import AdminNewsView, NewsCreateView, NewsUpdateView, NewsDeleteView
 from adminka.others.views import AdminIndexView, AdminLoginView, ProfileView, AdminLogoutView, ProfileUpdateView
 from adminka.sights.views import AdminSightsView, SightsCreateView, SightsUpdateView, SightsDeleteView, SightsCategoriesView, SightsCategoriesCreateView, SightsCategoriesUpdateView, SightsCategoriesDeleteView
@@ -14,6 +14,9 @@ urlpatterns = [
     path('', AdminIndexView.as_view(), name='adminka-index'),
 
     path('cars/', AdminCarsView.as_view(), name='adminka-cars'),
+    path('cars/create/', CarsCreateView.as_view(), name='cars-create'),
+    path('cars/update/<int:id>/', CarsUpdateView.as_view(), name='cars-update'),
+    path('cars/delete/<int:id>/', CarsDeleteView.as_view(), name='cars-delete'),
 
     path('news/', AdminNewsView.as_view(), name='adminka-news'),
     path('news/create/', NewsCreateView.as_view(), name='news-create'),

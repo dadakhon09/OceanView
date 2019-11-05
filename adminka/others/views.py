@@ -6,21 +6,23 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 
-from app.models import Villa, Tour, Sight, News
+from app.models import Villa, Tour, Sight, News, Car
 
 
 class AdminIndexView(LoginRequiredMixin, View):
     def get(self, request):
-        villas = Villa.objects.all().order_by('-id')[:6][::-1]
-        tours = Tour.objects.all().order_by('-id')[:4][::-1]
-        sights = Sight.objects.all().order_by('-id')[:10][::-1]
-        news = News.objects.all().order_by('-id')[:4][::-1]
+        villas = Villa.objects.all().count()
+        tours = Tour.objects.all().count()
+        sights = Sight.objects.all().count()
+        news = News.objects.all().count()
+        cars = Car.objects.all().count()
 
         context = {
             'villas': villas,
             'tours': tours,
             'sights': sights,
             'news': news,
+            'cars': cars
         }
         return render(request, 'adminka/index.html', context)
 
