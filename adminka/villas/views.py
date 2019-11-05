@@ -3,7 +3,7 @@ from django.views import View
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-from app.models import Villa, VillaService, VillaServiceCategory
+from app.models import Villa, VillaService, VillaServiceCategory, VillaImage
 
 
 class AdminVillasView(View):
@@ -95,6 +95,8 @@ class VillasCreateView(View):
 		if not d_airways:
 		    d_airways = None
 
+		images = post.getlist('image')
+
 		villa = Villa.objects.create(title=title, address=address, description=description, phone=phone, status=status, bedroom=bedroom, square_meter=square_meter, d_airways=d_airways, d_railways=d_railways, d_center=d_center)
 
 		for s in v_services:
@@ -103,6 +105,10 @@ class VillasCreateView(View):
 		    obj.save()
 
 		villa.save()
+
+		if images:
+			for i in images:
+				VillaImage.objects.create(image=i, villa=villa)
 
 		return HttpResponseRedirect(reverse('adminka-villas'))		
 
@@ -173,6 +179,8 @@ class VillasUpdateView(View):
 
 		v_services = post.getlist('v_services')
 
+		images = post.getlist('image')
+
 		bedroom = post.get('bedroom')
 		if not bedroom:
 		    bedroom = None
@@ -211,6 +219,10 @@ class VillasUpdateView(View):
 		    obj.save()
 
 		villa.save()
+
+		if images:
+			for i in images:
+				v, _ = VillaImage.objects.get_or_create(image=i, villa=villa)
 
 		return HttpResponseRedirect(reverse('adminka-villas'))	
 

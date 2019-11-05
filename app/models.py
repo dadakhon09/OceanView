@@ -27,7 +27,7 @@ class TourFacility(models.Model):
     # title = models.CharField(max_length=255)
     title = jsonfield.JSONField()
     image = models.ImageField(upload_to='facilities', null=True, blank=True)
-    tours = models.ManyToManyField('Tour', related_name='tour_facilities')
+    tours = models.ManyToManyField('Tour', related_name='t_facilities')
 
     class Meta:
         db_table = 'facilities'
@@ -40,7 +40,7 @@ class TourExpense(models.Model):
     # title = models.CharField(max_length=255)
     title = jsonfield.JSONField()
     image = models.ImageField(upload_to='expenses', null=True, blank=True)
-    tours = models.ManyToManyField('Tour', related_name='tour_expenses')
+    tours = models.ManyToManyField('Tour', related_name='t_expenses')
 
     class Meta:
         db_table = 'expenses'

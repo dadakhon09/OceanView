@@ -8,7 +8,7 @@ from app.models import Tour, TourExpense, TourFacility, TourImage
 
 class AdminToursView(View):
     def get(self, request):
-        tours = Tour.objects.all()
+        tours = Tour.objects.all().order_by('-id')
 
         return render(request, 'adminka/tours/tours.html', {'tours': tours})
 
@@ -144,10 +144,7 @@ class ToursUpdateView(View):
         tour = Tour.objects.get(id=id)
         t_expenses = TourExpense.objects.all()
         t_facilities = TourFacility.objects.all()
-        if TourImage.objects.filter(tour=tour).exists():
-            t_images = TourImage.objects.filter(tour=tour)
-        else:
-            t_images = []
+        t_images = TourImage.objects.filter(tour=tour)
         
         return render(request, 'adminka/tours/tours_update.html',
                       {'tour': tour, 't_expenses': t_expenses, 't_facilities': t_facilities, 't_images': t_images})
@@ -238,12 +235,25 @@ class ToursUpdateView(View):
         }
 
         images = post.getlist('image')
-        print(images)
-        # images = TourImage.objects.filter(tour=tour)
         if images:
             for i in images:
                 ti, _ = TourImage.objects.get_or_create(image=i, tour=tour)
                 tour.images.add(ti)
+
+        t_facilities = post.getlist('t_facilities')
+        t_expenses = post.getlist('t_expenses')
+
+        tour.t_facilities.clear()
+        for f in t_facilities:
+            obj = TourFacility.objects.get(id=f)
+            obj.tours.add(tour)
+            obj.save()
+
+        tour.t_expenses.clear()
+        for e in t_expenses:
+            obj = TourExpense.objects.get(id=e)
+            obj.tours.add(tour)
+            obj.save()
 
         tour.title = title
         tour.description = description
