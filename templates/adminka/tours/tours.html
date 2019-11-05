@@ -5,6 +5,7 @@
 {% endblock %}
 {% block body %}
 <div class="container-fluid">
+    {% get_current_language as LANGUAGE_CODE %}
     <!-- ============================================================== -->
     <!-- Start Page Content -->
     <!-- ============================================================== -->
@@ -54,14 +55,18 @@
                                 <tr>
                                     <td>{{ tour.id }}</td>
                                     {% if tour.guide %}
-                                    <td><span class="label label-success">Yes</span></td>
+                                    <td><span class="label label-success">{% if LANGUAGE_CODE == 'en' %}Yes{% elif LANGUAGE_CODE == 'ru' %}Да{% endif %}</span></td>
                                     {% else %}
-                                    <td><span class="label label-danger">No</span></td>
+                                    <td><span class="label label-danger">{% if LANGUAGE_CODE == 'en' %}No{% elif LANGUAGE_CODE == 'ru' %}Нет{% endif %}</span></td>
                                     {% endif %}
                                     <td>
                                         <a href="{% url 'tours-update' tour.id %}">
                                             <div>
+                                                {% if LANGUAGE_CODE == 'en' %}
                                                 <span>{{ tour.title.title_en }}</span>
+                                                {% elif LANGUAGE_CODE == 'ru' %}
+                                                <span>{{ tour.title.title_ru }}</span>
+                                                {% endif %}
                                             </div>
                                         </a>
                                     </td>

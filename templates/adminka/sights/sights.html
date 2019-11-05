@@ -7,6 +7,7 @@
     <!-- ============================================================== -->
     <!-- Start Page Content -->
     <!-- ============================================================== -->
+    {% get_current_language as LANGUAGE_CODE %}
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -55,14 +56,22 @@
                                     <td>
                                         <a href="{% url 'sight-categories-update' sight.category.id %}">
                                             <div>
-                                                <span>{{ sight.category }}</span>
+                                                {% if LANGUAGE_CODE == 'en' %}
+                                                <span>{{ sight.category.title.title_en }}</span>
+                                                {% elif LANGUAGE_CODE == 'ru' %}
+                                                <span>{{ sight.category.title.title_ru }}</span>
+                                                {% endif %}
                                             </div>
                                         </a>
                                     </td>
                                     <td>
                                         <a href="{% url 'sights-update' sight.id %}">
                                             <div>
+                                                {% if LANGUAGE_CODE == 'en' %}
                                                 <span>{{ sight.title.title_en }}</span>
+                                                {% elif LANGUAGE_CODE == 'ru' %}
+                                                <span>{{ sight.title.title_ru }}</span>
+                                                {% endif %}
                                             </div>
                                         </a>
                                     </td>
