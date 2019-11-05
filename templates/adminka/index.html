@@ -1,26 +1,42 @@
 {% extends 'adminka/_base.html' %}
-{% load static %}
+{% load static i18n %}
 {% block head %}
 {% endblock %}
 {% block body %}
-<div>
-    <h1>Tours: {{ tours }}</h1>
-    <h1>Villas: {{ villas }}</h1>
-    <h1>Sights: {{ sights }}</h1>
-    <h1>News: {{ news }}</h1>
-    <h1>Cars: {{ cars }}</h1>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-3">
+            <h1><span class="counter">{{ tours }}</span></h1>
+            <h3>{% trans 'Tours' %}</h3>
+        </div>
+        <div class="col-md-2">
+            <h1><span class="counter">{{ villas }}</span></h1>
+            <h3>{% trans 'Villas' %}</h3>
+        </div>
+        <div class="col-md-2">
+            <h1><span class="counter">{{sights}}</span></h1>
+            <h3>{% trans 'Sights' %}</h3>
+        </div>
+        <div class="col-md-2">
+            <h1><span class="counter">{{news}}</span></h1>
+            <h3>{% trans 'News' %}</h3>
+        </div>
+        <div class="col-md-3">
+            <h1><span class="counter">{{cars}}</span></h1>
+            <h3>{% trans 'Cars' %}</h3>
+        </div>
+    </div>
 </div>
-<span class="counter">1,234,567.00</span>
-<span>$</span><span class="counter">1.99</span>
-<span class="counter">12345</span>
 {% endblock %}
 {% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="jquery.counterup.min.js"></script>
 <script>
 $('.counter').counterUp({
     delay: 10,
-    time: 1000
+    time: 2000
 });
+$('.counter').addClass('animated fadeInDownBig');
+$('h3').addClass('animated fadeIn');
 </script>
 {% endblock %}

@@ -12,7 +12,7 @@ class About(models.Model):
         db_table = 'about'
 
     def __str__(self):
-        return self.text[:100]
+        return self.text['text_en'][:100]
 
 
 class AboutImage(models.Model):
@@ -21,6 +21,9 @@ class AboutImage(models.Model):
 
     class Meta:
         db_table = 'about-images'
+
+    def __str__(self):
+        return self.image.name
 
 
 class TourFacility(models.Model):

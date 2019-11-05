@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from app.models import SightCategory, TourFacility, TourExpense, Tour, Sight, Villa, News, \
-    VillaServiceCategory, VillaService, About, TourImage, VillaImage, AboutImage
+    VillaServiceCategory, VillaService, About, TourImage, VillaImage, AboutImage, Car, CarImage
 
 admin.site.register(SightCategory)
 admin.site.register(TourFacility)
@@ -17,3 +17,5 @@ admin.site.register(VillaImage)
 admin.site.register(News)
 admin.site.register(About)
 admin.site.register(AboutImage)
+admin.site.register(Car)
+admin.site.register(CarImage)

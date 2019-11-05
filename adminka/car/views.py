@@ -54,9 +54,13 @@ class CarsCreateView(View):
 		images = post.getlist('image')
 
 		duration = post.get('duration')
+		if not duration:
+			duration = None
 
 		price = post.get('price')
-
+		if not price:
+			price = None
+		
 		car = Car.objects.create(title=title, description=description, duration=duration, price=price)
 
 		if images:
@@ -69,7 +73,7 @@ class CarsCreateView(View):
 class CarsUpdateView(View):
 	def get(self, request, id):
 		car = Car.objects.get(id=id)
-		return render(request, 'adminka/cars/cars_update.html')
+		return render(request, 'adminka/cars/cars_update.html', {'car': car})
 
 	def post(self, request, id):
 		car = Car.objects.get(id=id)

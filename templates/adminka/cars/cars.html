@@ -21,7 +21,7 @@
                             <thead>
                                 <tr>
                                     <th width="1%">#</th>
-                                    <th width="10%">${% trans 'Price' %}</th>
+                                    <th width="10%">{% trans 'Price' %}</th>
                                     <th width="86%">{% trans 'Title' %}</th>
                                     <th width="1%"></th>
                                     <th width="1%"></th>
@@ -31,7 +31,7 @@
                                 {% for car in cars %}
                                 <tr>
                                     <td>{{ car.id }}</td>
-                                    <td>{{ car.price }}</td>
+                                    <td>${{ car.price }}</td>
                                     <td>
                                         <a href="{% url 'cars-update' car.id %}">
                                             <div>
