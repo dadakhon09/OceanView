@@ -8,11 +8,11 @@ from app.models import About, AboutImage
 
 class AdminAboutView(View):
 	def get(self, request):
-		about = About.objects.get(id=6)
+		about = About.objects.get(id=1)
 		return render(request, 'adminka/about/about.html', {'about': about}) 
 
 	def post(self, request):
-		about = About.objects.get(id=6)
+		about = About.objects.get(id=1)
 
 		post = self.request.POST
 

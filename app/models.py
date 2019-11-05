@@ -10,6 +10,7 @@ class About(models.Model):
 
     class Meta:
         db_table = 'about'
+        ordering = ['-id']
 
     def __str__(self):
         return self.text['text_en'][:100]
@@ -21,6 +22,7 @@ class AboutImage(models.Model):
 
     class Meta:
         db_table = 'about-images'
+        ordering = ['-id']
 
     def __str__(self):
         return self.image.name
@@ -34,6 +36,7 @@ class TourFacility(models.Model):
 
     class Meta:
         db_table = 'facilities'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title['title_en']
@@ -47,6 +50,7 @@ class TourExpense(models.Model):
 
     class Meta:
         db_table = 'expenses'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title['title_en']
@@ -58,6 +62,7 @@ class TourImage(models.Model):
 
     class Meta:
         db_table = 'tour_images'
+        ordering = ['-id']
 
     def __str__(self):
         return self.image.name
@@ -78,6 +83,7 @@ class Tour(models.Model):
 
     class Meta:
         db_table = 'tours'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title['title_en']
@@ -88,7 +94,8 @@ class SightCategory(models.Model):
     title = jsonfield.JSONField()
 
     class Meta:
-        db_table = 'categories'
+        db_table = 'sight_categories'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title['title_en']
@@ -100,6 +107,7 @@ class SightImage(models.Model):
 
     class Meta:
         db_table = 'sight_images'
+        ordering = ['-id']
 
     def __str__(self):
         return self.image.name
@@ -114,6 +122,7 @@ class Sight(models.Model):
 
     class Meta:
         db_table = 'sights'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title['title_en']
@@ -125,6 +134,7 @@ class VillaImage(models.Model):
 
     class Meta:
         db_table = 'villa_images'
+        ordering = ['-id']
 
     def __str__(self):
         return self.image.name
@@ -147,6 +157,7 @@ class VillaServiceCategory(models.Model):
 
     class Meta:
         db_table = 'villa_service_categories'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title['title_en']
@@ -160,6 +171,7 @@ class VillaService(models.Model):
 
     class Meta:
         db_table = 'villa_services'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title['title_en']
@@ -181,6 +193,7 @@ class Villa(models.Model):
 
     class Meta:
         db_table = 'villas'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title['title_en']
@@ -196,6 +209,7 @@ class News(models.Model):
 
     class Meta:
         db_table = 'news'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title['title_en']
@@ -207,6 +221,7 @@ class CarImage(models.Model):
 
     class Meta:
         db_table = 'car_images'
+        ordering = ['-id']
 
     def __str__(self):
         return self.image.name
@@ -220,6 +235,7 @@ class Car(models.Model):
 
     class Meta:
         db_table = 'cars'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title['title_en']
