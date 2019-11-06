@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 01:18+0500\n"
+"POT-Creation-Date: 2019-11-06 22:35+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,48 +24,48 @@ msgstr ""
 
 #: templates/adminka/_base.html:89 templates/adminka/about/about.html:19
 #: templates/adminka/cars/cars_create.html:19
-#: templates/adminka/cars/cars_update.html:19
+#: templates/adminka/cars/cars_update.html:25
 #: templates/adminka/news/news_create.html:27
 #: templates/adminka/news/news_update.html:19
 #: templates/adminka/sights/sight_categories_create.html:27
 #: templates/adminka/sights/sight_categories_update.html:27
-#: templates/adminka/sights/sights_create.html:27
+#: templates/adminka/sights/sights_create.html:28
 #: templates/adminka/sights/sights_update.html:19
 #: templates/adminka/tours/tour_expenses_create.html:29
-#: templates/adminka/tours/tour_expenses_update.html:21
+#: templates/adminka/tours/tour_expenses_update.html:19
 #: templates/adminka/tours/tour_facilities_create.html:27
 #: templates/adminka/tours/tour_facilities_update.html:19
 #: templates/adminka/tours/tours_create.html:19
-#: templates/adminka/tours/tours_update.html:19
+#: templates/adminka/tours/tours_update.html:25
 #: templates/adminka/villas/villa_service_categories_create.html:27
 #: templates/adminka/villas/villa_service_categories_update.html:27
 #: templates/adminka/villas/villa_services_create.html:27
 #: templates/adminka/villas/villa_services_update.html:27
-#: templates/adminka/villas/villas_create.html:19
+#: templates/adminka/villas/villas_create.html:25
 #: templates/adminka/villas/villas_update.html:19
 msgid "English"
 msgstr ""
 
 #: templates/adminka/_base.html:90 templates/adminka/about/about.html:23
 #: templates/adminka/cars/cars_create.html:23
-#: templates/adminka/cars/cars_update.html:23
+#: templates/adminka/cars/cars_update.html:37
 #: templates/adminka/news/news_create.html:39
 #: templates/adminka/news/news_update.html:23
 #: templates/adminka/sights/sight_categories_create.html:39
 #: templates/adminka/sights/sight_categories_update.html:39
-#: templates/adminka/sights/sights_create.html:39
+#: templates/adminka/sights/sights_create.html:40
 #: templates/adminka/sights/sights_update.html:23
 #: templates/adminka/tours/tour_expenses_create.html:41
-#: templates/adminka/tours/tour_expenses_update.html:25
+#: templates/adminka/tours/tour_expenses_update.html:23
 #: templates/adminka/tours/tour_facilities_create.html:39
 #: templates/adminka/tours/tour_facilities_update.html:23
 #: templates/adminka/tours/tours_create.html:23
-#: templates/adminka/tours/tours_update.html:23
+#: templates/adminka/tours/tours_update.html:37
 #: templates/adminka/villas/villa_service_categories_create.html:39
 #: templates/adminka/villas/villa_service_categories_update.html:39
 #: templates/adminka/villas/villa_services_create.html:39
 #: templates/adminka/villas/villa_services_update.html:39
-#: templates/adminka/villas/villas_create.html:23
+#: templates/adminka/villas/villas_create.html:37
 #: templates/adminka/villas/villas_update.html:23
 msgid "Russian"
 msgstr ""
@@ -91,146 +91,146 @@ msgid "About"
 msgstr ""
 
 #: templates/adminka/_base.html:144 templates/adminka/index.html:22
-#: templates/adminka/tours/tours.html:16
+#: templates/adminka/tours/tours.html:17
 msgid "Tours"
 msgstr ""
 
-#: templates/adminka/_base.html:147 templates/adminka/sights/sights.html:15
+#: templates/adminka/_base.html:147 templates/adminka/sights/sights.html:16
 msgid "Sights"
 msgstr ""
 
 #: templates/adminka/_base.html:150 templates/adminka/index.html:28
-#: templates/adminka/villas/villas.html:15
+#: templates/adminka/villas/villas.html:16
 msgid "Villas"
 msgstr ""
 
-#: templates/adminka/_base.html:153 templates/adminka/cars/cars.html:15
+#: templates/adminka/_base.html:153 templates/adminka/cars/cars.html:16
 #: templates/adminka/index.html:46
 msgid "Cars"
 msgstr ""
 
 #: templates/adminka/_base.html:156 templates/adminka/index.html:40
-#: templates/adminka/news/news.html:15
+#: templates/adminka/news/news.html:16
 msgid "News"
 msgstr ""
 
 #: templates/adminka/_base.html:160
-#: templates/adminka/tours/tour_expenses.html:15
+#: templates/adminka/tours/tour_expenses.html:16
 msgid "Tour Expenses"
 msgstr ""
 
 #: templates/adminka/_base.html:163
-#: templates/adminka/tours/tour_facilities.html:15
+#: templates/adminka/tours/tour_facilities.html:16
 msgid "Tour Facilities"
 msgstr ""
 
 #: templates/adminka/_base.html:166
-#: templates/adminka/sights/sight_categories.html:15
+#: templates/adminka/sights/sight_categories.html:16
 msgid "Sight Categories"
 msgstr ""
 
 #: templates/adminka/_base.html:169
-#: templates/adminka/villas/villa_services.html:15
+#: templates/adminka/villas/villa_services.html:16
 msgid "Villa Services"
 msgstr ""
 
 #: templates/adminka/_base.html:172
-#: templates/adminka/villas/villa_service_categories.html:15
+#: templates/adminka/villas/villa_service_categories.html:16
 msgid "Villa Service Categories"
 msgstr ""
 
 #: templates/adminka/about/about.html:20
 #: templates/adminka/cars/cars_create.html:20
-#: templates/adminka/cars/cars_update.html:20
+#: templates/adminka/cars/cars_update.html:28
 #: templates/adminka/news/news_create.html:30
 #: templates/adminka/news/news_update.html:20
 #: templates/adminka/sights/sight_categories_create.html:30
 #: templates/adminka/sights/sight_categories_update.html:30
-#: templates/adminka/sights/sights_create.html:30
+#: templates/adminka/sights/sights_create.html:31
 #: templates/adminka/sights/sights_update.html:20
 #: templates/adminka/tours/tour_expenses_create.html:32
-#: templates/adminka/tours/tour_expenses_update.html:22
+#: templates/adminka/tours/tour_expenses_update.html:20
 #: templates/adminka/tours/tour_facilities_create.html:30
 #: templates/adminka/tours/tour_facilities_update.html:20
 #: templates/adminka/tours/tours_create.html:20
-#: templates/adminka/tours/tours_update.html:20
+#: templates/adminka/tours/tours_update.html:28
 #: templates/adminka/villas/villa_service_categories_create.html:30
 #: templates/adminka/villas/villa_service_categories_update.html:30
 #: templates/adminka/villas/villa_services_create.html:30
 #: templates/adminka/villas/villa_services_update.html:30
-#: templates/adminka/villas/villas_create.html:20
+#: templates/adminka/villas/villas_create.html:28
 #: templates/adminka/villas/villas_update.html:20
 msgid "Arabic"
 msgstr ""
 
 #: templates/adminka/about/about.html:21
 #: templates/adminka/cars/cars_create.html:21
-#: templates/adminka/cars/cars_update.html:21
+#: templates/adminka/cars/cars_update.html:31
 #: templates/adminka/news/news_create.html:33
 #: templates/adminka/news/news_update.html:21
 #: templates/adminka/sights/sight_categories_create.html:33
 #: templates/adminka/sights/sight_categories_update.html:33
-#: templates/adminka/sights/sights_create.html:33
+#: templates/adminka/sights/sights_create.html:34
 #: templates/adminka/sights/sights_update.html:21
 #: templates/adminka/tours/tour_expenses_create.html:35
-#: templates/adminka/tours/tour_expenses_update.html:23
+#: templates/adminka/tours/tour_expenses_update.html:21
 #: templates/adminka/tours/tour_facilities_create.html:33
 #: templates/adminka/tours/tour_facilities_update.html:21
 #: templates/adminka/tours/tours_create.html:21
-#: templates/adminka/tours/tours_update.html:21
+#: templates/adminka/tours/tours_update.html:31
 #: templates/adminka/villas/villa_service_categories_create.html:33
 #: templates/adminka/villas/villa_service_categories_update.html:33
 #: templates/adminka/villas/villa_services_create.html:33
 #: templates/adminka/villas/villa_services_update.html:33
-#: templates/adminka/villas/villas_create.html:21
+#: templates/adminka/villas/villas_create.html:31
 #: templates/adminka/villas/villas_update.html:21
 msgid "Persian"
 msgstr ""
 
 #: templates/adminka/about/about.html:22
 #: templates/adminka/cars/cars_create.html:22
-#: templates/adminka/cars/cars_update.html:22
+#: templates/adminka/cars/cars_update.html:34
 #: templates/adminka/news/news_create.html:36
 #: templates/adminka/news/news_update.html:22
 #: templates/adminka/sights/sight_categories_create.html:36
 #: templates/adminka/sights/sight_categories_update.html:36
-#: templates/adminka/sights/sights_create.html:36
+#: templates/adminka/sights/sights_create.html:37
 #: templates/adminka/sights/sights_update.html:22
 #: templates/adminka/tours/tour_expenses_create.html:38
-#: templates/adminka/tours/tour_expenses_update.html:24
+#: templates/adminka/tours/tour_expenses_update.html:22
 #: templates/adminka/tours/tour_facilities_create.html:36
 #: templates/adminka/tours/tour_facilities_update.html:22
 #: templates/adminka/tours/tours_create.html:22
-#: templates/adminka/tours/tours_update.html:22
+#: templates/adminka/tours/tours_update.html:34
 #: templates/adminka/villas/villa_service_categories_create.html:36
 #: templates/adminka/villas/villa_service_categories_update.html:36
 #: templates/adminka/villas/villa_services_create.html:36
 #: templates/adminka/villas/villa_services_update.html:36
-#: templates/adminka/villas/villas_create.html:22
+#: templates/adminka/villas/villas_create.html:34
 #: templates/adminka/villas/villas_update.html:22
 msgid "Indian"
 msgstr ""
 
 #: templates/adminka/about/about.html:24
 #: templates/adminka/cars/cars_create.html:24
-#: templates/adminka/cars/cars_update.html:24
+#: templates/adminka/cars/cars_update.html:40
 #: templates/adminka/news/news_create.html:42
 #: templates/adminka/news/news_update.html:24
 #: templates/adminka/sights/sight_categories_create.html:42
 #: templates/adminka/sights/sight_categories_update.html:42
-#: templates/adminka/sights/sights_create.html:42
+#: templates/adminka/sights/sights_create.html:43
 #: templates/adminka/sights/sights_update.html:24
 #: templates/adminka/tours/tour_expenses_create.html:44
-#: templates/adminka/tours/tour_expenses_update.html:26
+#: templates/adminka/tours/tour_expenses_update.html:24
 #: templates/adminka/tours/tour_facilities_create.html:42
 #: templates/adminka/tours/tour_facilities_update.html:24
 #: templates/adminka/tours/tours_create.html:24
-#: templates/adminka/tours/tours_update.html:24
+#: templates/adminka/tours/tours_update.html:40
 #: templates/adminka/villas/villa_service_categories_create.html:42
 #: templates/adminka/villas/villa_service_categories_update.html:42
 #: templates/adminka/villas/villa_services_create.html:42
 #: templates/adminka/villas/villa_services_update.html:42
-#: templates/adminka/villas/villas_create.html:24
+#: templates/adminka/villas/villas_create.html:40
 #: templates/adminka/villas/villas_update.html:24
 msgid "Chinese"
 msgstr ""
@@ -243,83 +243,83 @@ msgstr ""
 
 #: templates/adminka/about/about.html:108
 #: templates/adminka/cars/cars_create.html:168
-#: templates/adminka/cars/cars_update.html:168
+#: templates/adminka/cars/cars_update.html:219
 #: templates/adminka/news/news_create.html:239
 #: templates/adminka/news/news_update.html:168
-#: templates/adminka/sights/sights_create.html:239
+#: templates/adminka/sights/sights_create.html:237
 #: templates/adminka/sights/sights_update.html:168
 #: templates/adminka/tours/tour_expenses_create.html:139
-#: templates/adminka/tours/tour_expenses_update.html:110
+#: templates/adminka/tours/tour_expenses_update.html:108
 #: templates/adminka/tours/tour_facilities_create.html:137
 #: templates/adminka/tours/tour_facilities_update.html:108
 #: templates/adminka/tours/tours_create.html:290
-#: templates/adminka/tours/tours_update.html:290
-#: templates/adminka/villas/villas_create.html:228
+#: templates/adminka/tours/tours_update.html:360
+#: templates/adminka/villas/villas_create.html:278
 #: templates/adminka/villas/villas_update.html:228
 msgid "Images"
 msgstr ""
 
 #: templates/adminka/about/about.html:120
 #: templates/adminka/cars/cars_create.html:200
-#: templates/adminka/cars/cars_update.html:200
+#: templates/adminka/cars/cars_update.html:259
 #: templates/adminka/news/news_create.html:254
 #: templates/adminka/news/news_update.html:192
 #: templates/adminka/profile.html:77
 #: templates/adminka/sights/sight_categories_create.html:142
 #: templates/adminka/sights/sight_categories_update.html:142
-#: templates/adminka/sights/sights_create.html:270
+#: templates/adminka/sights/sights_create.html:268
 #: templates/adminka/sights/sights_update.html:195
 #: templates/adminka/tours/tour_expenses_create.html:153
-#: templates/adminka/tours/tour_expenses_update.html:122
+#: templates/adminka/tours/tour_expenses_update.html:120
 #: templates/adminka/tours/tour_facilities_create.html:151
 #: templates/adminka/tours/tour_facilities_update.html:120
 #: templates/adminka/tours/tours_create.html:379
-#: templates/adminka/tours/tours_update.html:384
+#: templates/adminka/tours/tours_update.html:469
 #: templates/adminka/villas/villa_service_categories_create.html:148
 #: templates/adminka/villas/villa_service_categories_update.html:164
 #: templates/adminka/villas/villa_services_create.html:163
 #: templates/adminka/villas/villa_services_update.html:148
-#: templates/adminka/villas/villas_create.html:334
-#: templates/adminka/villas/villas_update.html:334
+#: templates/adminka/villas/villas_create.html:402
+#: templates/adminka/villas/villas_update.html:346
 msgid "Save"
 msgstr ""
 
 #: templates/adminka/about/about.html:122
 #: templates/adminka/cars/cars_create.html:202
-#: templates/adminka/cars/cars_update.html:202
+#: templates/adminka/cars/cars_update.html:262
 #: templates/adminka/news/news_create.html:258
 #: templates/adminka/news/news_update.html:194
 #: templates/adminka/profile.html:79
 #: templates/adminka/sights/sight_categories_create.html:146
 #: templates/adminka/sights/sight_categories_update.html:146
-#: templates/adminka/sights/sights_create.html:274
+#: templates/adminka/sights/sights_create.html:272
 #: templates/adminka/sights/sights_update.html:197
 #: templates/adminka/tours/tour_expenses_create.html:156
-#: templates/adminka/tours/tour_expenses_update.html:124
+#: templates/adminka/tours/tour_expenses_update.html:122
 #: templates/adminka/tours/tour_facilities_create.html:155
 #: templates/adminka/tours/tour_facilities_update.html:122
 #: templates/adminka/tours/tours_create.html:381
-#: templates/adminka/tours/tours_update.html:387
+#: templates/adminka/tours/tours_update.html:473
 #: templates/adminka/villas/villa_service_categories_create.html:152
 #: templates/adminka/villas/villa_service_categories_update.html:168
 #: templates/adminka/villas/villa_services_create.html:167
 #: templates/adminka/villas/villa_services_update.html:152
-#: templates/adminka/villas/villas_create.html:336
-#: templates/adminka/villas/villas_update.html:336
+#: templates/adminka/villas/villas_create.html:405
+#: templates/adminka/villas/villas_update.html:348
 msgid "Cancel"
 msgstr ""
 
 #: templates/adminka/about/about.html:139
 #: templates/adminka/cars/cars_create.html:219
-#: templates/adminka/cars/cars_update.html:219
+#: templates/adminka/cars/cars_update.html:279
 #: templates/adminka/news/news_create.html:277
 #: templates/adminka/news/news_update.html:211
 #: templates/adminka/sights/sight_categories_create.html:165
 #: templates/adminka/sights/sight_categories_update.html:165
-#: templates/adminka/sights/sights_create.html:293
+#: templates/adminka/sights/sights_create.html:291
 #: templates/adminka/sights/sights_update.html:214
 #: templates/adminka/tours/tour_expenses_create.html:174
-#: templates/adminka/tours/tour_expenses_update.html:141
+#: templates/adminka/tours/tour_expenses_update.html:139
 #: templates/adminka/tours/tour_facilities_create.html:174
 #: templates/adminka/tours/tour_facilities_update.html:139
 #: templates/adminka/tours/tours_create.html:398
@@ -327,43 +327,43 @@ msgstr ""
 #: templates/adminka/villas/villa_service_categories_update.html:187
 #: templates/adminka/villas/villa_services_create.html:186
 #: templates/adminka/villas/villa_services_update.html:171
-#: templates/adminka/villas/villas_create.html:353
-#: templates/adminka/villas/villas_update.html:353
+#: templates/adminka/villas/villas_create.html:422
+#: templates/adminka/villas/villas_update.html:365
 msgid "Are you sure you want to cancel?"
 msgstr ""
 
-#: templates/adminka/cars/cars.html:38 templates/adminka/news/news.html:38
-#: templates/adminka/sights/sight_categories.html:38
-#: templates/adminka/sights/sights.html:38
-#: templates/adminka/tours/tour_expenses.html:38
-#: templates/adminka/tours/tour_facilities.html:38
-#: templates/adminka/tours/tours.html:39
-#: templates/adminka/villas/villa_service_categories.html:38
-#: templates/adminka/villas/villa_services.html:38
-#: templates/adminka/villas/villas.html:38
+#: templates/adminka/cars/cars.html:46 templates/adminka/news/news.html:46
+#: templates/adminka/sights/sight_categories.html:46
+#: templates/adminka/sights/sights.html:46
+#: templates/adminka/tours/tour_expenses.html:46
+#: templates/adminka/tours/tour_facilities.html:46
+#: templates/adminka/tours/tours.html:47
+#: templates/adminka/villas/villa_service_categories.html:46
+#: templates/adminka/villas/villa_services.html:46
+#: templates/adminka/villas/villas.html:46
 msgid "Add"
 msgstr ""
 
-#: templates/adminka/cars/cars.html:45
+#: templates/adminka/cars/cars.html:56
 #: templates/adminka/tours/tours_create.html:322
-#: templates/adminka/tours/tours_update.html:322
+#: templates/adminka/tours/tours_update.html:399
 msgid "Price"
 msgstr ""
 
-#: templates/adminka/cars/cars.html:46
+#: templates/adminka/cars/cars.html:57
 #: templates/adminka/cars/cars_create.html:33
 #: templates/adminka/cars/cars_create.html:57
 #: templates/adminka/cars/cars_create.html:79
 #: templates/adminka/cars/cars_create.html:101
 #: templates/adminka/cars/cars_create.html:123
 #: templates/adminka/cars/cars_create.html:145
-#: templates/adminka/cars/cars_update.html:33
-#: templates/adminka/cars/cars_update.html:57
+#: templates/adminka/cars/cars_update.html:49
 #: templates/adminka/cars/cars_update.html:79
-#: templates/adminka/cars/cars_update.html:101
-#: templates/adminka/cars/cars_update.html:123
-#: templates/adminka/cars/cars_update.html:145
-#: templates/adminka/news/news.html:45
+#: templates/adminka/cars/cars_update.html:107
+#: templates/adminka/cars/cars_update.html:135
+#: templates/adminka/cars/cars_update.html:163
+#: templates/adminka/cars/cars_update.html:191
+#: templates/adminka/news/news.html:56
 #: templates/adminka/news/news_create.html:51
 #: templates/adminka/news/news_create.html:83
 #: templates/adminka/news/news_create.html:114
@@ -376,7 +376,7 @@ msgstr ""
 #: templates/adminka/news/news_update.html:101
 #: templates/adminka/news/news_update.html:123
 #: templates/adminka/news/news_update.html:145
-#: templates/adminka/sights/sight_categories.html:45
+#: templates/adminka/sights/sight_categories.html:56
 #: templates/adminka/sights/sight_categories_create.html:51
 #: templates/adminka/sights/sight_categories_create.html:67
 #: templates/adminka/sights/sight_categories_create.html:81
@@ -389,33 +389,33 @@ msgstr ""
 #: templates/adminka/sights/sight_categories_update.html:96
 #: templates/adminka/sights/sight_categories_update.html:111
 #: templates/adminka/sights/sight_categories_update.html:127
-#: templates/adminka/sights/sights.html:46
-#: templates/adminka/sights/sights_create.html:51
-#: templates/adminka/sights/sights_create.html:83
-#: templates/adminka/sights/sights_create.html:114
-#: templates/adminka/sights/sights_create.html:145
-#: templates/adminka/sights/sights_create.html:176
-#: templates/adminka/sights/sights_create.html:207
+#: templates/adminka/sights/sights.html:57
+#: templates/adminka/sights/sights_create.html:52
+#: templates/adminka/sights/sights_create.html:84
+#: templates/adminka/sights/sights_create.html:115
+#: templates/adminka/sights/sights_create.html:144
+#: templates/adminka/sights/sights_create.html:175
+#: templates/adminka/sights/sights_create.html:206
 #: templates/adminka/sights/sights_update.html:33
 #: templates/adminka/sights/sights_update.html:57
 #: templates/adminka/sights/sights_update.html:79
 #: templates/adminka/sights/sights_update.html:101
 #: templates/adminka/sights/sights_update.html:123
 #: templates/adminka/sights/sights_update.html:145
-#: templates/adminka/tours/tour_expenses.html:45
+#: templates/adminka/tours/tour_expenses.html:56
 #: templates/adminka/tours/tour_expenses_create.html:53
 #: templates/adminka/tours/tour_expenses_create.html:69
 #: templates/adminka/tours/tour_expenses_create.html:83
 #: templates/adminka/tours/tour_expenses_create.html:97
 #: templates/adminka/tours/tour_expenses_create.html:111
 #: templates/adminka/tours/tour_expenses_create.html:125
-#: templates/adminka/tours/tour_expenses_update.html:35
-#: templates/adminka/tours/tour_expenses_update.html:49
-#: templates/adminka/tours/tour_expenses_update.html:61
-#: templates/adminka/tours/tour_expenses_update.html:73
-#: templates/adminka/tours/tour_expenses_update.html:85
-#: templates/adminka/tours/tour_expenses_update.html:97
-#: templates/adminka/tours/tour_facilities.html:45
+#: templates/adminka/tours/tour_expenses_update.html:33
+#: templates/adminka/tours/tour_expenses_update.html:47
+#: templates/adminka/tours/tour_expenses_update.html:59
+#: templates/adminka/tours/tour_expenses_update.html:71
+#: templates/adminka/tours/tour_expenses_update.html:83
+#: templates/adminka/tours/tour_expenses_update.html:95
+#: templates/adminka/tours/tour_facilities.html:56
 #: templates/adminka/tours/tour_facilities_create.html:51
 #: templates/adminka/tours/tour_facilities_create.html:67
 #: templates/adminka/tours/tour_facilities_create.html:81
@@ -428,20 +428,20 @@ msgstr ""
 #: templates/adminka/tours/tour_facilities_update.html:71
 #: templates/adminka/tours/tour_facilities_update.html:83
 #: templates/adminka/tours/tour_facilities_update.html:95
-#: templates/adminka/tours/tours.html:47
+#: templates/adminka/tours/tours.html:59
 #: templates/adminka/tours/tours_create.html:33
 #: templates/adminka/tours/tours_create.html:78
 #: templates/adminka/tours/tours_create.html:120
 #: templates/adminka/tours/tours_create.html:162
 #: templates/adminka/tours/tours_create.html:204
 #: templates/adminka/tours/tours_create.html:246
-#: templates/adminka/tours/tours_update.html:33
-#: templates/adminka/tours/tours_update.html:78
-#: templates/adminka/tours/tours_update.html:120
-#: templates/adminka/tours/tours_update.html:162
-#: templates/adminka/tours/tours_update.html:204
-#: templates/adminka/tours/tours_update.html:246
-#: templates/adminka/villas/villa_service_categories.html:45
+#: templates/adminka/tours/tours_update.html:49
+#: templates/adminka/tours/tours_update.html:105
+#: templates/adminka/tours/tours_update.html:156
+#: templates/adminka/tours/tours_update.html:207
+#: templates/adminka/tours/tours_update.html:258
+#: templates/adminka/tours/tours_update.html:309
+#: templates/adminka/villas/villa_service_categories.html:56
 #: templates/adminka/villas/villa_service_categories_create.html:51
 #: templates/adminka/villas/villa_service_categories_create.html:68
 #: templates/adminka/villas/villa_service_categories_create.html:84
@@ -454,7 +454,7 @@ msgstr ""
 #: templates/adminka/villas/villa_service_categories_update.html:99
 #: templates/adminka/villas/villa_service_categories_update.html:115
 #: templates/adminka/villas/villa_service_categories_update.html:130
-#: templates/adminka/villas/villa_services.html:46
+#: templates/adminka/villas/villa_services.html:57
 #: templates/adminka/villas/villa_services_create.html:51
 #: templates/adminka/villas/villa_services_create.html:68
 #: templates/adminka/villas/villa_services_create.html:84
@@ -467,13 +467,13 @@ msgstr ""
 #: templates/adminka/villas/villa_services_update.html:99
 #: templates/adminka/villas/villa_services_update.html:115
 #: templates/adminka/villas/villa_services_update.html:130
-#: templates/adminka/villas/villas.html:46
-#: templates/adminka/villas/villas_create.html:33
-#: templates/adminka/villas/villas_create.html:67
-#: templates/adminka/villas/villas_create.html:99
-#: templates/adminka/villas/villas_create.html:131
-#: templates/adminka/villas/villas_create.html:163
-#: templates/adminka/villas/villas_create.html:195
+#: templates/adminka/villas/villas.html:57
+#: templates/adminka/villas/villas_create.html:49
+#: templates/adminka/villas/villas_create.html:88
+#: templates/adminka/villas/villas_create.html:126
+#: templates/adminka/villas/villas_create.html:164
+#: templates/adminka/villas/villas_create.html:202
+#: templates/adminka/villas/villas_create.html:240
 #: templates/adminka/villas/villas_update.html:33
 #: templates/adminka/villas/villas_update.html:67
 #: templates/adminka/villas/villas_update.html:99
@@ -483,25 +483,25 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: templates/adminka/cars/cars.html:63 templates/adminka/news/news.html:62
-#: templates/adminka/sights/sight_categories.html:61
-#: templates/adminka/sights/sights.html:69
-#: templates/adminka/tours/tour_expenses.html:61
-#: templates/adminka/tours/tour_facilities.html:61
-#: templates/adminka/tours/tours.html:68
-#: templates/adminka/villas/villa_service_categories.html:61
-#: templates/adminka/villas/villa_services.html:69
-#: templates/adminka/villas/villas.html:63
+#: templates/adminka/cars/cars.html:79 templates/adminka/news/news.html:78
+#: templates/adminka/sights/sight_categories.html:77
+#: templates/adminka/sights/sights.html:89
+#: templates/adminka/tours/tour_expenses.html:77
+#: templates/adminka/tours/tour_facilities.html:77
+#: templates/adminka/tours/tours.html:87
+#: templates/adminka/villas/villa_service_categories.html:77
+#: templates/adminka/villas/villa_services.html:89
+#: templates/adminka/villas/villas.html:79
 msgid "Edit"
 msgstr ""
 
-#: templates/adminka/cars/cars.html:81 templates/adminka/news/news.html:80
-#: templates/adminka/sights/sight_categories.html:79
-#: templates/adminka/sights/sights.html:87
-#: templates/adminka/tours/tours.html:86
-#: templates/adminka/villas/villa_service_categories.html:79
-#: templates/adminka/villas/villa_services.html:87
-#: templates/adminka/villas/villas.html:81
+#: templates/adminka/cars/cars.html:98 templates/adminka/news/news.html:97
+#: templates/adminka/sights/sight_categories.html:96
+#: templates/adminka/sights/sights.html:108
+#: templates/adminka/tours/tours.html:106
+#: templates/adminka/villas/villa_service_categories.html:97
+#: templates/adminka/villas/villa_services.html:109
+#: templates/adminka/villas/villas.html:98
 msgid "Are you sure you want to delete?"
 msgstr ""
 
@@ -511,12 +511,12 @@ msgstr ""
 #: templates/adminka/cars/cars_create.html:111
 #: templates/adminka/cars/cars_create.html:133
 #: templates/adminka/cars/cars_create.html:155
-#: templates/adminka/cars/cars_update.html:44
-#: templates/adminka/cars/cars_update.html:67
-#: templates/adminka/cars/cars_update.html:89
-#: templates/adminka/cars/cars_update.html:111
-#: templates/adminka/cars/cars_update.html:133
-#: templates/adminka/cars/cars_update.html:155
+#: templates/adminka/cars/cars_update.html:63
+#: templates/adminka/cars/cars_update.html:92
+#: templates/adminka/cars/cars_update.html:120
+#: templates/adminka/cars/cars_update.html:148
+#: templates/adminka/cars/cars_update.html:176
+#: templates/adminka/cars/cars_update.html:204
 #: templates/adminka/news/news_create.html:66
 #: templates/adminka/news/news_create.html:97
 #: templates/adminka/news/news_create.html:128
@@ -529,12 +529,12 @@ msgstr ""
 #: templates/adminka/news/news_update.html:111
 #: templates/adminka/news/news_update.html:133
 #: templates/adminka/news/news_update.html:155
-#: templates/adminka/sights/sights_create.html:66
-#: templates/adminka/sights/sights_create.html:97
-#: templates/adminka/sights/sights_create.html:128
-#: templates/adminka/sights/sights_create.html:159
-#: templates/adminka/sights/sights_create.html:190
-#: templates/adminka/sights/sights_create.html:221
+#: templates/adminka/sights/sights_create.html:67
+#: templates/adminka/sights/sights_create.html:98
+#: templates/adminka/sights/sights_create.html:129
+#: templates/adminka/sights/sights_create.html:158
+#: templates/adminka/sights/sights_create.html:189
+#: templates/adminka/sights/sights_create.html:220
 #: templates/adminka/sights/sights_update.html:44
 #: templates/adminka/sights/sights_update.html:67
 #: templates/adminka/sights/sights_update.html:89
@@ -547,18 +547,18 @@ msgstr ""
 #: templates/adminka/tours/tours_create.html:182
 #: templates/adminka/tours/tours_create.html:224
 #: templates/adminka/tours/tours_create.html:267
-#: templates/adminka/tours/tours_update.html:55
-#: templates/adminka/tours/tours_update.html:98
-#: templates/adminka/tours/tours_update.html:140
-#: templates/adminka/tours/tours_update.html:182
-#: templates/adminka/tours/tours_update.html:224
-#: templates/adminka/tours/tours_update.html:267
-#: templates/adminka/villas/villas_create.html:44
-#: templates/adminka/villas/villas_create.html:77
-#: templates/adminka/villas/villas_create.html:109
-#: templates/adminka/villas/villas_create.html:141
-#: templates/adminka/villas/villas_create.html:173
-#: templates/adminka/villas/villas_create.html:205
+#: templates/adminka/tours/tours_update.html:75
+#: templates/adminka/tours/tours_update.html:129
+#: templates/adminka/tours/tours_update.html:180
+#: templates/adminka/tours/tours_update.html:231
+#: templates/adminka/tours/tours_update.html:282
+#: templates/adminka/tours/tours_update.html:333
+#: templates/adminka/villas/villas_create.html:62
+#: templates/adminka/villas/villas_create.html:100
+#: templates/adminka/villas/villas_create.html:138
+#: templates/adminka/villas/villas_create.html:176
+#: templates/adminka/villas/villas_create.html:214
+#: templates/adminka/villas/villas_create.html:252
 #: templates/adminka/villas/villas_update.html:44
 #: templates/adminka/villas/villas_update.html:77
 #: templates/adminka/villas/villas_update.html:109
@@ -569,18 +569,18 @@ msgid "Description"
 msgstr ""
 
 #: templates/adminka/cars/cars_create.html:180
-#: templates/adminka/cars/cars_update.html:180
+#: templates/adminka/cars/cars_update.html:231
 #: templates/adminka/tours/tours_create.html:302
-#: templates/adminka/tours/tours_update.html:302
+#: templates/adminka/tours/tours_update.html:372
 msgid "Duration"
 msgstr ""
 
 #: templates/adminka/cars/cars_create.html:190
-#: templates/adminka/cars/cars_update.html:190
+#: templates/adminka/cars/cars_update.html:245
 msgid "Price(In dollars)"
 msgstr ""
 
-#: templates/adminka/news/news.html:46
+#: templates/adminka/news/news.html:57
 #: templates/adminka/news/news_update.html:180
 msgid "Created on"
 msgstr ""
@@ -609,21 +609,21 @@ msgstr ""
 msgid "Passwords do not match"
 msgstr ""
 
-#: templates/adminka/sights/sights.html:45
-#: templates/adminka/villas/villa_services.html:45
+#: templates/adminka/sights/sights.html:56
+#: templates/adminka/villas/villa_services.html:56
 #: templates/adminka/villas/villa_services_create.html:146
 msgid "Category"
 msgstr ""
 
-#: templates/adminka/sights/sights_create.html:252
+#: templates/adminka/sights/sights_create.html:250
 #: templates/adminka/sights/sights_update.html:180
 #: templates/adminka/villas/villa_service_categories_update.html:146
 msgid "Categories"
 msgstr ""
 
-#: templates/adminka/tours/tours.html:46
+#: templates/adminka/tours/tours.html:58
 #: templates/adminka/tours/tours_create.html:366
-#: templates/adminka/tours/tours_update.html:366
+#: templates/adminka/tours/tours_update.html:450
 msgid "Guide"
 msgstr ""
 
@@ -633,12 +633,12 @@ msgstr ""
 #: templates/adminka/tours/tours_create.html:172
 #: templates/adminka/tours/tours_create.html:214
 #: templates/adminka/tours/tours_create.html:256
-#: templates/adminka/tours/tours_update.html:44
-#: templates/adminka/tours/tours_update.html:88
-#: templates/adminka/tours/tours_update.html:130
-#: templates/adminka/tours/tours_update.html:172
-#: templates/adminka/tours/tours_update.html:214
-#: templates/adminka/tours/tours_update.html:256
+#: templates/adminka/tours/tours_update.html:62
+#: templates/adminka/tours/tours_update.html:117
+#: templates/adminka/tours/tours_update.html:168
+#: templates/adminka/tours/tours_update.html:219
+#: templates/adminka/tours/tours_update.html:270
+#: templates/adminka/tours/tours_update.html:320
 msgid "Plan"
 msgstr ""
 
@@ -648,42 +648,42 @@ msgstr ""
 #: templates/adminka/tours/tours_create.html:192
 #: templates/adminka/tours/tours_create.html:234
 #: templates/adminka/tours/tours_create.html:277
-#: templates/adminka/tours/tours_update.html:65
-#: templates/adminka/tours/tours_update.html:108
-#: templates/adminka/tours/tours_update.html:150
-#: templates/adminka/tours/tours_update.html:192
-#: templates/adminka/tours/tours_update.html:234
-#: templates/adminka/tours/tours_update.html:277
+#: templates/adminka/tours/tours_update.html:89
+#: templates/adminka/tours/tours_update.html:142
+#: templates/adminka/tours/tours_update.html:193
+#: templates/adminka/tours/tours_update.html:244
+#: templates/adminka/tours/tours_update.html:295
+#: templates/adminka/tours/tours_update.html:346
 msgid "Route"
 msgstr ""
 
 #: templates/adminka/tours/tours_create.html:312
-#: templates/adminka/tours/tours_update.html:312
+#: templates/adminka/tours/tours_update.html:386
 msgid "Number of people"
 msgstr ""
 
 #: templates/adminka/tours/tours_create.html:332
-#: templates/adminka/tours/tours_update.html:332
+#: templates/adminka/tours/tours_update.html:412
 msgid "Facilities"
 msgstr ""
 
 #: templates/adminka/tours/tours_create.html:349
-#: templates/adminka/tours/tours_update.html:349
+#: templates/adminka/tours/tours_update.html:431
 msgid "Expenses"
 msgstr ""
 
-#: templates/adminka/villas/villas.html:45
-#: templates/adminka/villas/villas_create.html:270
+#: templates/adminka/villas/villas.html:56
+#: templates/adminka/villas/villas_create.html:325
 #: templates/adminka/villas/villas_update.html:270
 msgid "Status"
 msgstr ""
 
-#: templates/adminka/villas/villas_create.html:54
-#: templates/adminka/villas/villas_create.html:87
-#: templates/adminka/villas/villas_create.html:119
-#: templates/adminka/villas/villas_create.html:151
-#: templates/adminka/villas/villas_create.html:183
-#: templates/adminka/villas/villas_create.html:215
+#: templates/adminka/villas/villas_create.html:73
+#: templates/adminka/villas/villas_create.html:112
+#: templates/adminka/villas/villas_create.html:150
+#: templates/adminka/villas/villas_create.html:188
+#: templates/adminka/villas/villas_create.html:226
+#: templates/adminka/villas/villas_create.html:264
 #: templates/adminka/villas/villas_update.html:54
 #: templates/adminka/villas/villas_update.html:87
 #: templates/adminka/villas/villas_update.html:119
@@ -693,38 +693,50 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: templates/adminka/villas/villas_create.html:240
+#: templates/adminka/villas/villas_create.html:290
 #: templates/adminka/villas/villas_update.html:240
 msgid "Phone"
 msgstr ""
 
-#: templates/adminka/villas/villas_create.html:250
+#: templates/adminka/villas/villas_create.html:302
 #: templates/adminka/villas/villas_update.html:250
 msgid "Number of bedrooms"
 msgstr ""
 
-#: templates/adminka/villas/villas_create.html:260
+#: templates/adminka/villas/villas_create.html:314
 #: templates/adminka/villas/villas_update.html:260
 msgid "Square meter"
 msgstr ""
 
-#: templates/adminka/villas/villas_create.html:280
-#: templates/adminka/villas/villas_update.html:280
+#: templates/adminka/villas/villas_create.html:330
+#: templates/adminka/villas/villas_update.html:276
+#: templates/adminka/villas/villas_update.html:283
+msgid "Signature villa"
+msgstr ""
+
+#: templates/adminka/villas/villas_create.html:332
+#: templates/adminka/villas/villas_update.html:278
+#: templates/adminka/villas/villas_update.html:281
+msgid "Garden home villa"
+msgstr ""
+
+#: templates/adminka/villas/villas_create.html:341
+#: templates/adminka/villas/villas_update.html:292
 msgid "Distance from Railways"
 msgstr ""
 
-#: templates/adminka/villas/villas_create.html:290
-#: templates/adminka/villas/villas_update.html:290
+#: templates/adminka/villas/villas_create.html:353
+#: templates/adminka/villas/villas_update.html:302
 msgid "Distance from the Center"
 msgstr ""
 
-#: templates/adminka/villas/villas_create.html:300
-#: templates/adminka/villas/villas_update.html:300
+#: templates/adminka/villas/villas_create.html:365
+#: templates/adminka/villas/villas_update.html:312
 msgid "Distance from Airways"
 msgstr ""
 
-#: templates/adminka/villas/villas_create.html:310
-#: templates/adminka/villas/villas_update.html:310
+#: templates/adminka/villas/villas_create.html:376
+#: templates/adminka/villas/villas_update.html:322
 msgid "Services"
 msgstr ""
 

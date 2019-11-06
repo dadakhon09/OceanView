@@ -30,11 +30,10 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 text-right">
-                                                <label for="text_en" class="control-label">{% trans 'Text' %}
-                                                    (en)</label>
+                                                <label for="text_en" class="control-label">{% trans 'Text' %}(en)</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" id="text_en" class="form-control" name="text_en" placeholder="" autocomplete="off" value="{{ about.text.text_en }}">
+                                                <input type="text" id="text_en" class="form-control" name="text_en" placeholder="" autocomplete="off" value="{{ about.text.text_en }}" required>
                                             </div>
                                         </div>
                                     </div>
