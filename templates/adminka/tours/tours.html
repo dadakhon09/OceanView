@@ -1,106 +1,121 @@
 {% extends 'adminka/_base.html' %}
 {% load static i18n %}
 {% block head %}
-<link rel="stylesheet" href="{% static 'adminka/css/pagination.css' %}">
+    <link rel="stylesheet" href="{% static 'adminka/css/pagination.css' %}">
 {% endblock %}
 {% block body %}
-<div class="container-fluid">
-    {% get_current_language as LANGUAGE_CODE %}
-    <!-- ============================================================== -->
-    <!-- Start Page Content -->
-    <!-- ============================================================== -->
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-main__title">
-                        <h2>{% trans 'Tours' %}</h2>
-                    </div>
-                    {% if tours.has_other_pages %}
-                    <ul class="pagination">
-                        {% if tours.has_previous %}
-                        <li class="page-item"><a class="page-link" href="?page={{ tours.previous_page_number }}">&laquo;</a></li>
-                        {% else %}
-                        <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
-                        {% endif %}
-                        {% for i in tours.paginator.page_range %}
-                        {% if tours.number == i %}
-                        <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
-                        {% else %}
-                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                        {% endif %}
-                        {% endfor %}
-                        {% if tours.has_next %}
-                        <li class="page-item"><a class="page-link" href="?page={{ tours.next_page_number }}">&raquo;</a></li>
-                        {% else %}
-                        <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
-                        {% endif %}
-                    </ul>
-                    {% endif %}
-                    <a href="{% url 'tours-create' %}" type="button" class="btn btn-info m-t-10 float-right">{% trans 'Add' %}</a>
-                    <!-- Add Contact Popup Model -->
-                    <div class="table-responsive">
-                        <table id="demo-foo-addrow" class="table table-bordered m-t-30 table-hover contact-list" data-paging="true" data-paging-size="7">
-                            <thead>
+    <div class="container-fluid">
+        {% get_current_language as LANGUAGE_CODE %}
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-main__title main-title">
+                            <h2>{% trans 'Tours' %}</h2>
+                            <div>
+                                {% if tours.has_other_pages %}
+                                    <ul class="pagination">
+                                        {% if tours.has_previous %}
+                                            <li class="page-item"><a class="page-link"
+                                                                     href="?page={{ tours.previous_page_number }}">&laquo;</a>
+                                            </li>
+                                        {% else %}
+                                            <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                                        {% endif %}
+                                        {% for i in tours.paginator.page_range %}
+                                            {% if tours.number == i %}
+                                                <li class="page-item active"><span class="page-link">{{ i }} <span
+                                                        class="sr-only">(current)</span></span></li>
+                                            {% else %}
+                                                <li class="page-item"><a class="page-link"
+                                                                         href="?page={{ i }}">{{ i }}</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% if tours.has_next %}
+                                            <li class="page-item"><a class="page-link"
+                                                                     href="?page={{ tours.next_page_number }}">&raquo;</a>
+                                            </li>
+                                        {% else %}
+                                            <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+                                <a href="{% url 'tours-create' %}" type="button"
+                                   class="btn btn-info m-t-10 float-right">{% trans 'Add' %}</a>
+                            </div>
+                        </div>
+
+                        <!-- Add Contact Popup Model -->
+                        <div class="table-responsive">
+                            <table id="demo-foo-addrow" class="table table-bordered m-t-30 table-hover contact-list"
+                                   data-paging="true" data-paging-size="7">
+                                <thead>
                                 <tr>
                                     <th width="1%">#</th>
                                     <th width="1%">{% trans 'Guide' %}</th>
                                     <th width="100">{% trans 'Title' %}</th>
                                     <th width="1%"></th>
                                     <th width="1%"></th>
-                                    <th width="1%"></th>
+
                                 </tr>
-                            <tbody>
+                                <tbody>
                                 {% for tour in tours %}
-                                <tr>
-                                    <td>{{ tour.id }}</td>
-                                    {% if tour.guide %}
-                                    <td><span class="label label-success">{% if LANGUAGE_CODE == 'en' %}Yes{% elif LANGUAGE_CODE == 'ru' %}Да{% endif %}</span></td>
-                                    {% else %}
-                                    <td><span class="label label-danger">{% if LANGUAGE_CODE == 'en' %}No{% elif LANGUAGE_CODE == 'ru' %}Нет{% endif %}</span></td>
-                                    {% endif %}
-                                    <td>
-                                        <a href="{% url 'tours-update' tour.id %}">
-                                            <div>
-                                                {% if LANGUAGE_CODE == 'en' %}
-                                                <span>{{ tour.title.title_en }}</span>
-                                                {% elif LANGUAGE_CODE == 'ru' %}
-                                                <span>{{ tour.title.title_ru }}</span>
-                                                {% endif %}
-                                            </div>
-                                        </a>
-                                    </td>
-                                    <td><a href="{% url 'tours-update' tour.id %}" class="label label-info"><i class="fas fa-edit"></i>{% trans 'Edit' %}</a></td>
-                                    <td><a href="{% url 'tours-delete' tour.id %}" id="" class="label label-danger"><i class="fas fa-trash"></i></a></td>
-                                </tr>
+                                    <tr>
+                                        <td>{{ tour.id }}</td>
+                                        {% if tour.guide %}
+                                            <td><span class="label label-success">{% if LANGUAGE_CODE == 'en' %}
+                                                Yes{% elif LANGUAGE_CODE == 'ru' %}Да{% endif %}</span></td>
+                                        {% else %}
+                                            <td><span class="label label-danger">{% if LANGUAGE_CODE == 'en' %}
+                                                No{% elif LANGUAGE_CODE == 'ru' %}Нет{% endif %}</span></td>
+                                        {% endif %}
+                                        <td>
+                                            <a href="{% url 'tours-update' tour.id %}">
+                                                <div>
+                                                    {% if LANGUAGE_CODE == 'en' %}
+                                                        <span>{{ tour.title.title_en }}</span>
+                                                    {% elif LANGUAGE_CODE == 'ru' %}
+                                                        <span>{{ tour.title.title_ru }}</span>
+                                                    {% endif %}
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td><a href="{% url 'tours-update' tour.id %}" class="label label-info"><i
+                                                class="fas fa-edit"></i>{% trans 'Edit' %}</a></td>
+                                        <td><a href="{% url 'tours-delete' tour.id %}" id="" class="label label-danger"><i
+                                                class="fas fa-trash"></i></a></td>
+                                    </tr>
                                 {% endfor %}
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- End PAge Content -->
-    <!-- ============================================================== -->
-    <div id="myModal" class="modal-custom">
-        <!-- Modal content -->
-        <div class="modal-content-custom">
-            <span class="close">&times;</span>
-            <h2>{% trans 'Are you sure you want to delete?' %}</h2>
-            <a href="#">
-                <button type="button" class="btn btn-success">
-                    Yes
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <div id="myModal" class="modal-custom">
+            <!-- Modal content -->
+            <div class="modal-content-custom">
+                <span class="close">&times;</span>
+                <h2>{% trans 'Are you sure you want to delete?' %}</h2>
+                <a href="#">
+                    <button type="button" class="btn btn-success">
+                        Yes
+                    </button>
+                </a>
+                <button type="button" class="btn btn-danger No">
+                    No
                 </button>
-            </a>
-            <button type="button" class="btn btn-danger No">
-                No
-            </button>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
 {% block js %}
-<script src="{% static 'adminka/js/pagination.js' %}"></script>
+    <script src="{% static 'adminka/js/pagination.js' %}"></script>
 {% endblock %}

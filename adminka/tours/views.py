@@ -77,14 +77,13 @@ class ToursCreateView(View):
         price = post.get('price')
 
         t_facilities = post.getlist('t_facilities')
-        
+
         t_expenses = post.getlist('t_expenses')
-        
+
         if not price:
             price = None
 
-        images = post.getlist('image')
-        
+        images = self.request.FILES.getlist('image')
 
         title = {
             'title_en': title_en,
@@ -136,13 +135,12 @@ class ToursCreateView(View):
             obj.tours.add(tour)
             obj.save()
 
-
-        if images[0] is not '':
+        if images:
             for i in images:
                 ti = TourImage.objects.create(image=i, tour=tour)
                 tour.images.add(ti)
                 tour.save()
-        
+
         tour.save()
 
         return HttpResponseRedirect(reverse('adminka-tours'))
@@ -154,7 +152,7 @@ class ToursUpdateView(View):
         t_expenses = TourExpense.objects.all()
         t_facilities = TourFacility.objects.all()
         t_images = TourImage.objects.filter(tour=tour)
-        
+
         return render(request, 'adminka/tours/tours_update.html',
                       {'tour': tour, 't_expenses': t_expenses, 't_facilities': t_facilities, 't_images': t_images})
 
@@ -243,7 +241,7 @@ class ToursUpdateView(View):
             'route_zh': route_zh,
         }
 
-        images = post.getlist('image')
+        images = self.request.FILES.getlist('image')
         if images:
             for i in images:
                 ti, _ = TourImage.objects.get_or_create(image=i, tour=tour)
@@ -272,7 +270,7 @@ class ToursUpdateView(View):
         tour.num_people = num_people
         tour.guide = guide
         tour.price = price
-            
+
         tour.save()
 
         return HttpResponseRedirect(reverse('adminka-tours'))
@@ -324,7 +322,7 @@ class AdminToursExpensesCreateView(View):
             'title_zh': title_zh,
         }
 
-        image = post.get('image')
+        image = self.request.FILES.get('image')
 
         TourExpense.objects.create(title=title, image=image)
 
@@ -356,7 +354,7 @@ class AdminToursExpensesUpdateView(View):
             'title_zh': title_zh,
         }
 
-        image = post.get('image')
+        image = self.request.FILES.get('image')
 
         t_expense.title = title
         t_expense.image = image
@@ -412,7 +410,7 @@ class AdminToursFacilitiesCreateView(View):
             'title_zh': title_zh,
         }
 
-        image = post.get('image')
+        image = self.request.FILES.get('image')
 
         TourFacility.objects.create(title=title, image=image)
 
@@ -444,7 +442,7 @@ class AdminToursFacilitiesUpdateView(View):
             'title_zh': title_zh,
         }
 
-        image = post.get('image')
+        image = self.request.FILES.get('image')
 
         t_facility.title = title
         t_facility.image = image

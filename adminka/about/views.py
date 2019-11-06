@@ -7,39 +7,39 @@ from app.models import About, AboutImage
 
 
 class AdminAboutView(View):
-	def get(self, request):
-		about = About.objects.get(id=1)
-		a_images = AboutImage.objects.filter(about=about)
-		return render(request, 'adminka/about/about.html', {'about': about, 'a_images': a_images}) 
+    def get(self, request):
+        about = About.objects.get(id=1)
+        a_images = AboutImage.objects.filter(about=about)
+        return render(request, 'adminka/about/about.html', {'about': about, 'a_images': a_images})
 
-	def post(self, request):
-		about = About.objects.get(id=1)
+    def post(self, request):
+        about = About.objects.get(id=1)
 
-		post = self.request.POST
+        post = self.request.POST
 
-		text_en = post.get('text_en')
-		text_ar = post.get('text_ar')
-		text_fa = post.get('text_fa')
-		text_hi = post.get('text_hi')
-		text_ru = post.get('text_ru')
-		text_zh = post.get('text_zh')
+        text_en = post.get('text_en')
+        text_ar = post.get('text_ar')
+        text_fa = post.get('text_fa')
+        text_hi = post.get('text_hi')
+        text_ru = post.get('text_ru')
+        text_zh = post.get('text_zh')
 
-		text = {
-		    'text_en': text_en,
-		    'text_ar': text_ar,
-		    'text_fa': text_fa,
-		    'text_hi': text_hi,
-		    'text_ru': text_ru,
-		    'text_zh': text_zh,
-		}
+        text = {
+            'text_en': text_en,
+            'text_ar': text_ar,
+            'text_fa': text_fa,
+            'text_hi': text_hi,
+            'text_ru': text_ru,
+            'text_zh': text_zh,
+        }
 
-		about.text = text
-		about.save()
+        about.text = text
+        about.save()
 
-		images = post.getlist('image')
+        images = self.request.FILES.getlist('image')
 
-		if images:
-			for i in images:
-				ai, _ = AboutImage.objects.get_or_create(image=i, about=about)
+        if images:
+            for i in images:
+                ai, _ = AboutImage.objects.get_or_create(image=i, about=about)
 
-		return HttpResponseRedirect(reverse('adminka-index'))
+        return HttpResponseRedirect(reverse('adminka-index'))

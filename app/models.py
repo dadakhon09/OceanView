@@ -1,4 +1,5 @@
 import jsonfield
+from django.core.files.storage import FileSystemStorage
 from django.db import models
 # from django.db.backends.postgresql import
 
@@ -103,7 +104,7 @@ class SightCategory(models.Model):
 
 class SightImage(models.Model):
     image = models.ImageField(upload_to='sights', null=True, blank=True)
-    sight = models.ForeignKey('Sight', on_delete=models.CASCADE)
+    sight = models.ForeignKey('Sight', on_delete=models.CASCADE, related_name='s_images')
 
     class Meta:
         db_table = 'sight_images'
@@ -177,6 +178,12 @@ class VillaService(models.Model):
         return self.title['title_en']
 
 
+STATUS = (
+    ('Signature villa', 0),
+    ('Garden home villa', 1),
+)
+
+
 class Villa(models.Model):
     # title = models.CharField(max_length=255)
     title = jsonfield.JSONField()
@@ -186,7 +193,7 @@ class Villa(models.Model):
     phone = models.CharField(max_length=255, null=True, blank=True)
     bedroom = models.PositiveIntegerField(null=True, blank=True)
     square_meter = models.PositiveIntegerField(null=True, blank=True)
-    status = models.CharField(max_length=255, null=True, blank=True)
+    status = models.IntegerField(choices=STATUS, null=True, blank=True)
     d_center = models.PositiveIntegerField(null=True, blank=True)
     d_airways = models.PositiveIntegerField(null=True, blank=True)
     d_railways = models.PositiveIntegerField(null=True, blank=True)

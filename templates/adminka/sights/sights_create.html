@@ -19,7 +19,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{% url 'sights-create' %}" method="post">{% csrf_token %}
+                        <form action="{% url 'sights-create' %}" method="post"
+                              enctype="multipart/form-data">{% csrf_token %}
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#1tab"
                                                         role="tab"><span class="hidden-sm-up"><i
@@ -58,7 +59,7 @@
                                             </div>
                                         </div>
 
-                                        
+
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-3 text-right">
@@ -72,7 +73,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <div class="tab-pane p-20" id="2tab" role="tabpanel">
@@ -89,7 +90,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 text-right">
@@ -104,7 +105,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                                 <div class="tab-pane p-20" id="3tab" role="tabpanel">
                                     <div class="form-group">
@@ -120,7 +121,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 text-right">
@@ -134,8 +135,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    
                                 </div>
                                 <div class="tab-pane p-20" id="4tab" role="tabpanel">
                                     <div class="form-group">
@@ -151,7 +150,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 text-right">
@@ -166,7 +165,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                                 <div class="tab-pane p-20" id="5tab" role="tabpanel">
                                     <div class="form-group">
@@ -182,7 +181,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 text-right">
@@ -197,7 +196,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                                 <div class="tab-pane p-20" id="6tab" role="tabpanel">
                                     <div class="form-group">
@@ -213,7 +212,7 @@
                                         </div>
                                     </div>
 
-                                
+
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 text-right">
@@ -228,7 +227,6 @@
                                         </div>
                                     </div>
 
-                                    
 
                                 </div>
                             </div>
@@ -252,10 +250,10 @@
                                             <label for="category" class="control-label">{% trans 'Categories' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            
                                             <select name="category" id="category" class="form-control custom-select">
                                                 {% for c in s_categories %}
-                                                <option name="category" value="{{ c.id }}">{{ c.title.title_en }}</option>
+                                                    <option name="category"
+                                                            value="{{ c.id }}">{{ c.title.title_en }}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>

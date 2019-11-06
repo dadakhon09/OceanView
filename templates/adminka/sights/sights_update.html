@@ -14,7 +14,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{% url 'sights-update' sight.id %}" method="post">{% csrf_token %}
+                    <form action="{% url 'sights-update' sight.id %}" method="post" enctype="multipart/form-data">{% csrf_token %}
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#1tab" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">{% trans 'English' %}</span></a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#2tab" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">{% trans 'Arabic' %}</span></a></li>
@@ -244,9 +244,9 @@ $(document).ready(function() {
         overwriteInitial: false,
         initialPreviewAsData: true,
         initialPreview: [
-            { % for i in s_images % }
+            {% for i in s_images %}
             "{{i.image.url}}",
-            { % endfor % }
+            {% endfor %}
         ],
 
         // [
@@ -255,8 +255,8 @@ $(document).ready(function() {
         //     "http://lorempixel.com/1920/1080/nature/3"
         // ],
         initialPreviewConfig: [
-            { % for i in s_images % } { caption: "{{i.image.name}}", size: { { i.image.size } }, width: "120px", url: "{$url}", key: 1 },
-            { % endfor % }
+            {% for i in s_images %} { caption: "{{i.image.name}}", size: {{ i.image.size }}, width: "120px", url: "{$url}", key: 1 },
+            {% endfor %}
             // {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
             // {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
             // {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}

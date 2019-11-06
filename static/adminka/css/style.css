@@ -5824,3 +5824,34 @@ File: scss
     .dataTables_wrapper .dataTables_paginate .paginate_button .page-link {
       padding: 0.5rem 0.6rem; } }
 
+.main-title{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.main-title > div{
+  display: flex;
+    align-items: center;
+}
+.main-title > div > a{
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    appearance: inherit;
+    -webkit-appearance: inherit;
+}
+.main-title > div > a:hover{
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    appearance: inherit;
+    -webkit-appearance: inherit;
+}
+.main-title > div > ul{
+    margin: 0;
+    margin-right: 15px;
+    padding: 0;
+}
