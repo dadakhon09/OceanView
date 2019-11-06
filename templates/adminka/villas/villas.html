@@ -63,7 +63,7 @@
                                 {% for villa in villas %}
                                     <tr>
                                         <td>{{ villa.id }}</td>
-                                        <td>{{ villa.status }}</td>
+                                        <td>{{ villa.get_status_display }}</td>
                                         <td>
                                             <a href="{% url 'villas-update' villa.id %}">
                                                 <div>

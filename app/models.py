@@ -179,8 +179,8 @@ class VillaService(models.Model):
 
 
 STATUS = (
-    ('Signature villa', 0),
-    ('Garden home villa', 1),
+    (0, 'Signature villa'),
+    (1, 'Garden home villa'),
 )
 
 
