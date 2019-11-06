@@ -9,9 +9,6 @@ from app.models import Villa, VillaService, VillaServiceCategory, VillaImage
 
 class AdminVillasView(View):
     def get(self, request):
-        status = Villa.objects.get(pk=1)
-        print(status.get_status_display())
-
         villas = Villa.objects.all()
 
         page = request.GET.get('page', 1)

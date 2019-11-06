@@ -270,7 +270,19 @@
                                         <label for="status" class="control-label">{% trans 'Status' %}</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" id="status" name="status" autocomplete="off" value="{{ villa.status }}">
+                                        <select name="status" id="status" class="form-control custom-select">
+                                            {% if villa.status == 0 %}
+                                                <option name="status"
+                                                        value="0">{% trans 'Signature villa' %}</option>
+                                                <option name="status"
+                                                        value="1">{% trans 'Garden home villa' %}</option>
+                                            {% elif villa.status == 1 %}
+                                                <option name="status"
+                                                        value="1">{% trans 'Garden home villa' %}</option>
+                                                <option name="status"
+                                                        value="0">{% trans 'Signature villa' %}</option>
+                                            {% endif %}
+                                            </select>
                                     </div>
                                 </div>
                             </div>
