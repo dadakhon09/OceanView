@@ -92,7 +92,7 @@ class Tour(models.Model):
 
 class SightCategory(models.Model):
     # title = models.CharField(max_length=255, null=True, blank=True)
-    title = jsonfield.JSONField()
+    title = jsonfield.JSONField(null=True)
 
     class Meta:
         db_table = 'sight_categories'
@@ -119,7 +119,7 @@ class Sight(models.Model):
     title = jsonfield.JSONField()
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
-    category = models.ForeignKey(SightCategory, on_delete=models.CASCADE)
+    category = models.ForeignKey(SightCategory, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         db_table = 'sights'
@@ -167,7 +167,7 @@ class VillaServiceCategory(models.Model):
 class VillaService(models.Model):
     # title = models.CharField(max_length=255)
     title = jsonfield.JSONField()
-    category = models.ForeignKey(VillaServiceCategory, on_delete=models.CASCADE)
+    category = models.ForeignKey(VillaServiceCategory, on_delete=models.SET_NULL, null=True)
     villas = models.ManyToManyField('Villa', related_name='v_services')
 
     class Meta:

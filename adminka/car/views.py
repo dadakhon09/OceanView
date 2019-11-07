@@ -75,9 +75,8 @@ class CarsCreateView(View):
 
         car = Car.objects.create(title=title, description=description, duration=duration, price=price)
 
-        if images:
-            for i in images:
-                CarImage.objects.create(image=i, car=car)
+        for i in images:
+            CarImage.objects.create(image=i, car=car)
 
         return HttpResponseRedirect(reverse('adminka-cars'))
 
@@ -135,9 +134,8 @@ class CarsUpdateView(View):
         if not price:
             price = None
 
-        if images:
-            for i in images:
-                obj, _ = CarImage.objects.get_or_create(image=i, car=car)
+        for i in images:
+            obj, _ = CarImage.objects.get_or_create(image=i, car=car)
 
         car.title = title
         car.description = description

@@ -121,9 +121,8 @@ class VillasCreateView(View):
 
         villa.save()
 
-        if images:
-            for i in images:
-                VillaImage.objects.create(image=i, villa=villa)
+        for i in images:
+            VillaImage.objects.create(image=i, villa=villa)
 
         return HttpResponseRedirect(reverse('adminka-villas'))
 
@@ -238,9 +237,8 @@ class VillasUpdateView(View):
 
         villa.save()
 
-        if images:
-            for i in images:
-                v, _ = VillaImage.objects.get_or_create(image=i, villa=villa)
+        for i in images:
+            vi, _ = VillaImage.objects.get_or_create(image=i, villa=villa)
 
         return HttpResponseRedirect(reverse('adminka-villas'))
 
@@ -295,9 +293,12 @@ class VillaServicesCreateView(View):
         }
 
         c = post.get('category')
-        category = VillaServiceCategory(id=int(c))
+        if c:
+            category = VillaServiceCategory(id=c)
+        else:
+            category = None
 
-        v_service = VillaService.objects.create(title=title, category=category)
+        VillaService.objects.create(title=title, category=category)
 
         return HttpResponseRedirect(reverse('villa-services'))
 
@@ -305,7 +306,13 @@ class VillaServicesCreateView(View):
 class VillaServicesUpdateView(View):
     def get(self, request, id):
         v_service = VillaService.objects.get(id=id)
-        return render(request, 'adminka/villas/villa_services_update.html', {'v_service': v_service})
+
+        if v_service.category:
+            v_service_categories = VillaServiceCategory.objects.exclude(id=v_service.category.id)
+        else:
+            v_service_categories = VillaServiceCategory.objects.all()
+        return render(request, 'adminka/villas/villa_services_update.html',
+                      {'v_service': v_service, 'v_service_categories': v_service_categories})
 
     def post(self, request, id):
         v_service = VillaService.objects.get(id=id)
@@ -329,7 +336,10 @@ class VillaServicesUpdateView(View):
         }
 
         c = post.get('category')
-        category = VillaServiceCategory(id=int(c))
+        if c:
+            category = VillaServiceCategory(id=c)
+        else:
+            category = None
 
         v_service.title = title
         v_service.category = category

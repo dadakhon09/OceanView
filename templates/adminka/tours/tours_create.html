@@ -373,8 +373,13 @@
                                     </div>
                                     <div class="col-md-9">
                                         <select name="guide" id="guide" class="form-control custom-select">
+                                            {% if LANGUAGE_CODE == 'en' %}
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
+                                            {% elif LANGUAGE_CODE == 'ru' %}
+                                            <option value="1">Да</option>
+                                            <option value="0">Нет</option>
+                                            {% endif %}
                                         </select>
                                     </div>
                                 </div>

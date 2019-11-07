@@ -64,15 +64,20 @@
                                     <tr>
                                         <td>{{ v_service.id }}</td>
                                         <td>
-                                            <a href="{% url 'villa-service-categories-update' v_service.category.id %}">
-                                                <div>
-                                                    {% if LANGUAGE_CODE == 'en' %}
-                                                        <span>{{ v_service.category.title.title_en }}</span>
-                                                    {% elif LANGUAGE_CODE == 'ru' %}
-                                                        <span>{{ v_service.category.title.title_ru }}</span>
-                                                    {% endif %}
-                                                </div>
-                                            </a>
+                                            {% if v_service.category %}
+                                                <a href="{% url 'villa-service-categories-update' v_service.category.id %}">
+                                                    <div>
+                                                        {% if LANGUAGE_CODE == 'en' %}
+                                                            <span>{{ v_service.category.title.title_en }}</span>
+                                                        {% elif LANGUAGE_CODE == 'ru' %}
+                                                            <span>{{ v_service.category.title.title_ru }}</span>
+                                                        {% endif %}
+                                                    </div>
+                                                </a>
+                                            {% else %}
+                                                None
+                                            {% endif %}
+
                                         </td>
                                         <td>
                                             <a href="{% url 'villa-services-update' v_service.id %}">

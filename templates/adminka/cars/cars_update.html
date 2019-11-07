@@ -63,9 +63,10 @@
                                                            class="control-label">{% trans 'Description' %}(en)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <textarea type="text" rows="10" class="form-control" id="description_en"
-                                                           name="description_en" autocomplete="off"
-                                                           value="{{ car.description.description_en }}">
+                                                    <textarea type="text" rows="10" class="form-control"
+                                                              id="description_en"
+                                                              name="description_en" autocomplete="off"
+                                                    >
                                                        </textarea>
                                                 </div>
                                             </div>
@@ -94,8 +95,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_ar"
-                                                       name="description_ar" autocomplete="off"
-                                                       value="{{ car.description.description_ar }}">
+                                                          name="description_ar" autocomplete="off">
                                                    </textarea>
                                             </div>
                                         </div>
@@ -123,8 +123,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_fa"
-                                                       name="description_fa" autocomplete="off"
-                                                       value="{{ car.description.description_fa }}">
+                                                          name="description_fa" autocomplete="off"
+                                                          >
                                                    </textarea>
                                             </div>
                                         </div>
@@ -152,8 +152,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_hi"
-                                                       name="description_hi" autocomplete="off"
-                                                       value="{{ car.description.description_hi }}">
+                                                          name="description_hi" autocomplete="off"
+                                                          >
                                                    </textarea>
                                             </div>
                                         </div>
@@ -181,8 +181,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_ru"
-                                                       name="description_ru" autocomplete="off"
-                                                       value="{{ car.description.description_ru }}">
+                                                          name="description_ru" autocomplete="off"
+                                                          >
                                                    </textarea>
                                             </div>
                                         </div>
@@ -210,8 +210,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_zh"
-                                                       name="description_zh" autocomplete="off"
-                                                       value="{{ car.description.description_zh }}">
+                                                          name="description_zh" autocomplete="off"
+                                                >
                                                    </textarea>
                                             </div>
                                         </div>
@@ -305,6 +305,15 @@
     <script src="{% static 'adminka/assets/plugins/uploader/themes/fas/theme.js' %}" type="text/javascript"></script>
     <script src="{% static 'adminka/assets/plugins/uploader/themes/explorer-fas/theme.js' %}"
             type="text/javascript"></script>
+    <script>
+        document.getElementById("description_en").value = "{{ car.description.description_en }}";
+        document.getElementById("description_ar").value = "{{ car.description.description_ar }}";
+        document.getElementById("description_fa").value = "{{ car.description.description_fa }}";
+        document.getElementById("description_hi").value = "{{ car.description.description_hi }}";
+        document.getElementById("description_ru").value = "{{ car.description.description_ru }}";
+        document.getElementById("description_zh").value = "{{ car.description.description_zh }}";
+
+    </script>
     <script>
         $(document).ready(function () {
             $("#kv-explorer").fileinput({

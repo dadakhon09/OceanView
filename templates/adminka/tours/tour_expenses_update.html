@@ -188,7 +188,9 @@ $(document).ready(function() {
         overwriteInitial: false,
         initialPreviewAsData: true,
         initialPreview: [
+            {% if t_expense.image %}
             "{{t_expense.image.url}}",
+            {% endif %}
         ],
 
         // [
@@ -197,7 +199,9 @@ $(document).ready(function() {
         //     "http://lorempixel.com/1920/1080/nature/3"
         // ],
         initialPreviewConfig: [
+            {% if t_expense.image %}
             { caption: "{{t_expense.image.name}}", size: {{ t_expense.image.size }}, width: "120px", url: "{$url}", key: 1 },
+            {% endif %}
             // {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
             // {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
             // {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}

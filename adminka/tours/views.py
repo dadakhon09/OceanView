@@ -135,11 +135,10 @@ class ToursCreateView(View):
             obj.tours.add(tour)
             obj.save()
 
-        if images:
-            for i in images:
-                ti = TourImage.objects.create(image=i, tour=tour)
-                tour.images.add(ti)
-                tour.save()
+        for i in images:
+            ti = TourImage.objects.create(image=i, tour=tour)
+            tour.images.add(ti)
+            tour.save()
 
         tour.save()
 
@@ -242,10 +241,10 @@ class ToursUpdateView(View):
         }
 
         images = self.request.FILES.getlist('image')
-        if images:
-            for i in images:
-                ti, _ = TourImage.objects.get_or_create(image=i, tour=tour)
-                tour.images.add(ti)
+
+        for i in images:
+            ti, _ = TourImage.objects.get_or_create(image=i, tour=tour)
+            tour.images.add(ti)
 
         t_facilities = post.getlist('t_facilities')
         t_expenses = post.getlist('t_expenses')

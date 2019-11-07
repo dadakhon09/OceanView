@@ -1,3 +1,16 @@
+document.getElementById("title_en").focus();
+
+let Path = location.pathname.split('/').slice(1, 4);
+Path = Path.join('/');
+$('#sidebarnav li a').map(function () {
+    if ($(this).attr('href') === '/' + Path + '/') {
+        $(this).addClass("active");
+    } else {
+        $(this).removeClass("active");
+    }
+}).get();
+
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -11,22 +24,20 @@ var no = document.getElementsByClassName("No")[0];
 // When the user clicks the button, open the modal
 btn.onclick = function () {
     modal.style.display = "block";
-}
+};
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
     modal.style.display = "none";
-}
+};
 
 no.onclick = function () {
     modal.style.display = "none";
-}
+};
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+};
 
-
-document.getElementById("title_en").focus();

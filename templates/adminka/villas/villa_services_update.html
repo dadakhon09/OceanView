@@ -53,7 +53,8 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <input type="text" id="title_en" class="form-control"
-                                                           name="title_en" placeholder="" autocomplete="off" value="{{ v_service.title.title_en }}" required>
+                                                           name="title_en" placeholder="" autocomplete="off"
+                                                           value="{{ v_service.title.title_en }}" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -69,12 +70,13 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" id="title_ar" class="form-control" name="title_ar"
-                                                       placeholder="" autocomplete="off" value="{{ v_service.title.title_ar }}">
+                                                       placeholder="" autocomplete="off"
+                                                       value="{{ v_service.title.title_ar }}">
                                             </div>
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                                 <div class="tab-pane p-20" id="3tab" role="tabpanel">
                                     <div class="form-group">
@@ -85,7 +87,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" id="title_fa" class="form-control" name="title_fa"
-                                                       placeholder="" autocomplete="off" value="{{ v_service.title.title_fa }}">
+                                                       placeholder="" autocomplete="off"
+                                                       value="{{ v_service.title.title_fa }}">
                                             </div>
                                         </div>
                                     </div>
@@ -100,12 +103,13 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" id="title_hi" class="form-control" name="title_hi"
-                                                       placeholder="" autocomplete="off" value="{{ v_service.title.title_hi }}">
+                                                       placeholder="" autocomplete="off"
+                                                       value="{{ v_service.title.title_hi }}">
                                             </div>
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                                 <div class="tab-pane p-20" id="5tab" role="tabpanel">
                                     <div class="form-group">
@@ -116,7 +120,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" id="title_ru" class="form-control" name="title_ru"
-                                                       placeholder="" autocomplete="off" value="{{ v_service.title.title_ru }}">
+                                                       placeholder="" autocomplete="off"
+                                                       value="{{ v_service.title.title_ru }}">
                                             </div>
                                         </div>
                                     </div>
@@ -131,7 +136,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" id="title_zh" class="form-control" name="title_zh"
-                                                       placeholder="" autocomplete="off" value="{{ v_service.title.title_zh }}">
+                                                       placeholder="" autocomplete="off"
+                                                       value="{{ v_service.title.title_zh }}">
                                             </div>
                                         </div>
                                     </div>
@@ -140,6 +146,31 @@
                                 </div>
                             </div>
                             <div class="p-20">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3 text-right">
+                                            <label for="category" class="control-label">{% trans 'Category' %}</label>
+                                        </div>
+                                        <div class="col-md-9">
+
+                                            <select name="category" id="category" class="form-control custom-select">
+                                                {% if v_service.category %}
+                                                    <option name="category"
+                                                            value="{{ v_service.category.id }}">{{ v_service.category.title.title_en }}</option>
+                                                {% for c in v_service_categories %}
+                                                    <option name="category"
+                                                            value="{{ c.id }}">{{ c.title.title_en }}</option>
+                                                {% endfor %}
+                                                {% else %}
+                                                {% for c in v_service_categories %}
+                                                    <option name="category"
+                                                            value="{{ c.id }}">{{ c.title.title_en }}</option>
+                                                {% endfor %}
+                                                {% endif %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">

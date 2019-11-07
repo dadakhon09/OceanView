@@ -38,8 +38,7 @@ class AdminAboutView(View):
 
         images = self.request.FILES.getlist('image')
 
-        if images:
-            for i in images:
-                ai, _ = AboutImage.objects.get_or_create(image=i, about=about)
+        for i in images:
+            ai, _ = AboutImage.objects.get_or_create(image=i, about=about)
 
         return HttpResponseRedirect(reverse('adminka-index'))

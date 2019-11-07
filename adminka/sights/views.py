@@ -65,15 +65,16 @@ class SightsCreateView(View):
         }
 
         c = post.get('category')
-        category = SightCategory.objects.get(id=int(c))
+        if c:
+            category = SightCategory.objects.get(id=c)
+        else:
+            category = None
 
         images = self.request.FILES.getlist('image')
 
         sight = Sight.objects.create(title=title, description=description, category=category)
 
         for i in images:
-            if type(i) == str:
-                continue
             si = SightImage.objects.create(image=i, sight=sight)
             sight.s_images.add(si)
             sight.save()
@@ -84,7 +85,11 @@ class SightsCreateView(View):
 class SightsUpdateView(View):
     def get(self, request, id):
         sight = Sight.objects.get(id=id)
-        s_categories = SightCategory.objects.exclude(id=sight.category.id)
+        if sight.category:
+            s_categories = SightCategory.objects.exclude(id=sight.category.id)
+        else:
+            s_categories = SightCategory.objects.all()
+
         s_images = SightImage.objects.filter(sight=sight)
         return render(request, 'adminka/sights/sights_update.html',
                       {'sight': sight, 's_categories': s_categories, 's_images': s_images})
@@ -126,7 +131,10 @@ class SightsUpdateView(View):
         }
 
         c = post.get('category')
-        category = SightCategory.objects.get(id=int(c))
+        if c:
+            category = SightCategory.objects.get(id=c)
+        else:
+            category = None
 
         images = self.request.FILES.getlist('images')
 
@@ -135,11 +143,10 @@ class SightsUpdateView(View):
         sight.category = category
         sight.save()
 
-        if images:
-            for i in images:
-                si = SightImage.objects.create(image=i, sight=sight)
-                sight.images.add(si)
-                sight.save()
+        for i in images:
+            si = SightImage.objects.create(image=i, sight=sight)
+            sight.images.add(si)
+            sight.save()
 
         return HttpResponseRedirect(reverse('adminka-sights'))
 

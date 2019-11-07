@@ -35,10 +35,8 @@ class AdminLoginView(View):
         username = self.request.POST.get('username')
         password = self.request.POST.get('password')
         user = authenticate(username=username, password=password)
-        # user_check = User.objects.filter(username=username, password=password)
 
         if user:
-            # user = User.objects.get(username=username, password=password)
             login(request, user)
             return HttpResponseRedirect(reverse('adminka-index'))
         return render(request, 'adminka/login.html', {'error': True})

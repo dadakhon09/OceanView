@@ -75,10 +75,11 @@
                                                            class="control-label">{% trans 'Description' %}(en)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <textarea type="text" rows="10" class="form-control" id="description_en"
-                                                           name="description_en"
-                                                           value="{{ tour.description.description_en }}"
-                                                           autocomplete="off">
+                                                    <textarea type="text" rows="10" class="form-control"
+                                                              id="description_en"
+                                                              name="description_en"
+
+                                                              autocomplete="off">
                                                        </textarea>
                                                 </div>
                                             </div>
@@ -131,8 +132,9 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_ar"
-                                                       name="description_ar"
-                                                       value="{{ tour.description.description_ar }}" autocomplete="off">
+                                                          name="description_ar"
+
+                                                          autocomplete="off">
                                                    </textarea>
                                             </div>
                                         </div>
@@ -183,8 +185,9 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_fa"
-                                                       name="description_fa"
-                                                       value="{{ tour.description.description_fa }}" autocomplete="off">
+                                                          name="description_fa"
+
+                                                          autocomplete="off">
                                                    </textarea>
                                             </div>
                                         </div>
@@ -235,8 +238,9 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_hi"
-                                                       name="description_hi"
-                                                       value="{{ tour.description.description_hi }}" autocomplete="off">
+                                                          name="description_hi"
+
+                                                          autocomplete="off">
                                                    </textarea>
                                             </div>
                                         </div>
@@ -287,8 +291,9 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_ru"
-                                                       name="description_ru"
-                                                       value="{{ tour.description.description_ru }}" autocomplete="off">
+                                                          name="description_ru"
+
+                                                          autocomplete="off">
                                                    </textarea>
                                             </div>
                                         </div>
@@ -322,7 +327,8 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3 text-right">
-                                                <label for="plan_zh" class="control-label">{% trans 'Plan' %}(zh)</label>
+                                                <label for="plan_zh"
+                                                       class="control-label">{% trans 'Plan' %}(zh)</label>
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" id="plan_zh" class="moxiecut form-control"
@@ -338,8 +344,9 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_zh"
-                                                       name="description_zh"
-                                                       value="{{ tour.description.description_zh }}" autocomplete="off">
+                                                          name="description_zh"
+
+                                                          autocomplete="off">
                                                    </textarea>
                                             </div>
                                         </div>
@@ -456,12 +463,22 @@
                                         </div>
                                         <div class="col-md-9">
                                             <select name="guide" id="guide" class="form-control custom-select">
-                                                {% if tour.guide %}
-                                                    <option value="1">Yes</option>
-                                                    <option value="0">No</option>
-                                                {% else %}
-                                                    <option value="0">No</option>
-                                                    <option value="1">Yes</option>
+                                                {% if LANGUAGE_CODE == 'en' %}
+                                                    {% if tour.guide %}
+                                                        <option value="1">Yes</option>
+                                                        <option value="0">No</option>
+                                                    {% else %}
+                                                        <option value="0">No</option>
+                                                        <option value="1">Yes</option>
+                                                    {% endif %}
+                                                {% elif LANGUAGE_CODE == 'ru' %}
+                                                    {% if tour.guide %}
+                                                        <option value="1">Да</option>
+                                                        <option value="0">Нет</option>
+                                                    {% else %}
+                                                        <option value="0">Нет</option>
+                                                        <option value="1">Да</option>
+                                                    {% endif %}
                                                 {% endif %}
                                             </select>
                                         </div>
@@ -492,6 +509,15 @@
     </div>
 {% endblock %}
 {% block js %}
+    <script>
+        document.getElementById("description_en").value = "{{ tour.description.description_en }}";
+        document.getElementById("description_ar").value = "{{ tour.description.description_ar }}";
+        document.getElementById("description_fa").value = "{{ tour.description.description_fa }}";
+        document.getElementById("description_hi").value = "{{ tour.description.description_hi }}";
+        document.getElementById("description_ru").value = "{{ tour.description.description_ru }}";
+        document.getElementById("description_zh").value = "{{ tour.description.description_zh }}";
+
+    </script>
     <script>
         $(document).ready(function () {
             $("#kv-explorer").fileinput({

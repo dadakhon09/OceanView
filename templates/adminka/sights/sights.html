@@ -64,15 +64,19 @@
                                     <tr>
                                         <td>{{ sight.id }}</td>
                                         <td>
-                                            <a href="{% url 'sight-categories-update' sight.category.id %}">
-                                                <div>
-                                                    {% if LANGUAGE_CODE == 'en' %}
-                                                        <span>{{ sight.category.title.title_en }}</span>
-                                                    {% elif LANGUAGE_CODE == 'ru' %}
-                                                        <span>{{ sight.category.title.title_ru }}</span>
-                                                    {% endif %}
-                                                </div>
-                                            </a>
+                                            {% if sight.category %}
+                                                <a href="{% url 'sight-categories-update' sight.category.id %}">
+                                                    <div>
+                                                        {% if LANGUAGE_CODE == 'en' %}
+                                                            <span>{{ sight.category.title.title_en }}</span>
+                                                        {% elif LANGUAGE_CODE == 'ru' %}
+                                                            <span>{{ sight.category.title.title_ru }}</span>
+                                                        {% endif %}
+                                                    </div>
+                                                </a>
+                                            {% else %}
+                                                None
+                                            {% endif %}
                                         </td>
                                         <td>
                                             <a href="{% url 'sights-update' sight.id %}">
