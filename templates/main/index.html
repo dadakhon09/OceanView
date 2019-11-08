@@ -1,4 +1,5 @@
 {% extends 'main/base.html' %}
+{% load static i18n %}
 {% block body %}
     <div class="wrapper">
         <section class="header">
@@ -7,34 +8,37 @@
                     <div class="row">
                         <div class="logo-header">
                             <a href="#">
-                                <img src="images/logo.png" alt="logo">
+                                <img src="{% static 'main/images/logo.png' %}" alt="logo">
                             </a>
                         </div>
                         <div class="menu-main">
                             <ul class="menu">
-                                <li><a href="#">О городе</a></li>
-                                <li><a href="#">Туры</a></li>
-                                <li><a href="#">Достопримечательности</a></li>
-                                <li><a href="#">Гостиницы</a></li>
-                                <li><a href="#">Полезная информация</a></li>
-                                <li><a href="#">Новости</a></li>
+                                <li><a href="#">{% trans 'About City' %}</a></li>
+                                <li><a href="#">{% trans 'Tours' %}</a></li>
+                                <li><a href="#">{% trans 'Sights' %}</a></li>
+                                <li><a href="#">{% trans 'Villas' %}</a></li>
+                                <li><a href="#">{% trans 'Cars' %}</a></li>
+                                <li><a href="#">{% trans 'News' %}</a></li>
                             </ul>
                         </div>
                         <div class="lang-search__main">
                             <div class="search-main">
                                 <a href="#">
                                     <i class="fa fa-search" aria-hidden="true"></i>
-                                    <span>Поиск</span>
+                                    <span>{% trans 'Search' %}</span>
                                 </a>
                             </div>
                             <div class="lang-main">
                                 <div class="dropdown">
                                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-language" aria-hidden="true"></i> Русский
+                                        <i class="fa fa-language" aria-hidden="true"></i> {% trans 'English' %}
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">O'zbek</a>
-                                        <a class="dropdown-item" href="#">English</a>
+                                        <a class="dropdown-item" href="#">{% trans 'Russian' %}</a>
+                                        <a class="dropdown-item" href="#">{% trans 'Arabic' %}</a>
+                                        <a class="dropdown-item" href="#">{% trans 'Persian' %}</a>
+                                        <a class="dropdown-item" href="#">{% trans 'Hindi' %}</a>
+                                        <a class="dropdown-item" href="#">{% trans 'Chinese' %}</a>
                                     </div>
                                 </div>
                             </div>
@@ -43,12 +47,11 @@
                 </div>
             </div>
             <div class="banner-home">
-                <div class="banner-bg" style="background-image: url(images/banner_bg.jpg)"></div>
+                <div class="banner-bg" style="background-image: url({% static 'main/images/banner_bg.jpg' %})"></div>
                 <div class="banner-content">
-                    <h2 class="banner-title">Добро пожаловать в Бухару</h2>
-                    <p>Бухара – жемчужина Востока, один из самых древних и 
-                        красивейших городов, расположенных в Узбекистане</p>
-                    <a href="#" class="banner-button">Выбрать тур</a>
+                    <h2 class="banner-title">{% trans 'Welcome to Dubai' %}</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis voluptatem numquam itaque assumenda aliquam repudiandae sit, rerum excepturi veniam hic veritatis porro possimus.</p>
+                    <a href="#" class="banner-button">{% trans 'Choose a tour' %}</a>
                 </div>
                 <div id="mouse-scroll">
                     <div class="mouse-arrow">
@@ -64,9 +67,9 @@
             <div class="container">
                 <div class="row">
                     <div class="home__title">
-                        <h2>О городе</h2>
+                        <h2>{% trans 'About City' %}</h2>
                         <span class="line"></span>
-                        <p>Насыщенные маршруты, доступные цены и приятное общество профессионального гида</p>
+                        <p>{% trans 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil exercitatione.' %}</p>
                     </div>
                     <div class="about-home__main">
                         <div class="row">
@@ -76,17 +79,17 @@
                                         <div class="main-col">
                                             <div class="about-home__images-block">
                                                 <article class="about-image__1">
-                                                    <img src="images/about1.jpg" alt="">
+                                                    <img src="{% static 'main/images/about1.jpg' %}" alt="">
                                                 </article>
                                                 <article class="about-image__1">
-                                                    <img src="images/about2.jpg" alt="">
+                                                    <img src="{% static 'main/images/about2.jpg' %}" alt="">
                                                 </article>
                                             </div>
                                         </div>
                                         <div class="main-col">
                                             <div class="about-home__images-block">
                                                 <article class="about-image__2">
-                                                    <img src="images/about3.jpg" alt="">
+                                                    <img src="{% static 'main/images/about3.jpg' %}" alt="">
                                                 </article>
                                             </div>
                                         </div>
@@ -96,12 +99,12 @@
                             <div class="col-6">
                                 <div class="about-home__grid">
                                     <div class="about-home__content">
-                                        <h2>Бухара – одна из жемчужин Великого шелкового пути</h2>
+                                        <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
                                         <div class="about-home__content-text">
-                                            <p>Город Бухара расположен на юго-западе Узбекистана, приблизительно в 200 км от Самарканда. Город находится в статусе административного центра Бухарской области, являющейся в республике центром ремесленничества, духовности и туризма. </p>
-                                            <p>Ежегодно сюда приезжает огромное количество туристов из самых разных уголков нашего необъятного мира, чтобы своими глазами увидеть живую историю, застывшую во времени в камнях  увлечениях как простого народа, так и представителей «сильных мира сего» - правящей верхушки - ханов, эмиров, их чиновников.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt iusto adipisci eligendi eos repellat nihil, rerum animi impedit odio excepturi nam non repudiandae odit culpa itaque id quasi suscipit quod. </p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, aperiam esse dolores. Ad eos nulla, provident alias obcaecati. Magnam eius dolorum dolor fugit hic, cupiditate suscipit! Provident, aspernatur quo blanditiis?.</p>
                                         </div>
-                                        <a href="#" class="button">Подробнее</a>
+                                        <a href="#" class="button">{% trans 'Read more' %}</a>
                                     </div>
                                 </div>
                             </div>
@@ -112,40 +115,40 @@
                             <div class="col-3">
                                 <div class="about-stat__item">
                                     <div class="about-stat__image">
-                                        <img src="images/stat1.png" alt="">
+                                        <img src="{% static 'main/images/stat1.png' %}" alt="">
                                     </div>
                                     <div class="about-stat__title">
-                                            более <span>2500 лет</span>
+                                            {% trans 'more than' %} <span>2500 {% trans 'years' %}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="about-stat__item">
                                     <div class="about-stat__image">
-                                        <img src="images/stat2.png" alt="">
+                                        <img src="{% static 'main/images/stat2.png' %}" alt="">
                                     </div>
                                     <div class="about-stat__title">
-                                            площадь <span>39,4 км2</span>
+                                            {% trans 'area' %} <span>39,4 {% trans 'km' %}<sup>2</sup></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="about-stat__item">
                                     <div class="about-stat__image">
-                                        <img src="images/stat3.png" alt="">
+                                        <img src="{% static 'main/images/stat3.png' %}" alt="">
                                     </div>
                                     <div class="about-stat__title">
-                                            около <span>140 памятников</span>
+                                            {% trans 'about' %} <span>140 {% trans 'statues' %}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="about-stat__item">
                                     <div class="about-stat__image">
-                                        <img src="images/stat4.png" alt="">
+                                        <img src="{% static 'main/images/stat4.png' %}" alt="">
                                     </div>
                                     <div class="about-stat__title">
-                                            более <span>160 гостиниц</span>
+                                            {% trans 'more than' %} <span>160 {% trans 'hotels' %}</span>
                                     </div>
                                 </div>
                             </div>
@@ -159,9 +162,9 @@
             <div class="container">
                 <div class="row">
                     <div class="home__title">
-                        <h2>Популярные туры</h2>
+                        <h2>{% trans 'Popular tours' %}</h2>
                         <span class="line"></span>
-                        <p>Насыщенные маршруты, доступные цены и приятное общество профессионального гида</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, molestiae.</p>
                     </div>
                     <div class="tours-main">
                         <div class="main-row">
@@ -169,7 +172,7 @@
                                 <div class="tours-item">
                                     <a href="#">
                                         <div class="tours-item__image">
-                                            <img src="images/tur1.jpg" alt="">
+                                            <img src="{% static 'main/images/tur1.jpg' %}" alt="">
                                         </div>
                                         <div class="tours-item__content">
                                             <div class="tours-item__title">
@@ -182,7 +185,7 @@
                                             </div>
                                             <div class="tours-item__footer">
                                                 <span class="price">220$</span>
-                                                <span class="arrow"><img src="images/arrow.png" alt=""></span>
+                                                <span class="arrow"><img src="{% static 'main/images/arrow.png' %}" alt=""></span>
                                             </div>
                                         </div>
                                     </a>
@@ -192,7 +195,7 @@
                                 <div class="tours-item">
                                     <a href="#">
                                         <div class="tours-item__image">
-                                            <img src="images/tur2.jpg" alt="">
+                                            <img src="{% static 'main/images/tur2.jpg' %}" alt="">
                                         </div>
                                         <div class="tours-item__content">
                                             <div class="tours-item__title">
@@ -205,7 +208,7 @@
                                             </div>
                                             <div class="tours-item__footer">
                                                 <span class="price">220$</span>
-                                                <span class="arrow"><img src="images/arrow.png" alt=""></span>
+                                                <span class="arrow"><img src="{% static 'main/images/arrow.png' %}" alt=""></span>
                                             </div>
                                         </div>
                                     </a>
@@ -215,7 +218,7 @@
                                 <div class="tours-item">
                                     <a href="#">
                                         <div class="tours-item__image">
-                                            <img src="images/tur3.jpg" alt="">
+                                            <img src="{% static 'main/images/tur3.jpg' %}" alt="">
                                         </div>
                                         <div class="tours-item__content">
                                             <div class="tours-item__title">
@@ -228,7 +231,7 @@
                                             </div>
                                             <div class="tours-item__footer">
                                                 <span class="price">220$</span>
-                                                <span class="arrow"><img src="images/arrow.png" alt=""></span>
+                                                <span class="arrow"><img src="{% static 'main/images/arrow.png' %}" alt=""></span>
                                             </div>
                                         </div>
                                     </a>
@@ -238,7 +241,7 @@
                                 <div class="tours-item">
                                     <a href="#">
                                         <div class="tours-item__image">
-                                            <img src="images/tur4.jpg" alt="">
+                                            <img src="{% static 'main/images/tur4.jpg' %}" alt="">
                                         </div>
                                         <div class="tours-item__content">
                                             <div class="tours-item__title">
@@ -251,7 +254,7 @@
                                             </div>
                                             <div class="tours-item__footer">
                                                 <span class="price">220$</span>
-                                                <span class="arrow"><img src="images/arrow.png" alt=""></span>
+                                                <span class="arrow"><img src="{% static 'main/images/arrow.png' %}" alt=""></span>
                                             </div>
                                         </div>
                                     </a>
@@ -259,7 +262,7 @@
                             </div>
                         </div>
                         <div class="button-load__more">
-                            <a href="" class="button">Показать все</a>
+                            <a href="" class="button">{% trans 'Show all' %}</a>
                         </div>
                     </div>
                 </div>
@@ -268,12 +271,12 @@
 
         <section class="sights-home">
             <div class="home__title">
-                <h2>Достопримечательности</h2>
+                <h2>{% trans 'Sights' %}</h2>
                 <span class="line"></span>
-                <p>Насыщенные маршруты, доступные цены и приятное общество профессионального гида</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, incidunt.</p>
             </div>
             <div class="sights-home__main">
-                <div class="sight-home__blur" style="background-image: url(images/banner_bg.jpg);"></div>
+                <div class="sight-home__blur" style="background-image: url({% static 'main/images/banner_bg.jpg' %});"></div>
                 <div class="container">
                     <div class="row">
                         <div class="sights-carousel">
@@ -282,7 +285,7 @@
                                     <div class="sights-item">
                                         <a href="#">
                                             <div class="sights-item__image">
-                                                <img src="images/sight1.jpg" alt="">
+                                                <img src="{% static 'main/images/sight1.jpg' %}" alt="">
                                             </div>
                                             <div class="sight-item__title">
                                                 <h2>Минарет Калян</h2>
@@ -295,7 +298,7 @@
                                     <div class="sights-item">
                                         <a href="#">
                                             <div class="sights-item__image">
-                                                <img src="images/sight2.jpg" alt="">
+                                                <img src="{% static 'main/images/sight2.jpg' %}" alt="">
                                             </div>
                                             <div class="sight-item__title">
                                                 <h2>Минарет Калян</h2>
@@ -308,7 +311,7 @@
                                     <div class="sights-item">
                                         <a href="#">
                                             <div class="sights-item__image">
-                                                <img src="images/sight3.jpg" alt="">
+                                                <img src="{% static 'main/images/sight3.jpg' %}" alt="">
                                             </div>
                                             <div class="sight-item__title">
                                                 <h2>Минарет Калян</h2>
@@ -321,7 +324,7 @@
                                     <div class="sights-item">
                                         <a href="#">
                                             <div class="sights-item__image">
-                                                <img src="images/sight4.jpg" alt="">
+                                                <img src="{% static 'main/images/sight4.jpg' %}" alt="">
                                             </div>
                                             <div class="sight-item__title">
                                                 <h2>Минарет Калян</h2>
@@ -334,7 +337,7 @@
                                     <div class="sights-item">
                                         <a href="#">
                                             <div class="sights-item__image">
-                                                <img src="images/sight5.jpg" alt="">
+                                                <img src="{% static 'main/images/sight5.jpg' %}" alt="">
                                             </div>
                                             <div class="sight-item__title">
                                                 <h2>Минарет Калян</h2>
@@ -347,7 +350,7 @@
                                     <div class="sights-item">
                                         <a href="#">
                                             <div class="sights-item__image">
-                                                <img src="images/sight1.jpg" alt="">
+                                                <img src="{% static 'main/images/sight1.jpg' %}" alt="">
                                             </div>
                                             <div class="sight-item__title">
                                                 <h2>Минарет Калян</h2>
@@ -358,7 +361,7 @@
                                 </div>
                             </div>
                             <div class="button-load__more">
-                                <a href="#" class="button">Показать все</a>
+                                <a href="#" class="button">{% trans 'Show all' %}</a>
                             </div>
                         </div>
                     </div>
@@ -370,9 +373,9 @@
             <div class="container">
                 <div class="row">
                     <div class="home__title">
-                        <h2>Гостиницы</h2>
+                        <h2>{% trans 'Villas' %}</h2>
                         <span class="line"></span>
-                        <p>Широкий выбор гостиниц и гостевых домов, оформленных в национальном и европейском стилях</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur ex soluta nostrum!</p>
                     </div>
                     <div class="hotels-main">
                         <div class="main-row">
@@ -398,11 +401,11 @@
                                             </div>
                                             <div class="tours-item__footer">
                                                 <span class="readmore">Подробнее</span>
-                                                <span class="arrow"><img src="images/arrow.png" alt=""></span>
+                                                <span class="arrow"><img src="{% static 'main/images/arrow.png' %}" alt=""></span>
                                             </div>
                                         </div>
                                         <div class="hotels-item__image">
-                                            <img src="images/hotel1.jpg" alt="">
+                                            <img src="{% static 'main/images/hotel1.jpg' %}" alt="">
                                         </div>
                                     </a>
                                 </div>
@@ -429,11 +432,11 @@
                                             </div>
                                             <div class="tours-item__footer">
                                                 <span class="readmore">Подробнее</span>
-                                                <span class="arrow"><img src="images/arrow.png" alt=""></span>
+                                                <span class="arrow"><img src="{% static 'main/images/arrow.png' %}" alt=""></span>
                                             </div>
                                         </div>
                                         <div class="hotels-item__image">
-                                            <img src="images/hotel2.jpg" alt="">
+                                            <img src="{% static 'main/images/hotel2.jpg' %}" alt="">
                                         </div>
                                     </a>
                                 </div>
@@ -460,11 +463,11 @@
                                             </div>
                                             <div class="tours-item__footer">
                                                 <span class="readmore">Подробнее</span>
-                                                <span class="arrow"><img src="images/arrow.png" alt=""></span>
+                                                <span class="arrow"><img src="{% static 'main/images/arrow.png' %}" alt=""></span>
                                             </div>
                                         </div>
                                         <div class="hotels-item__image">
-                                            <img src="images/hotel3.jpg" alt="">
+                                            <img src="{% static 'main/images/hotel3.jpg' %}" alt="">
                                         </div>
                                     </a>
                                 </div>
@@ -491,11 +494,11 @@
                                             </div>
                                             <div class="tours-item__footer">
                                                 <span class="readmore">Подробнее</span>
-                                                <span class="arrow"><img src="images/arrow.png" alt=""></span>
+                                                <span class="arrow"><img src="{% static 'main/images/arrow.png' %}" alt=""></span>
                                             </div>
                                         </div>
                                         <div class="hotels-item__image">
-                                            <img src="images/hotel4.jpg" alt="">
+                                            <img src="{% static 'main/images/hotel4.jpg' %}" alt="">
                                         </div>
                                     </a>
                                 </div>
@@ -522,11 +525,11 @@
                                             </div>
                                             <div class="tours-item__footer">
                                                 <span class="readmore">Подробнее</span>
-                                                <span class="arrow"><img src="images/arrow.png" alt=""></span>
+                                                <span class="arrow"><img src="{% static 'main/images/arrow.png' %}" alt=""></span>
                                             </div>
                                         </div>
                                         <div class="hotels-item__image">
-                                            <img src="images/hotel5.jpg" alt="">
+                                            <img src="{% static 'main/images/hotel5.jpg' %}" alt="">
                                         </div>
                                     </a>
                                 </div>
@@ -553,18 +556,18 @@
                                             </div>
                                             <div class="tours-item__footer">
                                                 <span class="readmore">Подробнее</span>
-                                                <span class="arrow"><img src="images/arrow.png" alt=""></span>
+                                                <span class="arrow"><img src="{% static 'main/images/arrow.png' %}" alt=""></span>
                                             </div>
                                         </div>
                                         <div class="hotels-item__image">
-                                            <img src="images/hotel6.jpg" alt="">
+                                            <img src="{% static 'main/images/hotel6.jpg' %}" alt="">
                                         </div>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div class="button-load__more">
-                            <a href="" class="button">Показать все</a>
+                            <a href="" class="button">{% trans 'Show all' %}</a>
                         </div>
                     </div>
                 </div>
@@ -574,16 +577,16 @@
             <div class="container">
                 <div class="row">
                     <div class="home__title">
-                        <h2>Новости</h2>
+                        <h2>{% trans 'News' %}</h2>
                         <span class="line"></span>
-                        <p>Последние новости и события города</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur.</p>
                     </div>
                     <div class="news-home__main">
                         <div class="main-row">
                             <div class="main-col-4">
                                 <div class="news-block__1">
                                     <a href="#">
-                                        <div class="news-block1__image" style="background-image: url(images/news1.jpg)"></div>
+                                        <div class="news-block1__image" style="background-image: url({% static 'main/images/news1.jpg' %})"></div>
                                         <div class="news-block1__title">
                                             <div class="news-block1__date">
                                                 <span class="date">17.06.2019</span>
@@ -631,7 +634,7 @@
                             <div class="main-col-4">
                                 <div class="news-block__1">
                                     <a href="#">
-                                        <div class="news-block1__image" style="background-image: url(images/news2.jpg)"></div>
+                                        <div class="news-block1__image" style="background-image: url({% static 'main/images/news2.jpg' %})"></div>
                                         <div class="news-block1__title">
                                             <div class="news-block1__date">
                                                 <span class="date">17.06.2019</span>
@@ -644,7 +647,7 @@
                             </div>
                         </div>
                         <div class="button-load__more">
-                            <a href="" class="button">Показать все</a>
+                            <a href="" class="button">{% trans 'Show all' %}</a>
                         </div>
                     </div>
                 </div>
@@ -657,32 +660,32 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="footer-logo">
-                                    <a href="#"><img src="images/logo.png" alt=""></a>
-                                    <p>Бухара – жемчужина Востока, один из самых древних и красивейших городов,     расположенных в Узбекистане</p>
+                                    <a href="#"><img src="{% static 'main/images/logo.png' %}" alt=""></a>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum porro assumenda nulla nihil expedita. Soluta ipsam, et architecto dolor accusantium.</p>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="footer-menu">
                                     <ul>
-                                        <li><a href="#">О городе</a></li>
-                                        <li><a href="#">Туры</a></li>
-                                        <li><a href="#">Достопримечательности</a></li>
+                                        <li><a href="#">{% trans 'About City' %}</a></li>
+                                        <li><a href="#">{% trans 'Tours' %}</a></li>
+                                        <li><a href="#">{% trans 'Sights' %}</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="footer-menu">
                                     <ul>
-                                        <li><a href="#">Отели</a></li>
-                                        <li><a href="#">Полезная информация</a></li>
-                                        <li><a href="#">Новости</a></li>
+                                        <li><a href="#">{% trans 'Villas' %}</a></li>
+                                        <li><a href="#">{% trans 'Cars' %}</a></li>
+                                        <li><a href="#">{% trans 'News' %}</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="footer-copy">
-                                    <span class="copy">© 2019. Все права защищены</span>
-                                    <span class="developer">Разработка сайта:<a href="#"> Online Service Group</a></span>
+                                    <span class="copy">© 2019. {% trans 'All rights reserved' %}</span>
+                                    <span class="developer">{% trans 'Site development' %}:<a href="https://osg.uz/"> Online Service Group</a></span>
                                 </div>
                             </div>
                         </div>
@@ -693,7 +696,7 @@
         </div>
         {% endblock %}
         {% block js %}
-        <script src="js/owl.carousel.min.js"></script>
+        <script src="{% static 'main/js/owl.carousel.min.js' %}"></script>
         <script>
             
             $( '#sightsCarousel' ).owlCarousel({
