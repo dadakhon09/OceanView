@@ -25,9 +25,9 @@ class IndexView(View):
             'sights': sights,
             'news': news,
         }
-        return render(request, 'index.html', context)
+        return render(request, 'main/index.html', context)
 
 
 class AboutView(View):
     def get(self, request):
-        return render(request, 'about.html', {})
+        return render(request, 'main/about.html', {})

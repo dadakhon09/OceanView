@@ -4,4 +4,4 @@ from django.views import View
 
 class CarsView(View):
     def get(self, request):
-        return render(request, 'cars.html', {})
+        return render(request, 'main/cars.html', {})

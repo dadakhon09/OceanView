@@ -8,4 +8,4 @@ class SightsView(View):
     def get(self, request):
         sights = Sight.objects.all()
 
-        return render(request, 'sights.html', {'sights': sights})
+        return render(request, 'main/sights.html', {'sights': sights})

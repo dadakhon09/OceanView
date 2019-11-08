@@ -8,4 +8,4 @@ class NewsView(View):
     def get(self, request):
         news = News.objects.all()
 
-        return render(request, 'news.html', {'news': news})
+        return render(request, 'main/news.html', {'news': news})

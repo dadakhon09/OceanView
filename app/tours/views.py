@@ -8,5 +8,5 @@ class ToursView(View):
     def get(self, request):
         tours = Tour.objects.all()
 
-        return render(request, 'tours.html', {'tours': tours})
+        return render(request, 'main/tours.html', {'tours': tours})
 
