@@ -14,5 +14,4 @@ class ToursView(View):
 class TourView(View):
     def get(self, request, id):
         
-
         return render(request, 'main/tour_view.html', {})

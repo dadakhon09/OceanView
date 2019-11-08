@@ -1,11 +1,11 @@
 from django.urls import path
 
-from app.sights.views import SightsView
-from app.car.views import CarsView
-from app.news.views import NewsView
+from app.sights.views import SightsView, SightView
+from app.car.views import CarsView, CarView
+from app.news.views import NewsView, NewsSingleView
 from app.others.views import AboutView, IndexView
-from app.tours.views import ToursView
-from app.villas.views import VillasView
+from app.tours.views import ToursView, TourView
+from app.villas.views import VillasView, VillaView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
