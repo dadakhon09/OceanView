@@ -9,3 +9,10 @@ class SightsView(View):
         sights = Sight.objects.all()
 
         return render(request, 'main/sights.html', {'sights': sights})
+
+
+class SightView(View):
+    def get(self, request, id):
+        
+
+        return render(request, 'main/sight_view.html', {})

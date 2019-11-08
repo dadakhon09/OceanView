@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="fonts/ProximaNova/stylesheet.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-select.min.css">
+
+    
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="bootstrap/js/bootstrap-select.min.js"></script>
+    
+</head>
+<body>
+    <div class="wrapper">
+        <section class="header header-pages">
+            <div class="header-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="logo-header">
+                            <a href="#">
+                                <img src="images/logo.png" alt="logo">
+                            </a>
+                        </div>
+                        <div class="menu-main">
+                            <ul class="menu">
+                                <li><a href="#">О городе</a></li>
+                                <li><a href="#">Туры</a></li>
+                                <li><a href="#">Достопримечательности</a></li>
+                                <li><a href="#">Гостиницы</a></li>
+                                <li><a href="#">Полезная информация</a></li>
+                                <li><a href="#">Новости</a></li>
+                            </ul>
+                        </div>
+                        <div class="lang-search__main">
+                            <div class="search-main">
+                                <a href="#">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                    <span>Поиск</span>
+                                </a>
+                            </div>
+                            <div class="lang-main">
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-language" aria-hidden="true"></i> Русский
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">O'zbek</a>
+                                        <a class="dropdown-item" href="#">English</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-pages">
+                <div class="banner-bg" style="background-image: url(images/banner_bg.jpg)"></div>
+                <div class="banner-content">
+                    <h2 class="banner-title">Туры по Бухаре</h2>
+                    <p>Насыщенные маршруты, доступные цены и приятное общество профессионального гида</p>
+                </div>
+            </div>
+        </section>
+
+  
+        <section class="pages">
+            <div class="container">
+                <div class="row">
+                    <div class="pages-wrapper">
+                        <div class="main-row">
+                            <div class="main-col-side">
+                                <div class="pages-side__main">
+                                    <div class="side-title">
+                                        <h2>Найти отель</h2>
+                                    </div>
+                                    <div class="side-content">
+                                        <form action="" class="side-form">
+                                            <div class="form-group">
+                                                <label for="name">Место/название</label>
+                                                <input type="text" class="form-control" id="name" placeholder="Бухара">
+                                            </div>
+                                            <div class="date-inputs">
+                                                <div class="form-group">
+                                                    <label for="1">Дата заезда</label>
+                                                    <input type="text" class="form-control" id="1">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="2">Дата выезда</label>
+                                                    <input type="text" class="form-control" id="2">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="typeTour">Взрослые</label>
+                                                <select id="typeTour" class="form-control selectpicker">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="typeTour">Дети</label>
+                                                <select id="typeTour" class="form-control selectpicker">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="typeTour">Номер</label>
+                                                <select id="typeTour" class="form-control selectpicker">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                            <div class="side-buttons">
+                                                <button type="button" class="btn">Найти</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="side-criteria">
+                                    <div class="side-criteria__title">
+                                        <h2>Выбрать по критериям:</h2>
+                                    </div>
+                                    <div class="side-criteria__content">
+                                        <div class="side-criteria__item">
+                                            <div class="title">
+                                                <h3>Цена</h3>
+                                            </div>
+                                            <div class="side-checkbox">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="55">
+                                                    <label class="custom-control-label" for="55">
+                                                        от 0 - до 55$ за ночь <span>121</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="110">
+                                                    <label class="custom-control-label" for="110">
+                                                        от 55$ - до 110$ за ночь <span>80</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="165">
+                                                    <label class="custom-control-label" for="165">
+                                                        от 110$ - до 165$ за ночь <span>5</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="165+">
+                                                    <label class="custom-control-label" for="165+">
+                                                        от 165$ и более <span>3</span>
+                                                    </label>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                        <div class="side-criteria__item">
+                                            <div class="title">
+                                                <h3>Количество звезд</h3>
+                                            </div>
+                                            <div class="side-checkbox">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        <div class="stars">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </div>
+                                                         <span>121</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        <div class="stars">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </div>
+                                                         <span>80</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        <div class="stars">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <span>5</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        <div class="stars">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <span>3</span>
+                                                    </label>
+                                                </div> 
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        без звезд <span>105</span>
+                                                    </label>
+                                                </div>      
+                                            </div>
+                                        </div>
+                                        <div class="side-criteria__item">
+                                            <div class="title">
+                                                <h3>Тип размещения</h3>
+                                            </div>
+                                            <div class="side-checkbox">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Отель <span>77</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Хостел <span>12</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Гостевой дом <span>43</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Апартаменты <span>8</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Отели типа «постель и  завтрак» <span>7</span>
+                                                    </label>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                        <div class="side-criteria__item">
+                                            <div class="title">
+                                                <h3>Расстояние от центра города</h3>
+                                            </div>
+                                            <div class="side-checkbox">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Меньше 1 км <span>86</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Меньше 3 км <span>143</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Меньше 5 км <span>147</span>
+                                                    </label>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                        <div class="side-criteria__item">
+                                            <div class="title">
+                                                <h3>Питание</h3>
+                                            </div>
+                                            <div class="side-checkbox">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Завтрак включен <span>130</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Все включено <span>6</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        С собственной кухней <span>32</span>
+                                                    </label>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                        <div class="side-criteria__item">
+                                            <div class="title">
+                                                <h3>Правила бронирования</h3>
+                                            </div>
+                                            <div class="side-checkbox">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Без предоплаты <span>86</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Без кредитной карты <span>143</span>
+                                                    </label>
+                                                </div>    
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="">
+                                                    <label class="custom-control-label" for="">
+                                                        Бесплатная отмена бронирования <span>147</span>
+                                                    </label>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="main-col-content">
+                                <div class="pages-content__main">
+                                    <div class="hotels-main">
+                                        <div class="allhotels-item">
+                                            <div class="allhotels-item__image">
+                                                <img src="images/hot1.jpg" alt="">
+                                            </div>
+                                            <div class="allhotels-item__content">
+                                                <div class="hotels-content__head">
+                                                    <div class="hotels-item__title">
+                                                        <h2>Бутик-отель «Кукалдош»</h2>
+                                                        <div class="stars">Количество звезд: 
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="hotels-adress__price">
+                                                            <span class="price">от <strong>50$</strong></span>
+                                                            <span class="adress"><i></i> ул. М. Амбар 115, Бухара</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="hotels-item__buttons">
+                                                        <a class="btn" href="#">Подробнее</a>
+                                                    </div>
+                                                </div>
+                                                <div class="hotels-item__footer">
+                                                    <p>Бутик-отель Kukaldosh с рестораном и бесплатным Wi-Fi расположен в историческом центре Бухары. Все номера оборудованы кондиционером, телевизором и мини-баром. В числе удобств — электрический чайник. В номерах также имеются гостиный уголок и собственная ванная комната с халатами и феном.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="allhotels-item">
+                                            <div class="allhotels-item__image">
+                                                <img src="images/hot2.jpg" alt="">
+                                            </div>
+                                            <div class="allhotels-item__content">
+                                                <div class="hotels-content__head">
+                                                    <div class="hotels-item__title">
+                                                        <h2>Бутик-отель «Кукалдош»</h2>
+                                                        <div class="stars">Количество звезд: 
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="hotels-adress__price">
+                                                            <span class="price">от <strong>50$</strong></span>
+                                                            <span class="adress"><i></i> ул. М. Амбар 115, Бухара</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="hotels-item__buttons">
+                                                        <a class="btn" href="#">Подробнее</a>
+                                                    </div>
+                                                </div>
+                                                <div class="hotels-item__footer">
+                                                    <p>Бутик-отель Kukaldosh с рестораном и бесплатным Wi-Fi расположен в историческом центре Бухары. Все номера оборудованы кондиционером, телевизором и мини-баром. В числе удобств — электрический чайник. В номерах также имеются гостиный уголок и собственная ванная комната с халатами и феном.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="allhotels-item">
+                                            <div class="allhotels-item__image">
+                                                <img src="images/hot3.jpg" alt="">
+                                            </div>
+                                            <div class="allhotels-item__content">
+                                                <div class="hotels-content__head">
+                                                    <div class="hotels-item__title">
+                                                        <h2>Бутик-отель «Кукалдош»</h2>
+                                                        <div class="stars">Количество звезд: 
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="hotels-adress__price">
+                                                            <span class="price">от <strong>50$</strong></span>
+                                                            <span class="adress"><i></i> ул. М. Амбар 115, Бухара</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="hotels-item__buttons">
+                                                        <a class="btn" href="#">Подробнее</a>
+                                                    </div>
+                                                </div>
+                                                <div class="hotels-item__footer">
+                                                    <p>Бутик-отель Kukaldosh с рестораном и бесплатным Wi-Fi расположен в историческом центре Бухары. Все номера оборудованы кондиционером, телевизором и мини-баром. В числе удобств — электрический чайник. В номерах также имеются гостиный уголок и собственная ванная комната с халатами и феном.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="allhotels-item">
+                                            <div class="allhotels-item__image">
+                                                <img src="images/hot4.jpg" alt="">
+                                            </div>
+                                            <div class="allhotels-item__content">
+                                                <div class="hotels-content__head">
+                                                    <div class="hotels-item__title">
+                                                        <h2>Бутик-отель «Кукалдош»</h2>
+                                                        <div class="stars">Количество звезд: 
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <div class="hotels-adress__price">
+                                                            <span class="price">от <strong>50$</strong></span>
+                                                            <span class="adress"><i></i> ул. М. Амбар 115, Бухара</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="hotels-item__buttons">
+                                                        <a class="btn" href="#">Подробнее</a>
+                                                    </div>
+                                                </div>
+                                                <div class="hotels-item__footer">
+                                                    <p>Бутик-отель Kukaldosh с рестораном и бесплатным Wi-Fi расположен в историческом центре Бухары. Все номера оборудованы кондиционером, телевизором и мини-баром. В числе удобств — электрический чайник. В номерах также имеются гостиный уголок и собственная ванная комната с халатами и феном.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="footer-main">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="footer-logo">
+                                    <a href="#"><img src="images/logo.png" alt=""></a>
+                                    <p>Бухара – жемчужина Востока, один из самых древних и красивейших городов,     расположенных в Узбекистане</p>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="footer-menu">
+                                    <ul>
+                                        <li><a href="#">О городе</a></li>
+                                        <li><a href="#">Туры</a></li>
+                                        <li><a href="#">Достопримечательности</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="footer-menu">
+                                    <ul>
+                                        <li><a href="#">Отели</a></li>
+                                        <li><a href="#">Полезная информация</a></li>
+                                        <li><a href="#">Новости</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="footer-copy">
+                                    <span class="copy">© 2019. Все права защищены</span>
+                                    <span class="developer">Разработка сайта:<a href="#"> Online Service Group</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+                $('.selectpicker').selectpicker();
+        </script>
+    </div>    
+</body>
+</html>

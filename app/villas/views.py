@@ -9,3 +9,10 @@ class VillasView(View):
         villas = Villa.objects.all()
 
         return render(request, 'main/villas.html', {'villas': villas})
+
+
+class VillaView(View):
+    def get(self, request, id):
+        
+
+        return render(request, 'main/villa_view.html', {})
