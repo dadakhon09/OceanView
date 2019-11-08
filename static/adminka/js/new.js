@@ -1,4 +1,3 @@
-document.getElementById("title_en").focus();
 
 let Path = location.pathname.split('/').slice(1, 4);
 Path = Path.join('/');
@@ -9,6 +8,8 @@ $('#sidebarnav li a').map(function () {
         $(this).removeClass("active");
     }
 }).get();
+
+document.getElementById("title_en").focus();
 
 
 // Get the modal
