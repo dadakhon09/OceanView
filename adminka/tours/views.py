@@ -4,7 +4,11 @@ from django.urls import reverse
 from django.views import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from app.models import Tour, TourExpense, TourFacility, TourImage, icons_list
+from app.models import Tour, TourExpense, TourFacility, TourImage
+from adminka.tours.get_icons import Icons
+
+obj = Icons()
+my_tuple = obj.get_icons()
 
 
 class AdminToursView(View):
@@ -302,7 +306,7 @@ class AdminToursExpensesView(View):
 
 class AdminToursExpensesCreateView(View):
     def get(self, request):
-        return render(request, 'adminka/tours/tour_expenses_create.html', {'icons_list': icons_list})
+        return render(request, 'adminka/tours/tour_expenses_create.html', {'icons_list': my_tuple})
 
     def post(self, request):
         post = self.request.POST
@@ -334,11 +338,12 @@ class AdminToursExpensesCreateView(View):
 class AdminToursExpensesUpdateView(View):
     def get(self, request, id):
         t_expense = TourExpense.objects.get(id=id)
-        if t_expense.icon:
-            icons_listt = list(icons_list)
+        if t_expense.get_icon_display():
+            icons_listt = list(my_tuple)
             icons_listt.remove(icons_listt[t_expense.icon])
         else:
-            icons_listt = list(icons_list)
+
+            icons_listt = list(my_tuple)
         return render(request, 'adminka/tours/tour_expenses_update.html', {'t_expense': t_expense,
                                                                            'icons_listt': icons_listt})
 
@@ -399,7 +404,7 @@ class AdminToursFacilitiesView(View):
 
 class AdminToursFacilitiesCreateView(View):
     def get(self, request):
-        return render(request, 'adminka/tours/tour_facilities_create.html', {'icons_list': icons_list})
+        return render(request, 'adminka/tours/tour_facilities_create.html', {'icons_list': my_tuple})
 
     def post(self, request):
         post = self.request.POST
@@ -432,11 +437,11 @@ class AdminToursFacilitiesCreateView(View):
 class AdminToursFacilitiesUpdateView(View):
     def get(self, request, id):
         t_facility = TourFacility.objects.get(id=id)
-        if t_facility.icon:
-            icons_listt = list(icons_list)
+        if t_facility.get_icon_display():
+            icons_listt = list(my_tuple)
             icons_listt.remove(icons_listt[t_facility.icon])
         else:
-            icons_listt = list(icons_list)
+            icons_listt = list(my_tuple)
         return render(request, 'adminka/tours/tour_facilities_update.html', {'t_facility': t_facility,
                                                                              'icons_listt': icons_listt})
 

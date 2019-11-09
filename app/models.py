@@ -3,6 +3,11 @@ from django.db import models
 
 from phone_field import PhoneField
 
+from adminka.tours.get_icons import Icons
+
+obj = Icons()
+my_tuple = obj.get_icons()
+
 
 class About(models.Model):
     text = jsonfield.JSONField()
@@ -27,11 +32,11 @@ class AboutImage(models.Model):
         return self.image.name
 
 
-icons_list = (
-    (0, 'telegram'),
-    (1, 'ticket'),
-    (2, 'facebook'),
-)
+# icons_list = (
+#     (0, 'telegram'),
+#     (1, 'ticket'),
+#     (2, 'facebook'),
+# )
 
 
 class TourFacility(models.Model):
@@ -39,7 +44,7 @@ class TourFacility(models.Model):
     title = jsonfield.JSONField()
     # image = models.ImageField(upload_to='facilities', null=True, blank=True)
     tours = models.ManyToManyField('Tour', related_name='t_facilities')
-    icon = models.IntegerField(choices=icons_list, null=True, blank=True)
+    icon = models.IntegerField(choices=my_tuple, null=True, blank=True)
 
     class Meta:
         db_table = 'facilities'
@@ -54,7 +59,7 @@ class TourExpense(models.Model):
     title = jsonfield.JSONField()
     # image = models.ImageField(upload_to='expenses', null=True, blank=True)
     tours = models.ManyToManyField('Tour', related_name='t_expenses')
-    icon = models.IntegerField(choices=icons_list, null=True, blank=True)
+    icon = models.IntegerField(choices=my_tuple, null=True, blank=True)
 
     class Meta:
         db_table = 'expenses'

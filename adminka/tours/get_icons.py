@@ -1,9 +1,9 @@
-class Icon:
-    @property
+class Icons:
     def get_icons(self):
         icons_list = (
-            (0, 'icon-gid'),
-            (1, 'icon-tickets'),
-            (2, 'icon-min'),
+            (0, 'ticket'),
+            (1, 'telegram'),
+            (2, 'facebook'),
         )
+
         return icons_list
