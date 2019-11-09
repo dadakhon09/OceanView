@@ -197,7 +197,14 @@
         {% for i in icons_list %}
             i = "{{ i }}";
             icon = i.slice(9, -6);
-            vall = i.charAt(1);
+            if (icon.charAt(0) == ';'){
+                icon = icon.slice(1)
+            }
+            else if (icon.charAt(0) == '9'){
+                icon = icon.slice(2)
+            }
+            v = i.slice(1);
+            vall = parseInt(v)
             $('.custom-select').append(`<option data-icon="${icon}" name="icon" value="` + vall + `">` + icon + `</option>`);
         {% endfor %}
 
