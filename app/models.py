@@ -28,9 +28,9 @@ class AboutImage(models.Model):
 
 
 icons_list = (
-    (0, 'icon-gid'),
-    (1, 'icon-tickets'),
-    (2, 'icon-min'),
+    (0, 'telegram'),
+    (1, 'ticket'),
+    (2, 'facebook'),
 )
 
 
