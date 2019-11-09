@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.views import View
 
+from app.models import Car
 
 class CarsView(View):
     def get(self, request):
-        return render(request, 'main/cars.html', {})
+    	cars = Car.objects.all()
+    	return render(request, 'main/cars.html', {'cars': cars})
 
 
 class CarView(View):
-	def get(self, request, id):
-		return render(request, 'main/car_view.html', {})
+	def get(self, request, slug):
+		car = Car.objects.get(slug=slug)
+		return render(request, 'main/car_view.html', {'car': car})

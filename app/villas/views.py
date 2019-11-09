@@ -12,7 +12,7 @@ class VillasView(View):
 
 
 class VillaView(View):
-    def get(self, request, id):
-        
+    def get(self, request, slug):
+        villa = Villa.objects.get(slug=slug)
 
-        return render(request, 'main/villa_view.html', {})
+        return render(request, 'main/villa_view.html', {'villa': villa})

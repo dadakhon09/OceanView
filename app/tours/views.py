@@ -12,6 +12,6 @@ class ToursView(View):
 
 
 class TourView(View):
-    def get(self, request, id):
-        
-        return render(request, 'main/tour_view.html', {})
+    def get(self, request, slug):
+        tour = Tour.objects.get(slug=slug)
+        return render(request, 'main/tour_view.html', {'tour': tour})

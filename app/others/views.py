@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
-from app.models import Villa, Tour, Sight, News
+from app.models import Villa, Tour, Sight, News, Car, About
 
 
 def handler404(request, exception):
@@ -14,20 +14,23 @@ def handler500(request):
 
 class IndexView(View):
     def get(self, request):
-        villas = Villa.objects.all().order_by('-id')[:6][::-1]
-        tours = Tour.objects.all().order_by('-id')[:4][::-1]
-        sights = Sight.objects.all().order_by('-id')[:10][::-1]
-        news = News.objects.all().order_by('-id')[:4][::-1]
+        villas = Villa.objects.all()[:6][::-1]
+        tours = Tour.objects.all()[:4][::-1]
+        sights = Sight.objects.all()[:10][::-1]
+        cars = Car.objects.all()[:10][::-1]
+        news_list = News.objects.all()[:4][::-1]
 
         context = {
             'villas': villas,
             'tours': tours,
             'sights': sights,
-            'news': news,
+            'cars': cars,
+            'news_list': news_list,
         }
         return render(request, 'main/index.html', context)
 
 
 class AboutView(View):
     def get(self, request):
-        return render(request, 'main/about.html', {})
+        about = About.objects.get(id=1)
+        return render(request, 'main/about.html', {'about': about})
