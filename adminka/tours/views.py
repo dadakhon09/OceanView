@@ -334,7 +334,13 @@ class AdminToursExpensesCreateView(View):
 class AdminToursExpensesUpdateView(View):
     def get(self, request, id):
         t_expense = TourExpense.objects.get(id=id)
-        return render(request, 'adminka/tours/tour_expenses_update.html', {'t_expense': t_expense})
+        if t_expense.icon:
+            icons_listt = list(icons_list)
+            icons_listt.remove(icons_listt[t_expense.icon])
+        else:
+            icons_listt = list(icons_list)
+        return render(request, 'adminka/tours/tour_expenses_update.html', {'t_expense': t_expense,
+                                                                           'icons_listt': icons_listt})
 
     def post(self, request, id):
         t_expense = TourExpense.objects.get(id=id)
@@ -393,7 +399,7 @@ class AdminToursFacilitiesView(View):
 
 class AdminToursFacilitiesCreateView(View):
     def get(self, request):
-        return render(request, 'adminka/tours/tour_facilities_create.html')
+        return render(request, 'adminka/tours/tour_facilities_create.html', {'icons_list': icons_list})
 
     def post(self, request):
         post = self.request.POST
@@ -426,7 +432,13 @@ class AdminToursFacilitiesCreateView(View):
 class AdminToursFacilitiesUpdateView(View):
     def get(self, request, id):
         t_facility = TourFacility.objects.get(id=id)
-        return render(request, 'adminka/tours/tour_facilities_update.html', {'t_facility': t_facility})
+        if t_facility.icon:
+            icons_listt = list(icons_list)
+            icons_listt.remove(icons_listt[t_facility.icon])
+        else:
+            icons_listt = list(icons_list)
+        return render(request, 'adminka/tours/tour_facilities_update.html', {'t_facility': t_facility,
+                                                                             'icons_listt': icons_listt})
 
     def post(self, request, id):
         t_facility = TourFacility.objects.get(id=id)

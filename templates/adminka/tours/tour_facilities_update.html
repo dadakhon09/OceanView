@@ -103,17 +103,21 @@
                         </div>
                         <div class="p-20">
                             <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-3 text-right">
-                                        <label for="file" class="control-label">{% trans 'Images' %}</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="file-loading">
-                                            <input id="kv-explorer" type="file" name="image">
+                                    <div class="row">
+                                        <div class="col-md-3 text-right">
+                                            <label for="icon" class="control-label">{% trans 'Icons' %}</label>
                                         </div>
+                                        <div class="col-md-6">
+                                            <select name="icon" id="icon" class="form-control custom-select">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-2 div-3">
+                                            <i style="font-size: 100px" class="icon-class"></i>
+                                        </div>
+
                                     </div>
                                 </div>
-                            </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="offset-sm-3 col-md-9">
@@ -150,6 +154,39 @@
 </div>
 {% endblock %}
 {% block js %}
+    <script>
+        $('.custom-select').append(`<option data-icon="`+ `{{ t_facility.get_icon_display }}` +`" name="icon" value="` + `{{t_facility.icon}}` +`">`
+            + `{{t_facility.get_icon_display}}` +`</option>`);
+        {% for i in icons_listt %}
+            i = "{{ i }}";
+            icon = i.slice(9, -6);
+            vall = i.charAt(1);
+
+            $('.custom-select').append(`<option data-icon="${icon}" name="icon" value="` + vall + `">` + icon + `</option>`);
+        {% endfor %}
+
+        const iconSelectList = document.querySelector("select#icon");
+
+        // Set first icon as default
+        const defaultIcon = "{{ t_facility.get_icon_display }}";
+
+        setIconImage(defaultIcon);
+
+        iconSelectList.onchange = () => {
+            const selectedIndex = iconSelectList.selectedIndex;
+            const selectedIconOption = iconSelectList.options[selectedIndex];
+
+            const selectedIcon = selectedIconOption.dataset.icon;
+
+            setIconImage(selectedIcon);
+        };
+
+        function setIconImage(iconName) {
+            const iconImage = document.querySelector(".div-3 .icon-class");
+            iconImage.className = "icon-class " + iconName;
+        }
+
+    </script>
 <script src="{% static 'adminka/assets/tinymce/js/tinymce/tinymce.min.js' %}"></script>
 <script>
 tinymce.init({
