@@ -1,6 +1,8 @@
 import jsonfield
 from django.db import models
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.utils.text import slugify
 from phone_field import PhoneField
 
 from adminka.tours.get_icons import Icons
@@ -86,6 +88,7 @@ class Tour(models.Model):
     title = jsonfield.JSONField()
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
+    slug = models.SlugField(max_length=255)
     route = jsonfield.JSONField()  # ASK
     duration = models.PositiveIntegerField(null=True, blank=True)
     num_people = models.PositiveIntegerField(blank=True, null=True)
@@ -131,6 +134,7 @@ class Sight(models.Model):
     title = jsonfield.JSONField()
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
+    slug = models.SlugField(max_length=255)
     category = models.ForeignKey(SightCategory, on_delete=models.SET_NULL, null=True)
 
     class Meta:
@@ -202,6 +206,7 @@ class Villa(models.Model):
     address = jsonfield.JSONField()
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
+    slug = models.SlugField(max_length=255)
     phone = models.CharField(max_length=255, null=True, blank=True)
     bedroom = models.PositiveIntegerField(null=True, blank=True)
     square_meter = models.PositiveIntegerField(null=True, blank=True)
@@ -223,6 +228,7 @@ class News(models.Model):
     # title = models.CharField(max_length=255, blank=True, null=True)
     # description = models.TextField(null=True, blank=True)
     description = jsonfield.JSONField()
+    slug = models.SlugField(max_length=255)
     image = models.ImageField(upload_to='news', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -249,6 +255,7 @@ class CarImage(models.Model):
 class Car(models.Model):
     title = jsonfield.JSONField()
     description = jsonfield.JSONField()
+    slug = models.SlugField(max_length=255)
     price = models.PositiveIntegerField(null=True, blank=True)
     duration = models.PositiveIntegerField(null=True, blank=True)
 
@@ -258,3 +265,44 @@ class Car(models.Model):
 
     def __str__(self):
         return self.title['title_en']
+
+
+@receiver(post_save, sender=Tour)
+def get_slug(sender, instance, created,  **kwargs):
+    if created:
+        slug = slugify(instance.title['title_en'])
+        instance.slug = slug
+        instance.save()
+    else:
+        print(11111111111111)
+
+@receiver(post_save, sender=Sight)
+def get_slug2(sender, instance, created,  **kwargs):
+    if created:
+        slug = slugify(instance.title['title_en'])
+        instance.slug = slug
+        instance.save()
+
+
+@receiver(post_save, sender=Villa)
+def get_slug3(sender, instance,created,  **kwargs):
+    if created:
+        slug = slugify(instance.title['title_en'])
+        instance.slug = slug
+        instance.save()
+
+
+@receiver(post_save, sender=News)
+def get_slug4(sender, instance,created,  **kwargs):
+    if created:
+        slug = slugify(instance.title['title_en'])
+        instance.slug = slug
+        instance.save()
+
+
+@receiver(post_save, sender=Car)
+def get_slug5(sender, instance,created,  **kwargs):
+    if created:
+        slug = slugify(instance.title['title_en'])
+        instance.slug = slug
+        instance.save()
