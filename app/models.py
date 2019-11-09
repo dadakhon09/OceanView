@@ -1,7 +1,5 @@
 import jsonfield
-from django.core.files.storage import FileSystemStorage
 from django.db import models
-# from django.db.backends.postgresql import
 
 from phone_field import PhoneField
 
@@ -29,11 +27,19 @@ class AboutImage(models.Model):
         return self.image.name
 
 
+icons_list = (
+    (0, 'icon-gid'),
+    (1, 'icon-tickets'),
+    (2, 'icon-min'),
+)
+
+
 class TourFacility(models.Model):
     # title = models.CharField(max_length=255)
     title = jsonfield.JSONField()
-    image = models.ImageField(upload_to='facilities', null=True, blank=True)
+    # image = models.ImageField(upload_to='facilities', null=True, blank=True)
     tours = models.ManyToManyField('Tour', related_name='t_facilities')
+    icon = models.IntegerField(choices=icons_list, null=True, blank=True)
 
     class Meta:
         db_table = 'facilities'
@@ -46,8 +52,9 @@ class TourFacility(models.Model):
 class TourExpense(models.Model):
     # title = models.CharField(max_length=255)
     title = jsonfield.JSONField()
-    image = models.ImageField(upload_to='expenses', null=True, blank=True)
+    # image = models.ImageField(upload_to='expenses', null=True, blank=True)
     tours = models.ManyToManyField('Tour', related_name='t_expenses')
+    icon = models.IntegerField(choices=icons_list, null=True, blank=True)
 
     class Meta:
         db_table = 'expenses'

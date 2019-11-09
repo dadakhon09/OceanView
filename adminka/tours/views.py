@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from app.models import Tour, TourExpense, TourFacility, TourImage
+from app.models import Tour, TourExpense, TourFacility, TourImage, icons_list
 
 
 class AdminToursView(View):
@@ -76,14 +76,14 @@ class ToursCreateView(View):
 
         price = post.get('price')
 
+        icon = post.get('icon')
+
         t_facilities = post.getlist('t_facilities')
 
         t_expenses = post.getlist('t_expenses')
 
         if not price:
             price = None
-
-        images = self.request.FILES.getlist('image')
 
         title = {
             'title_en': title_en,
@@ -134,6 +134,8 @@ class ToursCreateView(View):
             obj = TourExpense.objects.get(id=t)
             obj.tours.add(tour)
             obj.save()
+
+        images = self.request.FILES.getlist('image')
 
         for i in images:
             ti = TourImage.objects.create(image=i, tour=tour)
@@ -300,7 +302,7 @@ class AdminToursExpensesView(View):
 
 class AdminToursExpensesCreateView(View):
     def get(self, request):
-        return render(request, 'adminka/tours/tour_expenses_create.html')
+        return render(request, 'adminka/tours/tour_expenses_create.html', {'icons_list': icons_list})
 
     def post(self, request):
         post = self.request.POST
@@ -321,9 +323,10 @@ class AdminToursExpensesCreateView(View):
             'title_zh': title_zh,
         }
 
-        image = self.request.FILES.get('image')
+        # image = self.request.FILES.get('image')
+        icon = post.get('icon')
 
-        TourExpense.objects.create(title=title, image=image)
+        TourExpense.objects.create(title=title, icon=icon)
 
         return HttpResponseRedirect(reverse('tour-expenses'))
 
@@ -353,10 +356,12 @@ class AdminToursExpensesUpdateView(View):
             'title_zh': title_zh,
         }
 
-        image = self.request.FILES.get('image')
+        # image = self.request.FILES.get('image')
+
+        icon = post.get('icon')
 
         t_expense.title = title
-        t_expense.image = image
+        t_expense.icon = icon
 
         t_expense.save()
         return HttpResponseRedirect(reverse('tour-expenses'))
@@ -409,9 +414,11 @@ class AdminToursFacilitiesCreateView(View):
             'title_zh': title_zh,
         }
 
-        image = self.request.FILES.get('image')
+        # image = self.request.FILES.get('image')
 
-        TourFacility.objects.create(title=title, image=image)
+        icon = post.get('icon')
+
+        TourFacility.objects.create(title=title, icon=icon)
 
         return HttpResponseRedirect(reverse('tour-facilities'))
 
@@ -441,10 +448,12 @@ class AdminToursFacilitiesUpdateView(View):
             'title_zh': title_zh,
         }
 
-        image = self.request.FILES.get('image')
+        # image = self.request.FILES.get('image')
+
+        icon = post.get('icon')
 
         t_facility.title = title
-        t_facility.image = image
+        t_facility.icon = icon
 
         t_facility.save()
         return HttpResponseRedirect(reverse('tour-facilities'))
