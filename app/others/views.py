@@ -5,11 +5,11 @@ from app.models import Villa, Tour, Sight, News, Car, About
 
 
 def handler404(request, exception):
-    return render(request, '404.html', status=404)
+    return render(request, 'main/404.html', status=404)
 
 
 def handler500(request):
-    return render(request, '500.html', status=500)
+    return render(request, 'main/500.html', status=500)
 
 
 class IndexView(View):

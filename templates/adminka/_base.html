@@ -80,7 +80,8 @@
                 <!-- User profile and search -->
                 <!-- ============================================================== -->
                 <ul class="navbar-nav mr-2">
-                    <a class="btn btn-outline-success " href="{% url 'index' %}">{% trans 'View Website' %}</a>
+                    <a class="btn btn-outline-success " target="_blank"
+                       href="{% url 'index' %}">{% trans 'View Website' %}</a>
                 </ul>
                 <ul class="navbar-nav my-lg-0">
                     <!-- ============================================================== -->
@@ -164,8 +165,9 @@
                                 class="hide-menu">{% trans 'Tours' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'adminka-sights' %}"><i class="mdi mdi-city"></i> <span class="hide-menu"
-                                                                                                style="{% if LANGUAGE_CODE == 'ru' %} font-size: 85%;{% endif %}">{% trans 'Sights' %}</span></a>
+                        <a href="{% url 'adminka-sights' %}"><i class="mdi mdi-city"></i>
+                            <span class="hide-menu" style="{% if LANGUAGE_CODE == 'ru' %} font-size: 83%;{% endif %}">
+                                {% trans 'Sights' %}</span></a>
                     </li>
                     <li>
                         <a href="{% url 'adminka-villas' %}"><i class="mdi mdi-hotel"></i> <span
