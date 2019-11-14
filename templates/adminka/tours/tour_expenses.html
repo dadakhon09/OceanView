@@ -75,8 +75,9 @@
                                         <td><a href="{% url 'tour-expenses-update' t_expense.id %}"
                                                class="label label-info"><i class="fas fa-edit"></i>{% trans 'Edit' %}
                                         </a></td>
-                                        <td><a href="{% url 'tour-expenses-delete' t_expense.id %}"
-                                               class="label label-danger"><i class="fas fa-trash"></i></a></td>
+                                        <td><a href="" data-id="{{ t_expense.id }}"
+                                               class="removeButton label label-danger"><i class="fas fa-trash"></i></a>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
@@ -84,6 +85,21 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div id="myModal" class="modal-custom">
+            <!-- Modal content -->
+            <div class="modal-content-custom">
+                <span class="close">&times;</span>
+                <h2>{% trans 'Are you sure you want to delete?' %}</h2>
+                <a id="modalDeleteButton" href="#">
+                    <button type="button" class="btn btn-success">
+                        Yes
+                    </button>
+                </a>
+                <button type="button" class="btn btn-danger No">
+                    No
+                </button>
             </div>
         </div>
         <!-- ============================================================== -->

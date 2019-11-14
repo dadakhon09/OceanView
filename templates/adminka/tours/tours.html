@@ -85,7 +85,7 @@
                                         </td>
                                         <td><a href="{% url 'tours-update' tour.id %}" class="label label-info"><i
                                                 class="fas fa-edit"></i>{% trans 'Edit' %}</a></td>
-                                        <td><a href="{% url 'tours-delete' tour.id %}" id="" class="label label-danger"><i
+                                        <td><a href="#" data-id="{{ tour.id }}" id="" class="removeButton label label-danger"><i
                                                 class="fas fa-trash"></i></a></td>
                                     </tr>
                                 {% endfor %}
@@ -104,7 +104,7 @@
             <div class="modal-content-custom">
                 <span class="close">&times;</span>
                 <h2>{% trans 'Are you sure you want to delete?' %}</h2>
-                <a href="#">
+                <a id="modalDeleteButton" href="#">
                     <button type="button" class="btn btn-success">
                         Yes
                     </button>
@@ -118,4 +118,34 @@
 {% endblock %}
 {% block js %}
     <script src="{% static 'adminka/js/pagination.js' %}"></script>
+
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
