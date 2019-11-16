@@ -189,6 +189,7 @@
     </div>
 {% endblock %}
 {% block js %}
+    <script>document.getElementById("title_en").focus();</script>
     <script>
         $('.custom-select').append(`<option data-icon="` + `{{ t_facility.get_icon_display }}`
             + `" name="icon" value="` + `{{t_facility.icon}}` + `">`
@@ -197,10 +198,10 @@
             i = "{{ i }}";
 
             icon = i.slice(9, -6);
-            if (icon.charAt(0) == ';'){
+            if (icon.charAt(0) === ';'){
                 icon = icon.slice(1)
             }
-            else if (icon.charAt(0) == '9'){
+            else if (icon.charAt(0) === '9'){
                 icon = icon.slice(2)
             }
             v = i.slice(1);

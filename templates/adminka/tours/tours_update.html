@@ -509,6 +509,7 @@
     </div>
 {% endblock %}
 {% block js %}
+    <script>document.getElementById("title_en").focus();</script>
     <script>
         document.getElementById("description_en").value = "{{ tour.description.description_en }}";
         document.getElementById("description_ar").value = "{{ tour.description.description_ar }}";

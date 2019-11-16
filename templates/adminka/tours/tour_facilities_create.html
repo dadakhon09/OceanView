@@ -193,14 +193,15 @@
 {% endblock %}
 
 {% block js %}
+    <script>document.getElementById("title_en").focus();</script>
     <script>
         {% for i in icons_list %}
             i = "{{ i }}";
             icon = i.slice(9, -6);
-            if (icon.charAt(0) == ';'){
+            if (icon.charAt(0) === ';'){
                 icon = icon.slice(1)
             }
-            else if (icon.charAt(0) == '9'){
+            else if (icon.charAt(0) === '9'){
                 icon = icon.slice(2)
             }
             v = i.slice(1);
