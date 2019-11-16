@@ -3,7 +3,6 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.text import slugify
-from phone_field import PhoneField
 
 from adminka.tours.get_icons import Icons
 
@@ -19,7 +18,7 @@ class About(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.text['text_en'][:100]
+        return self.text['text_en'][:100] or 'asd'
 
 
 class AboutImage(models.Model):
@@ -31,7 +30,7 @@ class AboutImage(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.image.name
+        return self.image.name or 'asd'
 
 
 class TourFacility(models.Model):
@@ -46,7 +45,7 @@ class TourFacility(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.title['title_en']
+        return self.title['title_en'] or 'asd'
 
 
 class TourExpense(models.Model):
@@ -61,7 +60,7 @@ class TourExpense(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.title['title_en']
+        return self.title['title_en'] or 'asd'
 
 
 class TourImage(models.Model):
@@ -73,7 +72,7 @@ class TourImage(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.image.name
+        return self.image.name or 'asd'
 
 
 class Tour(models.Model):
@@ -95,7 +94,7 @@ class Tour(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.title['title_en']
+        return self.title['title_en'] or 'asd'
 
 
 class SightCategory(models.Model):
@@ -107,7 +106,7 @@ class SightCategory(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.title['title_en']
+        return self.title['title_en'] or 'asd'
 
 
 class SightImage(models.Model):
@@ -119,7 +118,7 @@ class SightImage(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.image.name
+        return self.image.name or 'asd'
 
 
 class Sight(models.Model):
@@ -135,7 +134,7 @@ class Sight(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.title['title_en']
+        return self.title['title_en'] or 'asd'
 
 
 class VillaImage(models.Model):
@@ -147,7 +146,7 @@ class VillaImage(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.image.name
+        return self.image.name or 'asd'
 
 
 # class VillaPhoneNumber(models.Model):
@@ -170,7 +169,7 @@ class VillaServiceCategory(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.title['title_en']
+        return self.title['title_en'] or 'asd'
 
 
 class VillaService(models.Model):
@@ -184,7 +183,7 @@ class VillaService(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.title['title_en']
+        return self.title['title_en'] or 'asd'
 
 
 STATUS = (
@@ -213,7 +212,7 @@ class Villa(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.title['title_en']
+        return self.title['title_en'] or 'asd'
 
 
 class News(models.Model):
@@ -230,7 +229,7 @@ class News(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.title['title_en']
+        return self.title['title_en'] or 'asd'
 
 
 class CarImage(models.Model):
@@ -242,7 +241,7 @@ class CarImage(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.image.name
+        return self.image.name or 'asd'
 
 
 class Car(models.Model):
@@ -257,7 +256,7 @@ class Car(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return self.title['title_en']
+        return self.title['title_en'] or 'asd'
 
 
 @receiver(post_save, sender=Tour)
@@ -266,8 +265,7 @@ def get_slug(sender, instance, created,  **kwargs):
         slug = slugify(instance.title['title_en'])
         instance.slug = slug
         instance.save()
-    else:
-        print(11111111111111)
+
 
 @receiver(post_save, sender=Sight)
 def get_slug2(sender, instance, created,  **kwargs):
