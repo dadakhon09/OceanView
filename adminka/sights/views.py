@@ -11,14 +11,14 @@ class AdminSightsView(View):
     def get(self, request):
         if request.GET.get('q'):
             search_term = request.GET.get('q')
-            search_result = Sight.objects.all().filter(title__icontains={
-                                                              "title_ar": "",
-                                                              "title_en": search_term,
-                                                              "title_fa": "",
-                                                              "title_hi": "",
-                                                              "title_ru": "",
-                                                              "title_zh": ""
-                                                            })
+            if request.LANGUAGE_CODE == 'en':
+                search_result = Sight.objects.all().filter(title__icontains={
+                                                                  "title_en": search_term,
+                                                                })
+            else:
+                search_result = Sight.objects.all().filter(title__icontains={
+                                                                  "title_ru": search_term,
+                                                                })
 
             return render(request, 'adminka/sights/sights.html', {'sights': search_result})
 
@@ -175,14 +175,14 @@ class SightsCategoriesView(View):
     def get(self, request):
         if request.GET.get('q'):
             search_term = request.GET.get('q')
-            search_result = SightCategory.objects.all().filter(title__icontains={
-                                                              "title_ar": "",
-                                                              "title_en": search_term,
-                                                              "title_fa": "",
-                                                              "title_hi": "",
-                                                              "title_ru": "",
-                                                              "title_zh": ""
-                                                            })
+            if request.LANGUAGE_CODE == 'en':
+                search_result = SightCategory.objects.all().filter(title__icontains={
+                                                                  "title_en": search_term,
+                                                                })
+            else:
+                search_result = SightCategory.objects.all().filter(title__icontains={
+                                                                  "title_ru": search_term,
+                                                                })
 
             return render(request, 'adminka/sights/sight_categories.html', {'s_categories': search_result})
 
