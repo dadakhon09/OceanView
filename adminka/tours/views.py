@@ -13,6 +13,12 @@ my_tuple = obj.get_icons()
 
 class AdminToursView(View):
     def get(self, request):
+        if 'q' in request.GET:
+            search_term = request.GET['q']
+            search_result = Tour.objects.all().filter(title__icontains=search_term)
+            return render(request, 'adminka/tours/tours.html', {'search_result': search_result})
+
+
         tours = Tour.objects.all()
         page = request.GET.get('page', 1)
 
