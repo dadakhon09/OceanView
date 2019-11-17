@@ -9,6 +9,19 @@ from app.models import News
 
 class AdminNewsView(View):
     def get(self, request):
+        if request.GET.get('q'):
+            search_term = request.GET.get('q')
+            search_result = News.objects.all().filter(title__icontains={
+                                                              "title_ar": "",
+                                                              "title_en": search_term,
+                                                              "title_fa": "",
+                                                              "title_hi": "",
+                                                              "title_ru": "",
+                                                              "title_zh": ""
+                                                            })
+
+            return render(request, 'adminka/news/news.html', {'news_list': search_result})
+
         news_list = News.objects.all()
         page = request.GET.get('page', 1)
 

@@ -9,6 +9,19 @@ from app.models import Villa, VillaService, VillaServiceCategory, VillaImage
 
 class AdminVillasView(View):
     def get(self, request):
+        if request.GET.get('q'):
+            search_term = request.GET.get('q')
+            search_result = Villa.objects.all().filter(title__icontains={
+                                                              "title_ar": "",
+                                                              "title_en": search_term,
+                                                              "title_fa": "",
+                                                              "title_hi": "",
+                                                              "title_ru": "",
+                                                              "title_zh": ""
+                                                            })
+
+            return render(request, 'adminka/villas/villas.html', {'villas': search_result})
+
         villas = Villa.objects.all()
 
         page = request.GET.get('page', 1)
@@ -252,6 +265,19 @@ class VillasDeleteView(View):
 
 class VillaServicesView(View):
     def get(self, request):
+        if request.GET.get('q'):
+            search_term = request.GET.get('q')
+            search_result = VillaService.objects.all().filter(title__icontains={
+                                                              "title_ar": "",
+                                                              "title_en": search_term,
+                                                              "title_fa": "",
+                                                              "title_hi": "",
+                                                              "title_ru": "",
+                                                              "title_zh": ""
+                                                            })
+
+            return render(request, 'adminka/villas/villa_services.html', {'v_services': search_result})
+
         v_services = VillaService.objects.all()
 
         page = request.GET.get('page', 1)
@@ -356,6 +382,19 @@ class VillaServicesDeleteView(View):
 
 class VillaServiceCategoriesView(View):
     def get(self, request):
+        if request.GET.get('q'):
+            search_term = request.GET.get('q')
+            search_result = VillaServiceCategory.objects.all().filter(title__icontains={
+                                                              "title_ar": "",
+                                                              "title_en": search_term,
+                                                              "title_fa": "",
+                                                              "title_hi": "",
+                                                              "title_ru": "",
+                                                              "title_zh": ""
+                                                            })
+
+            return render(request, 'adminka/villas/villa_service_categories.html', {'v_service_categories': search_result})
+
         v_service_categories = VillaServiceCategory.objects.all()
 
         page = request.GET.get('page', 1)

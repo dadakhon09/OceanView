@@ -9,6 +9,19 @@ from app.models import Sight, SightCategory, SightImage
 
 class AdminSightsView(View):
     def get(self, request):
+        if request.GET.get('q'):
+            search_term = request.GET.get('q')
+            search_result = Sight.objects.all().filter(title__icontains={
+                                                              "title_ar": "",
+                                                              "title_en": search_term,
+                                                              "title_fa": "",
+                                                              "title_hi": "",
+                                                              "title_ru": "",
+                                                              "title_zh": ""
+                                                            })
+
+            return render(request, 'adminka/sights/sights.html', {'sights': search_result})
+
         sights = Sight.objects.all()
 
         page = request.GET.get('page', 1)
@@ -160,7 +173,31 @@ class SightsDeleteView(View):
 
 class SightsCategoriesView(View):
     def get(self, request):
+        if request.GET.get('q'):
+            search_term = request.GET.get('q')
+            search_result = SightCategory.objects.all().filter(title__icontains={
+                                                              "title_ar": "",
+                                                              "title_en": search_term,
+                                                              "title_fa": "",
+                                                              "title_hi": "",
+                                                              "title_ru": "",
+                                                              "title_zh": ""
+                                                            })
+
+            return render(request, 'adminka/sights/sight_categories.html', {'s_categories': search_result})
+
         s_categories = SightCategory.objects.all()
+
+        page = request.GET.get('page', 1)
+
+        paginator = Paginator(s_categories, 15)
+        try:
+            s_categories = paginator.page(page)
+        except PageNotAnInteger:
+            s_categories = paginator.page(1)
+        except EmptyPage:
+            s_categories = paginator.page(paginator.num_pages)
+            
         return render(request, 'adminka/sights/sight_categories.html', {'s_categories': s_categories})
 
 
