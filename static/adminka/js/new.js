@@ -39,8 +39,9 @@ function showDeletePopup(id) {
         let reg = new RegExp(str_to_remove);
         return str.replace(reg, '')
     }
-
-    let deleteURL = document.URL + "delete/";
+    let url = document.URL
+    url = url.split('?')[0]
+    let deleteURL = url + "delete/";
     deleteURL = removeCharacter("#", deleteURL);
 
     const deletePopupWindow = document.querySelector("#myModal");
