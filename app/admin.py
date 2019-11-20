@@ -6,7 +6,6 @@ from app.models import SightCategory, TourFacility, TourExpense, Tour, Sight, Vi
 admin.site.register(SightCategory)
 admin.site.register(TourFacility)
 admin.site.register(TourExpense)
-# admin.site.register(VillaPhoneNumber)
 admin.site.register(Tour)
 admin.site.register(TourImage)
 admin.site.register(VillaServiceCategory)

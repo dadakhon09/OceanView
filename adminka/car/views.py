@@ -12,13 +12,9 @@ class AdminCarsView(View):
         if request.GET.get('q'):
             search_term = request.GET.get('q')
             if request.LANGUAGE_CODE == 'en':
-                search_result = Car.objects.all().filter(title__icontains={
-                                                                  "title_en": search_term,
-                                                                })
+                search_result = Car.objects.all().filter(title__title_en__icontains=search_term)
             else:
-                search_result = Car.objects.all().filter(title__icontains={
-                                                                  "title_ru": search_term,
-                                                                })
+                search_result = Car.objects.all().filter(title__title_ru__icontains=search_term)
 
             return render(request, 'adminka/cars/cars.html', {'cars': search_result})
 

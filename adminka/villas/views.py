@@ -10,18 +10,11 @@ from app.models import Villa, VillaService, VillaServiceCategory, VillaImage
 class AdminVillasView(View):
     def get(self, request):
         if request.GET.get('q'):
-            print(2)
             search_term = request.GET.get('q')
             if request.LANGUAGE_CODE == 'en':
-                print(11)
-                search_result = Villa.objects.all().filter(title__icontains={
-                                                                  "title_en": search_term,
-                                                                })
+                search_result = Villa.objects.all().filter(title__title_en__icontains=search_term)
             else:
-                print(11111111)
-                search_result = Villa.objects.all().filter(title__icontains={
-                                                                  "title_ru": search_term,
-                                                                })
+                search_result = Villa.objects.all().filter(title__title_ru__icontains=search_term)
 
             return render(request, 'adminka/villas/villas.html', {'villas': search_result})
 
@@ -271,13 +264,9 @@ class VillaServicesView(View):
         if request.GET.get('q'):
             search_term = request.GET.get('q')
             if request.LANGUAGE_CODE == 'en':
-                search_result = VillaService.objects.all().filter(title__icontains={
-                                                                  "title_en": search_term,
-                                                                })
+                search_result = VillaService.objects.all().filter(title__title_en__icontains=search_term)
             else:
-                search_result = VillaService.objects.all().filter(title__icontains={
-                                                                  "title_ru": search_term,
-                                                                })
+                search_result = VillaService.objects.all().filter(title__title_ru__icontains=search_term)
 
             return render(request, 'adminka/villas/villa_services.html', {'v_services': search_result})
 
@@ -388,14 +377,11 @@ class VillaServiceCategoriesView(View):
         if request.GET.get('q'):
             search_term = request.GET.get('q')
             if request.LANGUAGE_CODE == 'en':
-                search_result = VillaServiceCategory.objects.all().filter(title__icontains={
-                                                                  "title_en": search_term,
-                                                                })
+                search_result = VillaServiceCategory.objects.all().filter(title__title_en__icontains=search_term)
             else:
-                search_result = VillaServiceCategory.objects.all().filter(title__icontains={
-                                                                  "title_ru": search_term,
-                                                                })
-            return render(request, 'adminka/villas/villa_service_categories.html', {'v_service_categories': search_result})
+                search_result = VillaServiceCategory.objects.all().filter(title__title_ru__icontains=search_term)
+            return render(request, 'adminka/villas/villa_service_categories.html',
+                          {'v_service_categories': search_result})
 
         v_service_categories = VillaServiceCategory.objects.all()
 

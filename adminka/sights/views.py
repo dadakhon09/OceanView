@@ -12,13 +12,9 @@ class AdminSightsView(View):
         if request.GET.get('q'):
             search_term = request.GET.get('q')
             if request.LANGUAGE_CODE == 'en':
-                search_result = Sight.objects.all().filter(title__icontains={
-                                                                  "title_en": search_term,
-                                                                })
+                search_result = Sight.objects.all().filter(title__title_en__icontains=search_term)
             else:
-                search_result = Sight.objects.all().filter(title__icontains={
-                                                                  "title_ru": search_term,
-                                                                })
+                search_result = Sight.objects.all().filter(title__title_ru__icontains=search_term)
 
             return render(request, 'adminka/sights/sights.html', {'sights': search_result})
 
@@ -176,13 +172,9 @@ class SightsCategoriesView(View):
         if request.GET.get('q'):
             search_term = request.GET.get('q')
             if request.LANGUAGE_CODE == 'en':
-                search_result = SightCategory.objects.all().filter(title__icontains={
-                                                                  "title_en": search_term,
-                                                                })
+                search_result = SightCategory.objects.all().filter(title__title_en__icontains=search_term)
             else:
-                search_result = SightCategory.objects.all().filter(title__icontains={
-                                                                  "title_ru": search_term,
-                                                                })
+                search_result = SightCategory.objects.all().filter(title__title_ru__icontains=search_term)
 
             return render(request, 'adminka/sights/sight_categories.html', {'s_categories': search_result})
 

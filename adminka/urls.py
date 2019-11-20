@@ -2,8 +2,9 @@ from django.urls import path
 
 from adminka.car.views import AdminCarsView, CarsCreateView, CarsUpdateView, CarsDeleteView
 from adminka.about.views import AdminAboutView
+from adminka.core.views import AdminIndexView
 from adminka.news.views import AdminNewsView, NewsCreateView, NewsUpdateView, NewsDeleteView
-from adminka.others.views import AdminIndexView, AdminLoginView, ProfileView, AdminLogoutView, ProfileUpdateView
+from adminka.users.views import AdminLoginView, ProfileView, AdminLogoutView, ProfileUpdateView
 from adminka.sights.views import AdminSightsView, SightsCreateView, SightsUpdateView, SightsDeleteView, \
     SightsCategoriesView, SightsCategoriesCreateView, SightsCategoriesUpdateView, SightsCategoriesDeleteView
 from adminka.tours.views import AdminToursView, ToursCreateView, ToursUpdateView, ToursDeleteView, \

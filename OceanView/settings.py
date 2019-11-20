@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'phone_field',
+    'django.contrib.postgres',
 
     'app',
     'adminka',

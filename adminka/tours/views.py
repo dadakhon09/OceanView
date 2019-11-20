@@ -16,13 +16,9 @@ class AdminToursView(View):
         if request.GET.get('q'):
             search_term = request.GET.get('q')
             if request.LANGUAGE_CODE == 'en':
-                search_result = Tour.objects.all().filter(title__icontains={
-                                                                  "title_en": search_term
-                                                                })
+                search_result = Tour.objects.all().filter(title__title_en__icontains=search_term)
             else:
-                search_result = Tour.objects.all().filter(title__icontains={
-                                                                  "title_ru": search_term
-                                                                })
+                search_result = Tour.objects.all().filter(title__title_ru__icontains=search_term)
 
             return render(request, 'adminka/tours/tours.html', {'tours': search_result})
 
@@ -308,13 +304,9 @@ class AdminToursExpensesView(View):
         if request.GET.get('q'):
             search_term = request.GET.get('q')
             if request.LANGUAGE_CODE == 'en':
-                search_result = TourExpense.objects.all().filter(title__icontains={
-                                                                  "title_en": search_term,
-                                                                })
+                search_result = TourExpense.objects.all().filter(title__title_en__icontains=search_term)
             else:
-                search_result = TourExpense.objects.all().filter(title__icontains={
-                                                                  "title_ru": search_term,
-                                                                })
+                search_result = TourExpense.objects.all().filter(title__title_ru__icontains=search_term)
 
             return render(request, 'adminka/tours/tour_expenses.html', {'t_expenses': search_result})
 
@@ -418,13 +410,9 @@ class AdminToursFacilitiesView(View):
         if request.GET.get('q'):
             search_term = request.GET.get('q')
             if request.LANGUAGE_CODE == 'en':
-                search_result = TourFacility.objects.all().filter(title__icontains={
-                                                                  "title_en": search_term,
-                                                                })
+                search_result = TourFacility.objects.all().filter(title__title_en__icontains=search_term)
             else:
-                search_result = TourFacility.objects.all().filter(title__icontains={
-                                                                  "title_ru": search_term,
-                                                                })
+                search_result = TourFacility.objects.all().filter(title__title_ru__icontains=search_term)
 
             return render(request, 'adminka/tours/tour_facilities.html', {'t_facilities': search_result})
 
