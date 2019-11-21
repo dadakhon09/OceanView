@@ -256,5 +256,6 @@ class SightsCategoriesUpdateView(View):
 class SightsCategoriesDeleteView(View):
     def get(self, request, id):
         c = SightCategory.objects.get(id=id)
+
         c.delete()
         return HttpResponseRedirect(reverse('sight-categories'))
