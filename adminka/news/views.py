@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from app.models import News
+from adminka.model.news import News
 
 
 class AdminNewsView(View):

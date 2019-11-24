@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
-from app.models import Villa
+from adminka.model.villa import Villa
 
 
 class VillasView(View):

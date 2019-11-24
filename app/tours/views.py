@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
-from app.models import Tour
+from adminka.model.tour import Tour
 
 
 class ToursView(View):

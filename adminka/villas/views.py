@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from app.models import Villa, VillaService, VillaServiceCategory, VillaImage
+from adminka.model.villa import Villa, VillaService, VillaServiceCategory, VillaImage
 
 
 class AdminVillasView(View):

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
-from app.models import News
+from adminka.model.news import News
 
 
 class NewsView(View):

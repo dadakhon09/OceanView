@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
-from app.models import Sight
+from adminka.model.sight import Sight
 
 
 class SightsView(View):

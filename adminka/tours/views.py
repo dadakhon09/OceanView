@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from app.models import Tour, TourExpense, TourFacility, TourImage
+from adminka.model.tour import Tour, TourExpense, TourFacility, TourImage
 from adminka.tours.get_icons import Icons
 
 obj = Icons()

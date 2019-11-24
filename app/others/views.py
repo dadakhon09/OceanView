@@ -1,7 +1,12 @@
 from django.shortcuts import render
 from django.views import View
 
-from app.models import Villa, Tour, Sight, News, Car, About
+from adminka.model.villa import Villa
+from adminka.model.tour import Tour
+from adminka.model.sight import Sight
+from adminka.model.news import News
+from adminka.model.car import Car
+from adminka.model.about import About
 
 
 def handler404(request, exception):

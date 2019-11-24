@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import View
 
-from app.models import About, AboutImage
+from adminka.model.about import About, AboutImage
 
 
 class AdminAboutView(View):

@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from app.models import Car, CarImage
+from adminka.model.car import Car, CarImage
 
 
 class AdminCarsView(View):

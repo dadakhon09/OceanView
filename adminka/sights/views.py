@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from app.models import Sight, SightCategory, SightImage
+from adminka.model.sight import Sight, SightCategory, SightImage
 
 
 class AdminSightsView(View):

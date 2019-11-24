@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
-from app.models import Car
+from adminka.model.car import Car
 
 class CarsView(View):
     def get(self, request):
