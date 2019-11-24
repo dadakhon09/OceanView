@@ -90,6 +90,8 @@ class ToursCreateView(View):
         guide = post.get('guide')
 
         price = post.get('price')
+        if not price:
+            price = None
 
         icon = post.get('icon')
 
@@ -97,8 +99,7 @@ class ToursCreateView(View):
 
         t_expenses = post.getlist('t_expenses')
 
-        if not price:
-            price = None
+        
 
         title = {
             'title_en': title_en,

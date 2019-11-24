@@ -220,7 +220,7 @@
                                                    class="control-label">{% trans 'Duration(in days)' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" class="form-control" id="duration" name="duration"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control" id="duration" name="duration"
                                                    autocomplete="off">
                                         </div>
                                     </div>
@@ -232,7 +232,7 @@
                                                    class="control-label">{% trans 'Price(In dollars)' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" class="form-control" id="price" name="price"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control" id="price" name="price"
                                                    autocomplete="off">
                                         </div>
                                     </div>

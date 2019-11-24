@@ -34,9 +34,7 @@ class AboutImage(models.Model):
 
 
 class TourFacility(models.Model):
-    # title = models.CharField(max_length=255)
     title = JSONField()
-    # image = models.ImageField(upload_to='facilities', null=True, blank=True)
     tours = models.ManyToManyField('Tour', related_name='t_facilities', blank=True)
     icon = models.IntegerField(choices=my_tuple, null=True, blank=True)
 
@@ -49,9 +47,7 @@ class TourFacility(models.Model):
 
 
 class TourExpense(models.Model):
-    # title = models.CharField(max_length=255)
     title = JSONField()
-    # image = models.ImageField(upload_to='expenses', null=True, blank=True)
     tours = models.ManyToManyField('Tour', related_name='t_expenses', blank=True)
     icon = models.IntegerField(choices=my_tuple, null=True, blank=True)
 
@@ -76,9 +72,7 @@ class TourImage(models.Model):
 
 
 class Tour(models.Model):
-    # title = models.CharField(max_length=255)
     title = JSONField()
-    # description = models.TextField(null=True, blank=True)
     description = JSONField()
     slug = models.SlugField(max_length=255)
     route = JSONField()  # ASK
@@ -86,7 +80,6 @@ class Tour(models.Model):
     num_people = models.PositiveIntegerField(blank=True, null=True)
     guide = models.BooleanField(null=True, blank=True)
     price = models.PositiveIntegerField(null=True, blank=True)
-    # plan = models.TextField(null=True, blank=True)
     plan = JSONField()
 
     class Meta:
@@ -98,7 +91,6 @@ class Tour(models.Model):
 
 
 class SightCategory(models.Model):
-    # title = models.CharField(max_length=255, null=True, blank=True)
     title = JSONField(null=True)
 
     class Meta:
@@ -122,9 +114,7 @@ class SightImage(models.Model):
 
 
 class Sight(models.Model):
-    # title = models.CharField(max_length=255)
     title = JSONField()
-    # description = models.TextField(null=True, blank=True)
     description = JSONField()
     slug = models.SlugField(max_length=255)
     category = models.ForeignKey(SightCategory, on_delete=models.SET_NULL, null=True)
@@ -150,7 +140,6 @@ class VillaImage(models.Model):
 
 
 class VillaServiceCategory(models.Model):
-    # title = models.CharField(max_length=255)
     title = JSONField()
 
     class Meta:
@@ -162,7 +151,6 @@ class VillaServiceCategory(models.Model):
 
 
 class VillaService(models.Model):
-    # title = models.CharField(max_length=255)
     title = JSONField()
     category = models.ForeignKey(VillaServiceCategory, on_delete=models.SET_NULL, null=True)
     villas = models.ManyToManyField('Villa', related_name='v_services')
@@ -182,10 +170,8 @@ STATUS = (
 
 
 class Villa(models.Model):
-    # title = models.CharField(max_length=255)
     title = JSONField()
     address = JSONField()
-    # description = models.TextField(null=True, blank=True)
     description = JSONField()
     slug = models.SlugField(max_length=255)
     phone = models.CharField(max_length=255, null=True, blank=True)
@@ -206,8 +192,6 @@ class Villa(models.Model):
 
 class News(models.Model):
     title = JSONField()
-    # title = models.CharField(max_length=255, blank=True, null=True)
-    # description = models.TextField(null=True, blank=True)
     description = JSONField()
     slug = models.SlugField(max_length=255)
     image = models.ImageField(upload_to='news', blank=True, null=True)
