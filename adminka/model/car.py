@@ -21,7 +21,7 @@ class CarImage(models.Model):
 
 class Car(models.Model):
     title = JSONField()
-    description = JSONField()
+    description = JSONField(null=True)
     slug = models.SlugField(max_length=255)
     price = models.PositiveIntegerField(null=True, blank=True)
     duration = models.PositiveIntegerField(null=True, blank=True)

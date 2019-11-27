@@ -9,7 +9,7 @@ from adminka.tours.get_icons import Icons
 
 class News(models.Model):
     title = JSONField()
-    description = JSONField()
+    description = JSONField(null=True)
     slug = models.SlugField(max_length=255)
     image = models.ImageField(upload_to='news', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)

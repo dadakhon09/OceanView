@@ -189,7 +189,7 @@ class SightsCategoriesView(View):
             s_categories = paginator.page(1)
         except EmptyPage:
             s_categories = paginator.page(paginator.num_pages)
-            
+
         return render(request, 'adminka/sights/sight_categories.html', {'s_categories': s_categories})
 
 

@@ -51,8 +51,8 @@ STATUS = (
 
 class Villa(models.Model):
     title = JSONField()
-    address = JSONField()
-    description = JSONField()
+    address = JSONField(null=True)
+    description = JSONField(null=True)
     slug = models.SlugField(max_length=255)
     phone = models.CharField(max_length=255, null=True, blank=True)
     bedroom = models.PositiveIntegerField(null=True, blank=True)
@@ -71,9 +71,8 @@ class Villa(models.Model):
 
 
 @receiver(post_save, sender=Villa)
-def get_slug3(sender, instance,created,  **kwargs):
+def get_slug3(sender, instance, created, **kwargs):
     if created:
         slug = slugify(instance.title['title_en'])
         instance.slug = slug
         instance.save()
-

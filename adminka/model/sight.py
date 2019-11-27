@@ -32,7 +32,7 @@ class SightImage(models.Model):
 
 class Sight(models.Model):
     title = JSONField()
-    description = JSONField()
+    description = JSONField(null=True)
     slug = models.SlugField(max_length=255)
     category = models.ForeignKey(SightCategory, on_delete=models.SET_NULL, null=True)
 
@@ -45,7 +45,7 @@ class Sight(models.Model):
 
 
 @receiver(post_save, sender=Sight)
-def get_slug2(sender, instance, created,  **kwargs):
+def get_slug2(sender, instance, created, **kwargs):
     if created:
         slug = slugify(instance.title['title_en'])
         instance.slug = slug

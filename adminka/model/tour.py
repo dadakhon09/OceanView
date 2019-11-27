@@ -6,7 +6,6 @@ from django.utils.text import slugify
 
 from adminka.tours.get_icons import Icons
 
-
 obj = Icons()
 my_tuple = obj.get_icons()
 
@@ -51,14 +50,14 @@ class TourImage(models.Model):
 
 class Tour(models.Model):
     title = JSONField()
-    description = JSONField()
+    description = JSONField(null=True)
     slug = models.SlugField(max_length=255)
-    route = JSONField()  # ASK
+    route = JSONField(null=True)  # ASK
     duration = models.PositiveIntegerField(null=True, blank=True)
     num_people = models.PositiveIntegerField(blank=True, null=True)
     guide = models.BooleanField(null=True, blank=True)
     price = models.PositiveIntegerField(null=True, blank=True)
-    plan = JSONField()
+    plan = JSONField(null=True)
 
     class Meta:
         db_table = 'tours'
@@ -69,7 +68,7 @@ class Tour(models.Model):
 
 
 @receiver(post_save, sender=Tour)
-def get_slug(sender, instance, created,  **kwargs):
+def get_slug(sender, instance, created, **kwargs):
     if created:
         slug = slugify(instance.title['title_en'])
         instance.slug = slug

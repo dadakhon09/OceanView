@@ -23,7 +23,6 @@ class AdminToursView(View):
             return render(request, 'adminka/tours/tours.html', {'tours': search_result})
 
         tours = Tour.objects.all()
-
         
         page = request.GET.get('page', 1)
 
