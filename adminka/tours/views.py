@@ -98,8 +98,6 @@ class ToursCreateView(View):
 
         t_expenses = post.getlist('t_expenses')
 
-        
-
         title = {
             'title_en': title_en,
             'title_ar': title_ar,

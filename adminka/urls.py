@@ -73,4 +73,6 @@ urlpatterns = [
     path('profile/', ProfileView.as_view(), name='adminka-profile'),
     path('profile/update/', ProfileUpdateView.as_view(), name='profile-update'),
     path('logout/', AdminLogoutView.as_view(), name='adminka-logout'),
+
+    # path('file-delete/')
 ]

@@ -2,70 +2,7 @@
 {% load static i18n %}
 {% block body %}
     <div class="wrapper">
-        <section class="header">
-            <div class="header-main">
-                <div class="container">
-                    <div class="row">
-                        <div class="logo-header">
-                            <a href="#">
-                                <img src="{% static 'main/images/logo.png' %}" alt="logo">
-                            </a>
-                        </div>
-                        <div class="menu-main">
-                            <ul class="menu">
-                                <li><a href="#">{% trans 'About City' %}</a></li>
-                                <li><a href="#">{% trans 'Tours' %}</a></li>
-                                <li><a href="#">{% trans 'Sights' %}</a></li>
-                                <li><a href="#">{% trans 'Villas' %}</a></li>
-                                <li><a href="#">{% trans 'Cars' %}</a></li>
-                                <li><a href="#">{% trans 'News' %}</a></li>
-                            </ul>
-                        </div>
-                        <div class="lang-search__main">
-                            <div class="search-main">
-                                <a href="#">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                    <span>{% trans 'Search' %}</span>
-                                </a>
-                            </div>
-                            <div class="lang-main">
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                        <i class="fa fa-language" aria-hidden="true"></i> {% trans 'English' %}
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">{% trans 'Russian' %}</a>
-                                        <a class="dropdown-item" href="#">{% trans 'Arabic' %}</a>
-                                        <a class="dropdown-item" href="#">{% trans 'Persian' %}</a>
-                                        <a class="dropdown-item" href="#">{% trans 'Hindi' %}</a>
-                                        <a class="dropdown-item" href="#">{% trans 'Chinese' %}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="banner-home">
-                <div class="banner-bg" style="background-image: url({% static 'main/images/banner_bg.jpg' %})"></div>
-                <div class="banner-content">
-                    <h2 class="banner-title">{% trans 'Welcome to Dubai' %}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis voluptatem numquam itaque
-                        assumenda aliquam repudiandae sit, rerum excepturi veniam hic veritatis porro possimus.</p>
-                    <a href="#" class="banner-button">{% trans 'Choose a tour' %}</a>
-                </div>
-                <div id="mouse-scroll">
-                    <div class="mouse-arrow">
-                        <span class="down-arrow-1"></span>
-                        <span class="down-arrow-2"></span>
-                        <span class="down-arrow-3"></span>
 
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section class="about-home">
             <div class="container">
