@@ -290,6 +290,13 @@ class ToursUpdateView(View):
         return HttpResponseRedirect(reverse('adminka-tours'))
 
 
+class TourImageDeleteView(View):
+    def delete(self, request, id):
+        image = TourImage.objects.get(id=id)
+        image.delete()
+        return 'asd'
+
+
 class ToursDeleteView(View):
     def get(self, request, id):
         tour = Tour.objects.get(id=id)

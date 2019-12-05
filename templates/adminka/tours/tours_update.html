@@ -1,6 +1,7 @@
 {% extends 'adminka/_base.html' %}
 {% load static i18n %}
 {% block head %}
+    <meta name="_token" content="{{ csrf_token }}"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           crossorigin="anonymous">
     <link href="{% static 'adminka/css/pages/tab-page.css' %}" rel="stylesheet">
@@ -495,14 +496,13 @@
                                             <button id="" type="submit" class="btn btn-success"><i
                                                     class="fa fa-check"></i>{% trans 'Save' %}
                                             </button>
-                                            <a href="{% url 'adminka-tours' %}">
-                                                <button type="button"
-                                                        class="btn btn-inverse">{% trans 'Cancel' %}</button>
-                                            </a>
+                                            <button type="button" class="btn btn-inverse"
+                                                    id="cancelBtn">{% trans 'Cancel' %}</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <input type="hidden" name="_token" id="csrf_token" value="{{ csrf_token }}">
                         </form>
                     </div>
                 </div>
@@ -511,6 +511,21 @@
         <!-- ============================================================== -->
         <!-- End Page Content -->
         <!-- ============================================================== -->
+        <div id="myModal" class="modal-custom">
+            <!-- Modal content -->
+            <div class="modal-content-custom">
+                <span class="close">&times;</span>
+                <h2>{% trans 'Are you sure you want to cancel?' %}</h2>
+                <a href="{% url 'adminka-tours' %}">
+                    <button type="button" class="btn btn-success">
+                        Yes
+                    </button>
+                </a>
+                <button type="button" class="btn btn-danger No">
+                    No
+                </button>
+            </div>
+        </div>
     </div>
 {% endblock %}
 {% block js %}
@@ -526,12 +541,17 @@
     </script>
     <script>
         $(document).ready(function () {
+            var meta_token = $("meta[name=_token]");
+            console.log(meta_token.attr("content"));
             $("#kv-explorer").fileinput({
                 theme: 'explorer-fas',
                 language: 'en',
                 allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
                 showUpload: true,
                 showCaption: true,
+                uploadExtraData: {
+                    'apple': 'yes'
+                },
                 overwriteInitial: false,
                 initialPreviewAsData: true,
                 removeFromPreviewOnError: true,
@@ -545,11 +565,12 @@
                         caption: "{{i.image.name}}",
                         size: {{ i.image.size }},
                         width: "120px",
-                        url: '#',
+                        url: '{% url 'tour-image-delete' i.id %}',
                         key: {{ i.id }}
                     },
                     {% endfor %}
-                ]
+                ],
+
             });
         });
     </script>

@@ -10,7 +10,7 @@ from adminka.sights.views import AdminSightsView, SightsCreateView, SightsUpdate
 from adminka.tours.views import AdminToursView, ToursCreateView, ToursUpdateView, ToursDeleteView, \
     AdminToursExpensesView, AdminToursFacilitiesView, AdminToursExpensesUpdateView, AdminToursExpensesDeleteView, \
     AdminToursFacilitiesUpdateView, AdminToursFacilitiesDeleteView, AdminToursExpensesCreateView, \
-    AdminToursFacilitiesCreateView
+    AdminToursFacilitiesCreateView, TourImageDeleteView
 from adminka.villas.views import AdminVillasView, VillasCreateView, VillasUpdateView, VillasDeleteView, \
     VillaServicesView, VillaServicesCreateView, VillaServicesUpdateView, VillaServicesDeleteView, \
     VillaServiceCategoriesView, VillaServiceCategoriesCreateView, VillaServiceCategoriesUpdateView, \
@@ -41,6 +41,7 @@ urlpatterns = [
     path('sight_categories/delete/<int:id>/', SightsCategoriesDeleteView.as_view(), name='sight-categories-delete'),
 
     path('tours/', AdminToursView.as_view(), name='adminka-tours'),
+    path('tours/image/delete/<int:id>/', TourImageDeleteView.as_view(), name='tour-image-delete'),
     path('tours/create/', ToursCreateView.as_view(), name='tours-create'),
     path('tours/update/<int:id>/', ToursUpdateView.as_view(), name='tours-update'),
     path('tours/delete/<int:id>/', ToursDeleteView.as_view(), name='tours-delete'),
