@@ -124,7 +124,7 @@
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_fa"
                                                           name="description_fa" autocomplete="off"
-                                                          >
+                                                >
                                                    </textarea>
                                             </div>
                                         </div>
@@ -153,7 +153,7 @@
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_hi"
                                                           name="description_hi" autocomplete="off"
-                                                          >
+                                                >
                                                    </textarea>
                                             </div>
                                         </div>
@@ -182,7 +182,7 @@
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_ru"
                                                           name="description_ru" autocomplete="off"
-                                                          >
+                                                >
                                                    </textarea>
                                             </div>
                                         </div>
@@ -234,10 +234,12 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-3 text-right">
-                                            <label for="duration" class="control-label">{% trans 'Duration(in days)' %}</label>
+                                            <label for="duration"
+                                                   class="control-label">{% trans 'Duration(in days)' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" class="form-control" id="duration" name="duration"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');"
+                                                   class="form-control" id="duration" name="duration"
                                                    autocomplete="off" {% if car.duration %}
                                                    value="{{ car.duration }}" {% else %}
                                                    placeholder="{{ car.duration }}" {% endif %}>
@@ -251,7 +253,8 @@
                                                    class="control-label">{% trans 'Price(In dollars)' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" class="form-control" id="price" name="price"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');"
+                                                   class="form-control" id="price" name="price"
                                                    autocomplete="off" {% if car.price %}
                                                    value="{{ car.price }}" {% else %}
                                                    placeholder="{{ car.price }}" {% endif %}>

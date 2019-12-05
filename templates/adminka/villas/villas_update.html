@@ -377,7 +377,8 @@
                                                    class="control-label">{% trans 'Distance from Railways(in kms)' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" class="form-control" id="d_railways" name="d_railways"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');"
+                                                   class="form-control" id="d_railways" name="d_railways"
                                                    autocomplete="off" {% if villa.d_railways %}
                                                    value="{{ villa.d_railways }}" {% else %}
                                                    placeholder="{{ villa.d_railways }}" {% endif %}>
@@ -391,7 +392,8 @@
                                                    class="control-label">{% trans 'Distance from the Center(in kms)' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" class="form-control" id="d_center" name="d_center"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');"
+                                                   class="form-control" id="d_center" name="d_center"
                                                    autocomplete="off" {% if villa.d_center %}
                                                    value="{{ villa.d_center }}" {% else %}
                                                    placeholder="{{ villa.d_center }}" {% endif %}>
@@ -405,7 +407,8 @@
                                                    class="control-label">{% trans 'Distance from Airways(in kms)' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" class="form-control" id="d_airways" name="d_airways"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');"
+                                                   class="form-control" id="d_airways" name="d_airways"
                                                    autocomplete="off" {% if villa.d_airways %}
                                                    value="{{ villa.d_airways }}" {% else %}
                                                    placeholder="{{ villa.d_airways }}" {% endif %}>

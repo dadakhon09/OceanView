@@ -62,8 +62,9 @@
                                                            class="control-label">{% trans 'Description' %}(en)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <textarea type="text" rows="10" class="form-control" id="description_en"
-                                                           name="description_en" autocomplete="off"></textarea>
+                                                    <textarea type="text" rows="10" class="form-control"
+                                                              id="description_en"
+                                                              name="description_en" autocomplete="off"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -101,7 +102,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_ar"
-                                                       name="description_ar" autocomplete="off"></textarea>
+                                                          name="description_ar" autocomplete="off"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +140,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_fa"
-                                                       name="description_fa" autocomplete="off"></textarea>
+                                                          name="description_fa" autocomplete="off"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -177,7 +178,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_hi"
-                                                       name="description_hi" autocomplete="off"></textarea>
+                                                          name="description_hi" autocomplete="off"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -215,7 +216,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_ru"
-                                                       name="description_ru" autocomplete="off"></textarea>
+                                                          name="description_ru" autocomplete="off"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -253,7 +254,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea type="text" rows="10" class="form-control" id="description_zh"
-                                                       name="description_zh" autocomplete="off"></textarea>
+                                                          name="description_zh" autocomplete="off"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -302,7 +303,8 @@
                                                    class="control-label">{% trans 'Number of bedrooms' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control" id="bedroom" name="bedroom"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');"
+                                                   class="form-control" id="bedroom" name="bedroom"
                                                    autocomplete="off">
                                         </div>
                                     </div>
@@ -314,7 +316,8 @@
                                                    class="control-label">{% trans 'Square meter(in km2)' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control" id="square_meter"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');"
+                                                   class="form-control" id="square_meter"
                                                    name="square_meter" autocomplete="off">
                                         </div>
                                     </div>
@@ -327,9 +330,11 @@
                                         <div class="col-md-9">
                                             <select name="status" id="status" class="form-control custom-select">
                                                 <option name="status"
-                                                        value="0">Signature villa</option>
+                                                        value="0">Signature villa
+                                                </option>
                                                 <option name="status"
-                                                        value="1">Garden home villa</option>
+                                                        value="1">Garden home villa
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -341,7 +346,8 @@
                                                    class="control-label">{% trans 'Distance from Railways(in kms)' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control" id="d_railways" name="d_railways"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');"
+                                                   class="form-control" id="d_railways" name="d_railways"
                                                    autocomplete="off">
                                         </div>
                                     </div>
@@ -353,7 +359,8 @@
                                                    class="control-label">{% trans 'Distance from the Center(in kms)' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control" id="d_center" name="d_center"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');"
+                                                   class="form-control" id="d_center" name="d_center"
                                                    autocomplete="off">
                                         </div>
                                     </div>
@@ -365,7 +372,8 @@
                                                    class="control-label">{% trans 'Distance from Airways(in kms)' %}</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control" id="d_airways" name="d_airways"
+                                            <input type="number" min="0" oninput="validity.valid||(value='');"
+                                                   class="form-control" id="d_airways" name="d_airways"
                                                    autocomplete="off">
                                         </div>
                                     </div>
@@ -384,7 +392,8 @@
                                                             {% if f.category == c %}
                                                                 <div>
                                                                     <label for="v_service{{ f.id }}">{{ f.title.title_en }}</label>
-                                                                    <input type="checkbox" id="v_service{{ f.id }}" name="v_services"
+                                                                    <input type="checkbox" id="v_service{{ f.id }}"
+                                                                           name="v_services"
                                                                            value="{{ f.id }}">
                                                                 </div>
                                                             {% endif %}
