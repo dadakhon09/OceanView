@@ -1,8 +1,9 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.decorators.csrf import csrf_exempt
 
 from adminka.model.tour import Tour, TourExpense, TourFacility, TourImage
 from adminka.tours.get_icons import Icons
@@ -290,11 +291,11 @@ class ToursUpdateView(View):
         return HttpResponseRedirect(reverse('adminka-tours'))
 
 
-class TourImageDeleteView(View):
-    def delete(self, request, id):
-        image = TourImage.objects.get(id=id)
-        image.delete()
-        return 'asd'
+@csrf_exempt
+def tour_image_delete(self):
+    image = TourImage.objects.get(id=self.POST.get('key'))
+    image.delete()
+    return HttpResponse('image deleted')
 
 
 class ToursDeleteView(View):

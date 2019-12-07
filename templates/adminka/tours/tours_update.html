@@ -545,16 +545,14 @@
     <script>
         $(document).ready(function () {
             var meta_token = $("meta[name=_token]");
-            console.log(meta_token.attr("content"));
+            token = meta_token.attr("content");
+            console.log(token);
             $("#kv-explorer").fileinput({
                 theme: 'explorer-fas',
                 language: 'en',
                 allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
                 showUpload: true,
                 showCaption: true,
-                uploadExtraData: {
-                    'apple': 'yes'
-                },
                 overwriteInitial: false,
                 initialPreviewAsData: true,
                 removeFromPreviewOnError: true,
@@ -568,13 +566,32 @@
                         caption: "{{i.image.name}}",
                         size: {{ i.image.size }},
                         width: "120px",
-                        url: '{% url 'tour-image-delete' i.id %}',
+                        url: '{% url 'tour-image-delete' %}',
                         key: {{ i.id }}
                     },
                     {% endfor %}
                 ],
 
-            });
+            })
+                .on('filesuccessremove', function (event, id) {
+                    event.preventDefault();
+                    dp = $('div.file-preview-thumbnails #' + id).attr('server_id');
+                    $.post('deletefilesurl', {'server_id': dp})
+                        .done(function (r) {
+                            if (r === 'ok') {
+                                $('#' + id).fadeOut(300, function () {
+                                    $(this).remove()
+                                })
+                            } else {
+                                $('#' + id).addClass('btn-danger').find('.file-actions').html(r)
+                            }
+                        })
+                        .fail(function () {
+                            $('#' + id).addClass('btn-danger').find('.file-actions').html('nothing deleted')
+                        });
+
+                    return false
+                });
         });
     </script>
     <script src="{% static 'adminka/assets/tinymce/js/tinymce/tinymce.min.js' %}"></script>
