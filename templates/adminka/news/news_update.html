@@ -311,13 +311,13 @@
                 ],
                 initialPreviewConfig: [
                     {% if news.image %}
-                    {
-                        caption: "{{news.image.name}}",
-                        size: {{ news.image.size }},
-                        width: "120px",
-                        url: "{$url}",
-                        key: 1
-                    },
+                        {
+                            caption: "{{news.image.name}}",
+                            size: {{ news.image.size }},
+                            width: "120px",
+                            url: '',
+                            key: {{ news.id }}
+                        },
                     {% endif %}
                 ]
             });

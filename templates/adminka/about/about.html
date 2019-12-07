@@ -50,7 +50,9 @@
                                                            class="control-label">{% trans 'Text' %}(en)</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <textarea type="text" rows="10" id="text_en" class="form-control" name="text_en" placeholder="" autocomplete="off" required></textarea>
+                                                    <textarea type="text" rows="10" id="text_en" class="form-control"
+                                                              name="text_en" placeholder="" autocomplete="off"
+                                                              required></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -220,23 +222,15 @@
                     {% endfor %}
                 ],
 
-                // [
-                //     "http://lorempixel.com/1920/1080/nature/1",
-                //     "http://lorempixel.com/1920/1080/nature/2",
-                //     "http://lorempixel.com/1920/1080/nature/3"
-                // ],
                 initialPreviewConfig: [
                     {% for i in a_images %} {
                         caption: "{{i.image.name}}",
                         size: {{ i.image.size }},
                         width: "120px",
-                        url: "{$url}",
-                        key: 1
+                        url: '{% url 'about-image-delete' %}',
+                        key: {{ i.id }}
                     },
                     {% endfor %}
-                    // {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                    // {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                    // {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3}
                 ]
             });
         });

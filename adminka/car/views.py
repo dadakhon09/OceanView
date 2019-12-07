@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.views import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.decorators.csrf import csrf_exempt
 
 from adminka.model.car import Car, CarImage
 
@@ -160,3 +161,10 @@ class CarsDeleteView(View):
         car = Car.objects.get(id=id)
         car.delete()
         return HttpResponseRedirect(reverse('adminka-cars'))
+
+
+@csrf_exempt
+def car_image_delete(self):
+    image = CarImage.objects.get(id=self.POST.get('key'))
+    image.delete()
+    return HttpResponse('image deleted')

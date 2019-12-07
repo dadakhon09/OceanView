@@ -1,12 +1,13 @@
 from django.urls import path
 
-from adminka.car.views import AdminCarsView, CarsCreateView, CarsUpdateView, CarsDeleteView
-from adminka.about.views import AdminAboutView
+from adminka.car.views import AdminCarsView, CarsCreateView, CarsUpdateView, CarsDeleteView, car_image_delete
+from adminka.about.views import AdminAboutView, about_image_delete
 from adminka.core.views import AdminIndexView
 from adminka.news.views import AdminNewsView, NewsCreateView, NewsUpdateView, NewsDeleteView
 from adminka.users.views import AdminLoginView, ProfileView, AdminLogoutView, ProfileUpdateView
 from adminka.sights.views import AdminSightsView, SightsCreateView, SightsUpdateView, SightsDeleteView, \
-    SightsCategoriesView, SightsCategoriesCreateView, SightsCategoriesUpdateView, SightsCategoriesDeleteView
+    SightsCategoriesView, SightsCategoriesCreateView, SightsCategoriesUpdateView, SightsCategoriesDeleteView, \
+    sight_image_delete
 from adminka.tours.views import AdminToursView, ToursCreateView, ToursUpdateView, ToursDeleteView, \
     AdminToursExpensesView, AdminToursFacilitiesView, AdminToursExpensesUpdateView, AdminToursExpensesDeleteView, \
     AdminToursFacilitiesUpdateView, AdminToursFacilitiesDeleteView, AdminToursExpensesCreateView, \
@@ -14,14 +15,16 @@ from adminka.tours.views import AdminToursView, ToursCreateView, ToursUpdateView
 from adminka.villas.views import AdminVillasView, VillasCreateView, VillasUpdateView, VillasDeleteView, \
     VillaServicesView, VillaServicesCreateView, VillaServicesUpdateView, VillaServicesDeleteView, \
     VillaServiceCategoriesView, VillaServiceCategoriesCreateView, VillaServiceCategoriesUpdateView, \
-    VillaServiceCategoriesDeleteView
+    VillaServiceCategoriesDeleteView, villa_image_delete
 
 urlpatterns = [
     path('', AdminIndexView.as_view(), name='adminka-index'),
 
     path('about/', AdminAboutView.as_view(), name='adminka-about'),
+    path('about/image/delete/', about_image_delete, name='about-image-delete'),
 
     path('cars/', AdminCarsView.as_view(), name='adminka-cars'),
+    path('cars/image/delete/', car_image_delete, name='car-image-delete'),
     path('cars/create/', CarsCreateView.as_view(), name='cars-create'),
     path('cars/update/<int:id>/', CarsUpdateView.as_view(), name='cars-update'),
     path('cars/delete/<int:id>/', CarsDeleteView.as_view(), name='cars-delete'),
@@ -32,6 +35,7 @@ urlpatterns = [
     path('news/delete/<int:id>/', NewsDeleteView.as_view(), name='news-delete'),
 
     path('sights/', AdminSightsView.as_view(), name='adminka-sights'),
+    path('sights/image/delete/', sight_image_delete, name='sight-image-delete'),
     path('sights/create/', SightsCreateView.as_view(), name='sights-create'),
     path('sights/update/<int:id>/', SightsUpdateView.as_view(), name='sights-update'),
     path('sights/delete/<int:id>/', SightsDeleteView.as_view(), name='sights-delete'),
@@ -55,6 +59,7 @@ urlpatterns = [
     path('tour_facilities/delete/<int:id>/', AdminToursFacilitiesDeleteView.as_view(), name='tour-facilities-delete'),
 
     path('villas/', AdminVillasView.as_view(), name='adminka-villas'),
+    path('villas/image/delete/', villa_image_delete, name='villa-image-delete'),
     path('villas/create/', VillasCreateView.as_view(), name='villas-create'),
     path('villas/update/<int:id>/', VillasUpdateView.as_view(), name='villas-update'),
     path('villas/delete/<int:id>/', VillasDeleteView.as_view(), name='villas-delete'),
@@ -74,6 +79,4 @@ urlpatterns = [
     path('profile/', ProfileView.as_view(), name='adminka-profile'),
     path('profile/update/', ProfileUpdateView.as_view(), name='profile-update'),
     path('logout/', AdminLogoutView.as_view(), name='adminka-logout'),
-
-    # path('file-delete/')
 ]

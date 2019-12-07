@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.views import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.decorators.csrf import csrf_exempt
 
 from adminka.model.sight import Sight, SightCategory, SightImage
 
@@ -259,3 +260,10 @@ class SightsCategoriesDeleteView(View):
 
         c.delete()
         return HttpResponseRedirect(reverse('sight-categories'))
+
+
+@csrf_exempt
+def sight_image_delete(self):
+    image = SightImage.objects.get(id=self.POST.get('key'))
+    image.delete()
+    return HttpResponse('image deleted')

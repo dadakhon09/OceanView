@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views import View
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.decorators.csrf import csrf_exempt
 
 from adminka.model.villa import Villa, VillaService, VillaServiceCategory, VillaImage
 
@@ -465,3 +466,10 @@ class VillaServiceCategoriesDeleteView(View):
         v = VillaServiceCategory.objects.get(id=id)
         v.delete()
         return HttpResponseRedirect(reverse('villa-service-categories'))
+
+
+@csrf_exempt
+def villa_image_delete(self):
+    image = VillaImage.objects.get(id=self.POST.get('key'))
+    image.delete()
+    return HttpResponse('image deleted')

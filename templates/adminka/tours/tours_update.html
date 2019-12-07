@@ -544,9 +544,6 @@
     </script>
     <script>
         $(document).ready(function () {
-            var meta_token = $("meta[name=_token]");
-            token = meta_token.attr("content");
-            console.log(token);
             $("#kv-explorer").fileinput({
                 theme: 'explorer-fas',
                 language: 'en',
@@ -572,26 +569,7 @@
                     {% endfor %}
                 ],
 
-            })
-                .on('filesuccessremove', function (event, id) {
-                    event.preventDefault();
-                    dp = $('div.file-preview-thumbnails #' + id).attr('server_id');
-                    $.post('deletefilesurl', {'server_id': dp})
-                        .done(function (r) {
-                            if (r === 'ok') {
-                                $('#' + id).fadeOut(300, function () {
-                                    $(this).remove()
-                                })
-                            } else {
-                                $('#' + id).addClass('btn-danger').find('.file-actions').html(r)
-                            }
-                        })
-                        .fail(function () {
-                            $('#' + id).addClass('btn-danger').find('.file-actions').html('nothing deleted')
-                        });
-
-                    return false
-                });
+            });
         });
     </script>
     <script src="{% static 'adminka/assets/tinymce/js/tinymce/tinymce.min.js' %}"></script>
