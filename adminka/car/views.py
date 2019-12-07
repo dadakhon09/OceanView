@@ -166,5 +166,6 @@ class CarsDeleteView(View):
 @csrf_exempt
 def car_image_delete(self):
     image = CarImage.objects.get(id=self.POST.get('key'))
+    image.image.delete()
     image.delete()
     return HttpResponse('image deleted')

@@ -294,6 +294,7 @@ class ToursUpdateView(View):
 @csrf_exempt
 def tour_image_delete(self):
     image = TourImage.objects.get(id=self.POST.get('key'))
+    image.image.delete()
     image.delete()
     return HttpResponse('image deleted')
 

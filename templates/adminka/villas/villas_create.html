@@ -6,6 +6,8 @@
           type="text/css"/>
     <link href="{% static 'adminka/assets/plugins/uploader/themes/explorer-fas/theme.css' %}" media="all"
           rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+
 {% endblock %}
 {% block body %}
     <div class="container-fluid">
@@ -390,11 +392,14 @@
                                                         <h5><strong>{{ c }}</strong></h5>
                                                         {% for f in v_services %}
                                                             {% if f.category == c %}
-                                                                <div>
-                                                                    <label for="v_service{{ f.id }}">{{ f.title.title_en }}</label>
+                                                                <div class="my-2 pretty p-default">
                                                                     <input type="checkbox" id="v_service{{ f.id }}"
                                                                            name="v_services"
                                                                            value="{{ f.id }}">
+                                                                    <div class="state p-primary"><label
+                                                                            for="v_service{{ f.id }}">{{ f.title.title_en }}</label>
+                                                                    </div>
+
                                                                 </div>
                                                             {% endif %}
                                                         {% endfor %}<br>

@@ -9,6 +9,8 @@
           type="text/css"/>
     <link href="{% static 'adminka/assets/plugins/uploader/themes/explorer-fas/theme.css' %}" media="all"
           rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+
 {% endblock %}
 {% block body %}
     <div class="container-fluid">
@@ -435,11 +437,14 @@
                                         <div class="col-md-9">
                                             <div class="row">
                                                 {% for f in t_facilities %}
-                                                    <div class="col-6">
-                                                        <label for="t_facility{{ f.id }}">{{ f.title.title_en }}</label>
+                                                    <div class="col-6 my-2 ml-3 pretty p-default">
                                                         <input type="checkbox" class="" id="t_facility{{ f.id }}"
                                                                name="t_facilities" value="{{ f.id }}"
                                                                {% if tour in f.tours.all %}checked{% endif %}>
+                                                        <div class="state p-primary"><label
+                                                                for="t_facility{{ f.id }}">{{ f.title.title_en }}</label>
+                                                        </div>
+
                                                     </div>
                                                 {% endfor %}
                                             </div>
@@ -454,11 +459,14 @@
                                         <div class="col-md-9">
                                             <div class="row">
                                                 {% for e in t_expenses %}
-                                                    <div class="col-6">
-                                                        <label for="t_expense{{ e.id }}">{{ e.title.title_en }}</label>
+                                                    <div class="col-6 my-2 ml-3 pretty p-default">
                                                         <input type="checkbox" class="" id="t_expense{{ e.id }}"
                                                                name="t_expenses" value="{{ e.id }}"
                                                                {% if tour in e.tours.all %}checked{% endif %}>
+                                                        <div class="state p-primary"><label
+                                                                for="t_expense{{ e.id }}">{{ e.title.title_en }}</label>
+                                                        </div>
+
                                                     </div>
                                                 {% endfor %}
                                             </div>

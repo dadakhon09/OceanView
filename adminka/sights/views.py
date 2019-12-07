@@ -265,5 +265,6 @@ class SightsCategoriesDeleteView(View):
 @csrf_exempt
 def sight_image_delete(self):
     image = SightImage.objects.get(id=self.POST.get('key'))
+    image.image.delete()
     image.delete()
     return HttpResponse('image deleted')

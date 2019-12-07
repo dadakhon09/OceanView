@@ -471,5 +471,6 @@ class VillaServiceCategoriesDeleteView(View):
 @csrf_exempt
 def villa_image_delete(self):
     image = VillaImage.objects.get(id=self.POST.get('key'))
+    image.image.delete()
     image.delete()
     return HttpResponse('image deleted')

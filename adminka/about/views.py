@@ -48,5 +48,6 @@ class AdminAboutView(View):
 @csrf_exempt
 def about_image_delete(self):
     image = AboutImage.objects.get(id=self.POST.get('key'))
+    image.image.delete()
     image.delete()
     return HttpResponse('image deleted')
