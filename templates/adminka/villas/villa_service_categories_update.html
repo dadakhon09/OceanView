@@ -140,22 +140,7 @@
                                 </div>
                             </div>
                             <div class="p-20">
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-3 text-right">
-                                            <label for="category" class="control-label">{% trans 'Categories' %}</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            
-                                            <select name="category" id="category" class="form-control custom-select">
-                                                <option value="{{ v_service_category.id }}">{{ v_service_category.title.title_en }}</option>
-                                                {% for c in v_service_categories %}
-                                                <option name="category" value="{{ c.id }}">{{ c.title.title_en }}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="offset-sm-3 col-md-9">
